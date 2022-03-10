@@ -1,0 +1,13 @@
+@import "./utils.scss";
+.emailWarn {
+    padding: 15px; background-color: $pendingCol; margin-bottom: 10px;
+    .action {
+        color: #fff;
+        &:hover {
+            text-decoration: underline; cursor: pointer;
+        }
+    }
+    .message {
+        color: #fff;
+    }
+}

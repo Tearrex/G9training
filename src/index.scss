@@ -1,0 +1,1086 @@
+@import "styles/utils.scss";
+#root {
+	display: flex;
+	flex-flow: column;
+	justify-content: center;
+	align-items: stretch;
+}
+#centerPage {
+	display: flex;
+	flex-flow: column;
+	align-items: center;
+	gap: 50px;
+}
+.flex-center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.cmodal {
+	position: fixed;
+	z-index: 5;
+	top: 50%;
+	left: 50%;
+	width: 100%;
+	transform: translate(-50%, -50%);
+	.stretchy {
+		width: clamp(70px, 60%, 150px);
+	}
+}
+html {
+	scroll-behavior: smooth;
+}
+body {
+	margin: 0;
+	background-color: #000;
+	font-family: "Segoe UI", sans-serif;
+	text-align: center;
+}
+p {
+	font-size: 1.1rem;
+}
+.ttParent {
+	position: relative;
+	padding: 0;
+	&:hover .tooltip {
+		visibility: visible;
+		opacity: 1;
+	}
+}
+.tooltip {
+	position: absolute;
+	background-color: $blackCol;
+	color: $whiteCol;
+	padding: 5px 10px;
+	text-align: center;
+	border-radius: 0.4rem;
+	z-index: 2;
+	visibility: hidden;
+	left: 50%;
+	bottom: 2.6rem;
+	opacity: 0;
+	transform: translateX(-50%);
+	transition: opacity 0.2s ease-in;
+	&::after {
+		content: "";
+		position: absolute;
+		top: 100%;
+		left: 50%;
+		margin-left: -5px;
+		border-width: 5px;
+		border-style: solid;
+		border-color: $blackCol transparent transparent transparent;
+	}
+}
+.nicePad {
+	padding: 40px 10px;
+}
+.perks {
+	font-size: 1.2rem;
+}
+.layerShadow {
+	box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
+}
+.bullets {
+	list-style-position: inside;
+	padding: 0; //margin: 0;
+	line-height: 3rem;
+	@media screen and (max-width: 600px) {
+		line-height: 2.5rem;
+	}
+}
+.currency {
+	color: $confirmCol;
+}
+.darkMode {
+	.themeIcon {
+		filter: invert(90%);
+	}
+	.themeBackLow {
+		background-color: $gothCol;
+	}
+	.themeBackMid {
+		background-color: $blackCol;
+	}
+	.themeLowText {
+		color: $darkGrey;
+	}
+	.themeMidText {
+		color: $w_layer3;
+	}
+	.themeHighText {
+		color: #fff;
+	}
+	.fancyCard {
+		background-color: #1e1e1e;
+	}
+	.fancyCard .pricing {
+		background-color: $blackCol;
+		.seshSelect label {
+			background-color: #1e1e1e;
+			&:hover,
+			&:focus {
+				background-color: $darkGrey;
+			}
+		}
+	}
+	#clientsList {
+		color: $whiteCol;
+		tr {
+			color: $blackCol;
+		}
+		tr {
+			background-color: $coolCol;
+			&:hover {
+				background-color: $whiteCol;
+			}
+		}
+	}
+	// .item ul {
+	//   color: $whiteCol;
+	// }
+	// .navigator {
+	//   background-color: #1e1e1e;
+	// }
+	.monthCycle {
+		background: $blackCol;
+		h1 {
+			color: $whiteCol;
+		}
+		button {
+			color: $greyCol;
+			&:hover,
+			&:focus {
+				color: $whiteCol;
+			}
+		}
+	}
+	h2 {
+		color: $greyCol;
+	}
+	p,
+	h1 {
+		color: $coolCol;
+	}
+	#hamBar button {
+		background-color: $blackCol;
+		color: $whiteCol;
+		cursor: pointer;
+		&:hover {
+			background-color: $darkGrey;
+		}
+	}
+}
+.lightenedDarkness {
+	filter: invert(25%);
+}
+#hamButton {
+	padding: 0 20px;
+	float: right;
+	background: none;
+	div {
+		font-size: 2rem;
+		color: #fff;
+	}
+}
+#hamBar {
+	display: flex;
+	flex-flow: column;
+	gap: 15px;
+	padding: 15px;
+	button {
+		padding: 20px 0;
+		font-size: 1.1rem;
+	}
+}
+.lightMode {
+	background-color: $whiteCol;
+	// start modularizing classes
+	.themeIcon {
+		filter: invert(30%);
+	}
+	.themeBackLow {
+		background-color: $darkGrey !important;
+	}
+	.themeBackMid {
+		background-color: #fff !important;
+	}
+	.themeBackHigh {
+		background-color: $coolCol !important;
+	}
+	.themeMidText {
+		color: $darkGrey;
+	}
+	h1,
+	h2 {
+		color: $blackCol;
+	}
+	.fancyCard {
+		background-color: #fff;
+	}
+	// .bullets {
+	//   color: $blackCol;
+	// }
+	.fancyCard .pricing {
+		background-color: #eff1f3;
+		.seshSelect label {
+			background-color: $greyCol;
+			&:hover,
+			&:focus {
+				background-color: $darkGrey;
+			}
+		}
+	}
+	#clientsList {
+		color: $blackCol;
+	}
+	// .navigator {
+	//   background-color: $greyCol;
+	// }
+	.monthCycle {
+		background: $coolCol;
+		h1 {
+			color: $darkGrey;
+		}
+		button {
+			color: $darkGrey;
+			&:hover,
+			&:focus {
+				color: $blackCol;
+				background: $coolCol;
+			}
+		}
+	}
+	#hamBar button {
+		background-color: $coolCol;
+		color: $blackCol;
+		cursor: pointer;
+		&:hover {
+			background-color: #e2e2e2;
+		}
+	}
+	footer {
+		background-color: $w_layer3;
+	}
+}
+button {
+	outline: none;
+	border: none;
+}
+h1,
+h2,
+p {
+	margin: 0; //color: #fff;
+}
+.logActions {
+	margin-top: 20px;
+	.logout {
+		padding: 15px;
+		margin-top: 10px;
+	}
+}
+.warnBanner {
+	background-color: #444444;
+	font-size: 1.2rem;
+	padding: 30px 0;
+	h3 {
+		margin: 0;
+		color: #fff;
+	}
+	p {
+		color: $greyCol;
+	}
+	//text-shadow: 3px 2px 2px rgba($color: #000, $alpha: 0.5);
+}
+.navigator {
+	position: sticky;
+	top: 0;
+	z-index: 15;
+	background: linear-gradient(
+		to bottom,
+		#000 0%,
+		rgba($color: #000, $alpha: 0) 100%
+	);
+}
+.mainThemeToggle {
+	background: none;
+	color: #fff;
+}
+.fixedBar {
+	position: fixed;
+	width: 100%;
+}
+.invBar {
+	background: none;
+}
+.navBar {
+	align-items: stretch;
+	max-width: 1000px;
+	margin-left: auto;
+	margin-right: auto;
+	color: $whiteCol;
+	display: flex;
+	flex-flow: row;
+	.gonz9 {
+		width: 50px;
+		height: 50px;
+		margin: 10px;
+		flex-shrink: 0;
+		background-image: url(#{$assetPath}/main_icon.png);
+		cursor: pointer;
+		background-position: center;
+		background-size: cover;
+		background-repeat: no-repeat;
+	}
+	h1 {
+		padding: 10px 0;
+	}
+	.links {
+		flex: 100%;
+		display: flex;
+		justify-content: right;
+		.active {
+			//border-bottom: 5px solid $redCol;
+			cursor: default;
+			background: linear-gradient(
+				to bottom,
+				$redCol 0%,
+				rgba($color: #000, $alpha: 0) 100%
+			) !important;
+		}
+		button {
+			display: flex;
+			align-items: center;
+			height: 100%;
+			cursor: pointer;
+			background-color: rgba($color: #000000, $alpha: 0);
+			padding: 0 15px;
+			color: $whiteCol;
+			font-size: 1.1rem;
+			&:hover,
+			&:focus {
+				//background-color: $darkGrey;
+				background: linear-gradient(
+					to bottom,
+					$greyCol 0%,
+					rgba($color: #000, $alpha: 0) 100%
+				);
+			}
+			input {
+				display: none;
+			}
+		}
+	}
+	// mobile bar
+	@media screen and (max-width: 600px) {
+		.links .link,
+		.mainThemeToggle {
+			display: none;
+		}
+	}
+	label + input:checked {
+		background-color: $darkGrey;
+	}
+}
+// desktop bar
+@media screen and (min-width: 600px) {
+	#hamButton,
+	#hamBar {
+		display: none;
+	}
+}
+.bg-center {
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+}
+// don't use it.
+.ugly-center {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+.flex-col-center {
+	display: flex;
+	flex-flow: column;
+	align-items: center;
+}
+.coolButton {
+	border: 5px solid $whiteCol;
+	color: $darkGrey;
+	background-color: $whiteCol;
+	padding: 10px 20px;
+	font-weight: bold;
+	font-size: 1.1rem;
+	//transition: color 0.2s ease-in;
+	border-radius: 100vh;
+	&:hover {
+		background-color: rgba($color: #000000, $alpha: 0);
+		color: $whiteCol;
+	}
+	&:active {
+		transform: scale(0.95);
+	}
+}
+
+// HOME PAGE
+.homeHiglight {
+	position: relative; //padding: 50px 0;
+	display: flex;
+	justify-content: center;
+	background-attachment: fixed;
+	background-position: bottom;
+	height: 100vh;
+	.full-logo {
+		width: clamp(250px, 50%, 700px);
+	}
+	.textNest {
+		justify-content: center;
+		position: relative;
+		gap: 30px;
+		// padding: 15px;
+		width: 100%;
+		background-color: rgba($color: #000, $alpha: 0.5);
+		h1 {
+			text-shadow: 3px 3px 5px #000;
+			span {
+				color: $redCol;
+			}
+		}
+		h2 {
+			font-weight: lighter;
+		}
+	}
+	.jumper {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		background: linear-gradient(
+			to top,
+			rgba($color: $redCol, $alpha: 0.8) 0%,
+			rgba($color: $redCol, $alpha: 0.3) 50%,
+			rgba($color: #000, $alpha: 0) 100%
+		) !important;
+	}
+	.jumper button {
+		margin: 10vh 0; padding: 5vh 0; background: none;
+		width: 90%;
+		animation: hover 2s linear infinite;
+	}
+	.jumper button i {
+		font-size: 2rem; color: #fff;
+		transform: scale(1.2);
+	}
+	@keyframes hover {
+		0% {
+			transform: translateY(0%);
+		}
+		50% {
+			transform: translateY(20%);
+		}
+		100% {
+			transform: translateY(0%);
+		}
+	}
+}
+#overview {
+	padding-top: 70px !important;
+}
+.centerMargin {
+	margin-left: auto; margin-right: auto;
+}
+.niceWidth {
+	width: clamp(250px, 80%, 500px);
+}
+.homeGame {
+	scroll-margin-top: 70px;
+	gap: 20px;
+	display: flex;
+	flex-flow: column;
+	padding: 50px 10px;
+	background-color: $blackCol;
+	h1 {
+		font-weight: lighter;
+		font-size: 3rem;
+	}
+	p {
+		font-size: 1.2rem;
+	}
+	a {
+		align-self: flex-start;
+	}
+}
+.scrolly {
+	height: 600px;
+	width: 100%;
+	background-color: $darkGrey;
+}
+// other mess
+.loginForm {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	padding: 30px 0;
+	background-color: $blackCol;
+	form {
+		display: flex;
+		flex-flow: column;
+		align-items: stretch;
+		background-color: $whiteCol;
+		position: relative;
+		width: clamp(200px, 90%, 350px);
+		p {
+			color: #fff;
+			font-size: 1.2rem;
+			font-weight: 600;
+		}
+		.logMessage {
+			padding: 20px 10px;
+			color: $whiteCol;
+		}
+		.error {
+			background-color: $redCol;
+		}
+		.success {
+			background-color: $confirmCol;
+		}
+		.authTypes {
+			display: flex;
+			flex-flow: row;
+			span {
+				flex: 50%;
+				padding: 15px 0;
+				background-color: $darkGrey;
+				color: $whiteCol;
+				font-size: 1.2rem;
+				cursor: pointer;
+				width: 100%;
+				transition: background-color 0.2s ease-in;
+			}
+			.active {
+				background-color: $pendingCol;
+				font-weight: bold;
+			}
+		}
+		.formFields {
+			display: flex;
+			flex-flow: column;
+			gap: 10px;
+			padding: 10px;
+			input {
+				outline: none;
+				font-size: 16px;
+			}
+			.nameFields {
+				display: flex;
+				flex-flow: row;
+				gap: 10px;
+				input {
+					width: 50%;
+				}
+			}
+			.badPass {
+				outline: 2px solid $redCol;
+			}
+		}
+		input {
+			border: none;
+			padding: 10px 10px;
+			&[type="submit"] {
+				background-color: $redCol;
+				color: $whiteCol;
+				border-radius: 0;
+				padding: 20px 0;
+				cursor: pointer;
+				font-size: 1rem;
+			}
+		}
+		.forgotPassNote {
+			color: $darkGrey;
+		}
+		.forgotPass {
+			color: $darkGrey;
+			font-size: 1.1rem;
+			cursor: pointer;
+			align-self: flex-start;
+			margin-left: auto;
+			margin-right: auto;
+		}
+	}
+	.header {
+		padding: 10px;
+		background-color: $greyCol;
+		display: flex;
+		flex-flow: column;
+		gap: 10px;
+		align-items: center;
+		img {
+			width: 60px;
+			height: 60px;
+		}
+	}
+}
+.skinnyTitle {
+	font-weight: lighter;
+}
+.featureList {
+	display: flex;
+	flex-flow: row;
+	gap: 20px;
+	justify-content: center;
+	gap: 40px;
+	padding: 40px 0;
+	margin-left: auto;
+	margin-right: auto;
+	flex-wrap: wrap;
+}
+.fancyCard {
+	box-shadow: 0px 0px 5px 5px rgba($color: #000, $alpha: 0.1);
+	transition: transform 0.3s ease-in;
+	backface-visibility: hidden;
+	transform: translateZ(0);
+	.pricing {
+		width: 100%;
+		padding: 10px 0;
+		.seshSelect {
+			display: flex;
+			flex-flow: row;
+			justify-content: center;
+			padding: 10px 0;
+			input {
+				display: none;
+			}
+			input:checked + label {
+				background-color: #ea5329;
+				cursor: default;
+			}
+			label {
+				padding: 10px 20px;
+				color: $whiteCol;
+				cursor: pointer;
+				font-size: 1.1rem;
+			}
+		}
+	}
+}
+.featureList .paddedItem {
+	padding: 20px;
+}
+.featureList .item {
+	display: flex;
+	flex-flow: column;
+	align-items: center;
+	align-self: flex-start;
+	width: clamp(300px, 80%, 500px); //padding: 20px 10px;
+	//border-radius: 1rem;
+	img {
+		//filter: invert(1);
+		width: 100px;
+		height: 100px;
+		margin-bottom: 20px;
+	}
+	h2 {
+		font-size: 2.3rem;
+		margin-bottom: 20px;
+	}
+	p {
+		font-size: 1.2rem;
+	}
+	.description {
+		padding: 0 10px;
+	}
+	.thLink {
+		text-decoration: underline;
+		font-weight: bold;
+		color: $activityCol;
+	}
+	.thLink:visited {
+		text-decoration: none;
+	}
+	ul {
+		list-style-position: inside;
+		padding: 0; //margin: 0;
+		//color: #2f2f2f;
+	}
+}
+.attention {
+	//font-weight: bold;
+	//color: #fff;
+	color: $pendingCol;
+}
+.instagramSplash {
+	padding: 20px 0;
+	button {
+		background: linear-gradient(to right, #4d62d3, #d62f81, #ffdd84);
+		padding: 20px 30px;
+		font-size: 1.2rem;
+		font-weight: lighter;
+		border-radius: 100vw;
+		color: $whiteCol;
+	}
+}
+.sessionForm {
+	color: $whiteCol;
+	background-color: $darkGrey;
+	width: clamp(300px, 90%, 600px);
+	position: relative;
+	form {
+		padding: 15px;
+		display: flex;
+		flex-flow: column;
+		gap: 10px;
+	}
+	input {
+		border: none;
+		outline: none;
+		&:required {
+			::before {
+				content: "*";
+			}
+		}
+	}
+	.formFields {
+		display: flex;
+		flex-flow: column;
+		gap: 10px;
+	}
+	.arrField label {
+		margin-right: 10px;
+	}
+	.arrField select {
+		border: none;
+		outline: none;
+		padding: 10px 5px;
+	}
+	.timeField {
+		display: flex;
+		flex-flow: row;
+		gap: 10px;
+		justify-content: center;
+		align-items: center;
+		input {
+			padding: 10px;
+		}
+	}
+	.infoField {
+		display: flex;
+		flex-flow: column;
+		gap: 5px;
+		label {
+			align-self: flex-start;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		textarea {
+			resize: none;
+			border: none;
+			font-size: 1rem;
+			outline: none;
+			padding: 10px;
+		}
+	}
+	.subField {
+		display: flex;
+		flex-flow: row;
+		button {
+			flex: 50%;
+			padding: 20px 0;
+			font-size: 1.3rem;
+			color: $whiteCol;
+			transform: scale(1);
+			transition: transform 0.2s ease-in;
+			&:hover,
+			&:focus {
+				transform: scale(0.95);
+			}
+		}
+		#cancel {
+			background-color: $greyCol;
+		}
+		#submit {
+			background-color: $redCol;
+			cursor: pointer;
+		}
+	}
+	.confirmation {
+		display: flex;
+		flex-flow: column;
+		gap: 10px;
+		padding: 10px;
+		background-color: #2ecc71;
+		h1 {
+			color: $whiteCol;
+		}
+		p {
+			font-size: 1.2rem;
+			color: $coolCol;
+		}
+		span {
+			font-weight: 900;
+		}
+		button {
+			align-self: flex-start;
+			margin-left: auto;
+			margin-right: auto;
+			padding: 15px 30px;
+			font-size: 1.4rem;
+			border-radius: 100vw;
+			color: $darkGrey;
+			transform: scale(1);
+			transition: transform 0.2s ease-in;
+			&:hover {
+				transform: scale(0.95);
+			}
+		}
+	}
+	.error {
+		background-color: $redCol;
+	}
+}
+
+#arrangements {
+	scroll-margin-top: 80px;
+}
+.statBadgeLegend {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	z-index: 5;
+	transform: translate(-50%, -50%);
+	width: clamp(300px, 90%, 500px);
+	background-color: $greyCol;
+}
+.arrangements {
+	display: flex;
+	flex-flow: column;
+	gap: 10px;
+	align-items: center;
+	//scroll-margin-top: 40px;
+	h3 {
+		margin: 0;
+		color: $greyCol;
+	}
+}
+.sessionList {
+	display: flex;
+	flex-flow: column;
+	gap: 20px;
+	max-width: 600px;
+	@media screen and (max-width: 450px) {
+		max-width: 90%;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+.loadScreen {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	z-index: 2;
+	background-color: rgba($color: #000, $alpha: 0.7);
+	p {
+		font-size: 1.3rem;
+		top: 50%;
+		left: 50%;
+		position: absolute;
+		transform: translate(-50%, -50%);
+	}
+	i {
+		animation: spin 1s linear infinite;
+	}
+}
+@keyframes spin {
+	0% {
+		transform: rotateZ(0deg);
+	}
+	100% {
+		transform: rotateZ(360deg);
+	}
+}
+.verifyWindow {
+	.spinny {
+		animation: spin 2s ease infinite;
+	}
+	.infocolor {
+		color: $pendingCol;
+	}
+	i {
+		font-size: 1.5rem;
+	}
+	.bubble button {
+		padding: 10px;
+		border-radius: 50%;
+		background-color: $greyCol;
+		margin-top: 20px;
+		width: 50px;
+		height: 50px;
+		&:hover {
+			color: #fff;
+		}
+	}
+	.bubble p {
+		margin-top: 5px;
+	}
+}
+.sessionCard {
+	box-shadow: 0 0 5px 5px rgba($color: #000000, $alpha: 0.1);
+	background-color: $whiteCol;
+	position: relative;
+	.reviewPrompt {
+		display: flex;
+		flex-flow: column;
+		h2 {
+			color: $blackCol;
+			padding-top: 5px;
+		}
+		p {
+			padding: 10px;
+			color: $darkGrey !important;
+			max-width: 500px;
+		}
+		.buttons {
+			display: flex;
+			flex-flow: row;
+			.confirm {
+				background-color: $activityCol;
+				&:hover,
+				&:focus {
+					background-color: #2e86c1;
+				}
+				&:active {
+					background-color: #2874a6;
+				}
+			}
+			.deny {
+				background-color: $badCol;
+				&:hover,
+				&:focus {
+					background-color: #cb4335;
+				}
+				&:active {
+					background-color: #b03a2e;
+				}
+			}
+			.cancel {
+				color: $darkGrey;
+			}
+			button {
+				flex: 50%;
+				padding: 10px 0;
+				font-size: 1.2rem;
+				color: $whiteCol;
+			}
+		}
+		textarea {
+			margin: 10px;
+			resize: none;
+			border: none;
+			outline: none;
+			padding: 10px;
+		}
+		form {
+			padding: 10px 0;
+			display: flex;
+			flex-flow: row;
+			gap: 15px;
+			justify-content: center;
+			div label {
+				padding: 10px;
+				border-radius: 1rem;
+			}
+		}
+		.finish {
+			padding: 15px 0;
+			font-size: 1.2rem;
+			background-color: #27ae60;
+			color: #fff;
+			&:hover,
+			&:focus {
+				background-color: #229954;
+			}
+			&:active {
+				background-color: #1e8449;
+			}
+		}
+	}
+}
+.sessionItem {
+	display: flex;
+	flex-flow: row;
+	background-color: $coolCol;
+	padding: 10px;
+	align-items: center;
+	gap: 40px;
+	&:focus {
+		transform: scale(1.1);
+	}
+	h2 {
+		color: $darkGrey;
+	}
+	.leftInfo {
+		display: flex;
+		flex-flow: column;
+		gap: 10px;
+		flex: 100%;
+		align-items: flex-start;
+		.mainTitle {
+			display: flex;
+			flex-flow: column;
+			gap: 5px;
+			align-items: flex-start;
+		}
+		.status {
+			padding: 5px 10px;
+			border-radius: 100vw;
+			background-color: $darkGrey;
+			color: $whiteCol;
+		}
+		// below are colors for status ^
+		.pending {
+			background-color: $pendingCol;
+		}
+		.approved {
+			background-color: $confirmCol;
+		}
+		.attended {
+			background-color: $activityCol;
+		}
+		.denied,
+		.no-show {
+			background-color: $badCol;
+		}
+		.time {
+			color: $greyCol;
+			font-size: 1.1rem;
+		}
+	}
+	.timeInfo {
+		display: flex;
+		flex-flow: column;
+		gap: 10px;
+		.time {
+			color: $darkGrey;
+			font-size: 1.1rem;
+		}
+	}
+	.miniDate {
+		display: flex;
+		flex-flow: column;
+		flex-shrink: 0;
+		width: 110px;
+		.month {
+			background-color: $redCol;
+			padding: 10px 0;
+			font-size: 1.1rem;
+			font-weight: bold;
+			color: #fff !important;
+		}
+		h1 {
+			background-color: #fff;
+			color: $darkGrey;
+			padding: 10px 0;
+		}
+	}
+}

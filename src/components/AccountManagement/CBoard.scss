@@ -1,0 +1,79 @@
+@import "../../styles/utils.scss";
+
+.clientsBoard {
+    width: clamp(300px, 90%, 600px);
+    .fade {
+        position: fixed; width: 100vw; height: 100vh; top: 0; left: 0;
+        background-color: #000; opacity: 0.5; z-index: 2;
+    }
+    .modal {
+        position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
+        background-color: $greyCol; padding: 20px; width: clamp(300px, 90%, 500px);
+        box-shadow: 0 0 5px 5px rgba($color: #000000, $alpha: 0.5); z-index: 5;
+        max-height: 50%;
+        .logMessage {
+            padding: 15px 10px; color: #fff;
+        }
+        .success {
+            background-color: $confirmCol;
+        }
+        .error {
+            background-color: $redCol;
+        }
+    }
+    .modal .settings {
+        display: flex; flex-flow: column; gap: 10px; align-items: center;
+        .options {
+            display: flex; flex-flow: row; gap: 10px;
+            button {
+                padding: 10px 20px; color: #fff; font-size: 1.1rem;
+            }
+            .save {
+                background-color: #2E86C1;
+            }
+            .close {
+                background-color: #626567;
+            }
+        }
+        .inField {
+            padding: 10px 0;
+            label {
+                margin-right: 10px;
+            }
+        }
+    }
+    .searchBar {
+        display: flex; flex-flow: row; gap: 10px; margin-bottom: 10px;
+        box-shadow: 0 0 5px 5px rgba($color: #000000, $alpha: 0.1);
+        span {
+            font-size: 1.5rem; color: $darkGrey; flex-shrink: 0;
+        }
+        input {
+            flex: 100%; border: none; background: none; outline: none;
+            font-size: 1.2rem;
+        }
+        padding: 10px; background-color: $coolCol; border-radius: 1rem;
+    }
+}
+#clientsList {
+    width: 100%;
+    border-collapse: collapse; padding: 0 10px; overflow-x: auto;
+    tr:first-child {
+        &:hover {
+            background-color:$coolCol;
+        }
+    }
+    td, th {
+        padding: 10px; border: 2px solid $greyCol;
+    }
+    .verified {
+        color: $confirmCol;
+    }
+    .copyId {
+        position: relative;
+        button {
+            width: 100%; height: 100%; position: absolute; top: 0; left: 0;
+            font-size: 1.2rem; padding: 0;
+        }
+    }
+}
