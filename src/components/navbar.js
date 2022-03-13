@@ -1,34 +1,35 @@
 import { useContext, useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router";
 import { useLocation } from "react-router-dom";
-import { CurrentUserContext } from "./Contexts";
+import { CurrentUserContext } from "./Main/Contexts";
 import NavLink from "./navlink";
 function NavBar() {
 	const { pathname } = useLocation();
 	const [dark, setDark] = useState(true);
 	const { _user, _setUser } = useContext(CurrentUserContext);
 	const navigate = useNavigate();
-	function toggle_dark(save=true) {
+	function toggle_dark(save = true) {
 		var body = document.body;
 
-		//body.classList.toggle("lightMode");
 		if (body.classList.contains("lightMode")) {
 			body.classList.remove("lightMode");
 			body.classList.add("darkMode");
-			if(save) localStorage.setItem("theme", "dark");
+			// save to browser
+			if (save) localStorage.setItem("theme", "dark");
 		} else {
 			body.classList.remove("darkMode");
 			body.classList.add("lightMode");
-			if(save) localStorage.setItem("theme", "light");
+			// save to browser
+			if (save) localStorage.setItem("theme", "light");
 		}
 		setDark(!body.classList.contains("lightMode"));
 	}
 	// check for a theme cookie in the browser
 	useEffect(() => {
 		var _theme = localStorage.getItem("theme");
-		if(_theme) {
+		if (_theme) {
 			// load the user's preferred theme
-			if(_theme !== "dark" && dark) {
+			if (_theme !== "dark" && dark) {
 				console.log("Restoring light theme");
 				toggle_dark();
 			}
@@ -48,7 +49,11 @@ function NavBar() {
 					className="mainThemeToggle"
 					style={{ width: "50px", fontSize: "1.2rem" }}
 				>
-					{dark ? <i class="fas fa-moon"></i> : <i class="fas fa-sun"></i>}
+					{dark ? (
+						<i className="fas fa-moon"></i>
+					) : (
+						<i className="fas fa-sun"></i>
+					)}
 				</button>
 				<div className="links">
 					<NavLink route="/services">SERVICES</NavLink>
