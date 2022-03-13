@@ -20,6 +20,7 @@ import Arrangements from "../AccountManagement/Arrangements";
 import { fetchToken, getClient, logout } from "../../services/clientsService";
 import ClientsBoard from "../AccountManagement/CBoard/ClientsBoard";
 import VerifyWidget from "../AccountManagement/VerifyWidget";
+import InviteBoard from "../AccountManagement/Invites/InviteBoard";
 
 function TrainPage() {
 	const { xToken, setXToken } = useContext(xTokenContext);
@@ -122,6 +123,7 @@ function TrainPage() {
 				)}
 				{_user && !_user.verified && <VerifyWidget />}
 				{_user && !_user.trainer && <ClientPanel />}
+				{_user && _user.trainer && xToken && <InviteBoard />}
 				<clientsContext.Provider value={{ clients, setClients }}>
 					<prevSessionsContext.Provider
 						value={{ pastSessions, setPastSessions }}

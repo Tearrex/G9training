@@ -1,0 +1,33 @@
+@import "../../../styles/utils.scss";
+
+.inviteBoard {
+    width: clamp(250px, 90%, 600px);
+    button {
+        padding: 10px; color: #fff; border-radius: 100vw;
+        background-color:$redCol; margin-top: 10px;
+        p, span {
+            display: inline-block; vertical-align: middle;
+        }
+    }
+    button span {
+        font-size: 1.7rem;
+    }
+    button .spin {
+        animation: spin 1.5s linear infinite;
+    }
+    @keyframes spin {
+        0% {
+            transform: rotateZ(0deg);
+        }
+        100% {
+            transform: rotateZ(360deg);
+        }
+    }
+    .inviteItem {
+        align-self: flex-start; padding: 15px; cursor: pointer;
+    }
+}
+.inviteBoard .inviteList {
+    display: flex; flex-flow: row; gap: 20px; flex-wrap: wrap;
+    justify-content: center; padding-top: 10px;
+}
