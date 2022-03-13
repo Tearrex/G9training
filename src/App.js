@@ -31,22 +31,22 @@ function App() {
 	const [attemptedLogin, setAttemptedLogin] = useState(false);
 	return (
 		<Router>
-			<attemptLoginContext.Provider value={{attemptedLogin, setAttemptedLogin}}>
-				<xTokenContext.Provider value={{ xToken, setXToken }}>
-					<CurrentUserContext.Provider value={{ _user, _setUser }}>
-						<NavBar />
-						<Routes>
-							<Route path="/" element={<HomePage />} />
-							<Route path="services" element={<ServicesPage />} />
-							<Route path="contact" element={<ContactPage />} />
-							<Route path="training" element={!maintenance ? <TrainPage /> : <Maintenance />} />
-							<Route exact path="verify/:emailToken" element={<VerifyEmail />} />
-							<Route exact path="resetpass/:token" element={<ResetPassword />}/>
-
-						</Routes>
-					</CurrentUserContext.Provider>
-				</xTokenContext.Provider>
-			</attemptLoginContext.Provider>
+			<xTokenContext.Provider value={{ xToken, setXToken }}>
+				<CurrentUserContext.Provider value={{ _user, _setUser }}>
+					<NavBar />
+					<Routes>
+						<Route path="/" element={<HomePage />} />
+						<Route path="services" element={<ServicesPage />} />
+						<Route path="contact" element={<ContactPage />} />
+						<Route
+							path="training"
+							element={!maintenance ? <TrainPage /> : <Maintenance />}
+						/>
+						<Route exact path="verify/:emailToken" element={<VerifyEmail />} />
+						<Route exact path="resetpass/:token" element={<ResetPassword />} />
+					</Routes>
+				</CurrentUserContext.Provider>
+			</xTokenContext.Provider>
 		</Router>
 	);
 }

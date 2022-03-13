@@ -39,6 +39,9 @@ body {
 p {
 	font-size: 1.1rem;
 }
+input {
+	outline: none; border: none; //pain
+}
 .ttParent {
 	position: relative;
 	padding: 0;
@@ -208,11 +211,10 @@ p {
 	.themeBackHigh {
 		background-color: $coolCol !important;
 	}
-	.themeMidText {
+	.themeMidText, h2 {
 		color: $darkGrey;
 	}
-	h1,
-	h2 {
+	h1 {
 		color: $blackCol;
 	}
 	.fancyCard {
@@ -286,6 +288,9 @@ p {
 	h3 {
 		margin: 0;
 		color: #fff;
+	}
+	.blood {
+		color: $redCol;
 	}
 	p {
 		color: $greyCol;
@@ -509,7 +514,7 @@ p {
 		font-size: 1.2rem;
 	}
 	a {
-		align-self: flex-start;
+		align-self: flex-start; cursor: default; border-radius: 100vw;
 	}
 }
 .scrolly {
@@ -518,13 +523,12 @@ p {
 	background-color: $darkGrey;
 }
 // other mess
-.loginForm {
+.authSplash {
 	display: flex;
 	justify-content: center;
-	width: 100%;
 	padding: 30px 0;
 	background-color: $blackCol;
-	form {
+	.authForm {
 		display: flex;
 		flex-flow: column;
 		align-items: stretch;
@@ -532,13 +536,16 @@ p {
 		position: relative;
 		width: clamp(200px, 90%, 350px);
 		p {
-			color: #fff;
 			font-size: 1.2rem;
 			font-weight: 600;
 		}
 		.logMessage {
 			padding: 20px 10px;
 			color: $whiteCol;
+		}
+		.continue {
+			background-color: $activityCol; padding: 20px 0; font-size: 1.1rem;
+			cursor: pointer; color: #fff;
 		}
 		.error {
 			background-color: $redCol;
@@ -653,7 +660,7 @@ p {
 				display: none;
 			}
 			input:checked + label {
-				background-color: #ea5329;
+				background-color: #ea5329 !important;
 				cursor: default;
 			}
 			label {
@@ -1016,9 +1023,6 @@ p {
 	&:focus {
 		transform: scale(1.1);
 	}
-	h2 {
-		color: $darkGrey;
-	}
 	.leftInfo {
 		display: flex;
 		flex-flow: column;
@@ -1050,10 +1054,6 @@ p {
 		.denied,
 		.no-show {
 			background-color: $badCol;
-		}
-		.time {
-			color: $greyCol;
-			font-size: 1.1rem;
 		}
 	}
 	.timeInfo {

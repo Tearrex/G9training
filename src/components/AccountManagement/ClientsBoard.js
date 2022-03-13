@@ -103,7 +103,7 @@ function ClientsBoard(props) {
 							<div className="options">
 								{sessionTokens != focusClient.sessions && (
 									<button className="save" onClick={save_client}>
-										<i class="fas fa-save"></i> Save
+										<i className="fas fa-save"></i> Save
 									</button>
 								)}
 								<button className="close" onClick={() => setFocusClient(null)}>
@@ -116,7 +116,7 @@ function ClientsBoard(props) {
 			)}
 			<div className="searchBar">
 				<span>
-					<i class="fas fa-search"></i>
+					<i className="fas fa-search"></i>
 				</span>
 				{/* search bar doesnt work yet! */}
 				<input type="text" placeholder="Search for someone..." />
@@ -139,7 +139,10 @@ function ClientsBoard(props) {
 								key={i}
 								client={client}
 								onClick={find_index}
-								choose={() => {setFocusClient(client); setFocusIndex(i)}}
+								choose={() => {
+									setFocusClient(client);
+									setFocusIndex(i);
+								}}
 							/>
 						))}
 			</table>

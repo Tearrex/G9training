@@ -11,7 +11,11 @@ function HomePage() {
 			>
 				<div className="flex-col-center textNest">
 					<div className="jumper">
-						<a href="#overview"><button><i class="fas fa-chevron-down"></i></button></a>
+						<a href="#overview">
+							<button>
+								<i className="fas fa-chevron-down"></i>
+							</button>
+						</a>
 					</div>
 					<img src="/fullg9.png" className="full-logo" />
 					{/* <h1 style={{ color: "#fff" }}>
@@ -48,8 +52,8 @@ function HomePage() {
 						<p className="themeMidText">
 							I work closely with every individual to make them feel proud of
 							their commitment, <b>trust the process</b> of your efforts.{" "}
-							<span style={{ color: "#F4D03F" }}>*</span> On average, clients
-							begin to notice results at the 3 month mark.
+							<span style={{ color: "#F4D03F" }}>*</span> On average, our
+							clients begin to notice results at the 3 month mark.
 						</p>
 					</FeatureItem>
 					<FeatureItem
@@ -71,13 +75,8 @@ function HomePage() {
 					it ultimately depends on your determination.
 				</p>
 			</div>
-			<div
-				className="steps layerShadow themeBackHigh"
-				style={{ padding: "70px 0 40px 0" }}
-			>
-				<h1 className="skinnyTitle">
-					Steps to success:
-				</h1>
+			<div className="steps themeBackHigh" style={{ padding: "70px 0 40px 0" }}>
+				<h1 className="skinnyTitle">Steps to success:</h1>
 				<div className="featureList">
 					<FeatureItem
 						icon="/nutrition.png"
@@ -111,14 +110,17 @@ function HomePage() {
 				<h1 className="centerMargin niceWidth">
 					KNOW THE <b>WHY</b>, TRACK THE <b>HOW</b>
 				</h1>
-				<p style={{ lineHeight: "2rem" }} className="themeMidText centerMargin niceWidth">
+				<p
+					style={{ lineHeight: "2rem" }}
+					className="themeMidText centerMargin niceWidth"
+				>
 					Want to <i>1 UP</i> your game? Consult with me to see if my services
 					are the right fit for you.
 					<br />
 					All it takes is showing up 💪
 					<br />
 				</p>
-				<Link to="/services" className="centerMargin niceWidth">
+				<Link to="/services" className="centerMargin">
 					<button className="coolButton" onClick={() => window.scrollTo(0, 0)}>
 						VIEW RATES
 					</button>

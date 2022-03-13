@@ -116,21 +116,25 @@ function SessionItem(props) {
 						</p>
 					) : (
 						<p>
-							<i class="fas fa-exclamation-circle" style={{animation:"none"}}></i> An error occured!
+							<i
+								className="fas fa-exclamation-circle"
+								style={{ animation: "none" }}
+							></i>{" "}
+							An error occured!
 							<br />
 							{error}
 						</p>
 					)}
 				</div>
 			)}
-			<div className="sessionItem">
+			<div className="sessionItem themeBackMid">
 				<div className="leftInfo">
 					<div className="mainTitle">
 						<span className={"status " + status}>{status}</span>
-						<h2>
+						<h2 className="themeHighText">
 							Session {name && <span className="skinnyTitle">with {name}</span>}
 						</h2>
-						<p className="time">
+						<p className="time themeMidText">
 							at {date.getHours()}:{String(date.getMinutes()).padStart(2, "0")}
 						</p>
 					</div>

@@ -71,7 +71,7 @@ function ServicesPage() {
 									value="4"
 									onChange={set_pricing}
 								/>
-								<label for="s4">4</label>
+								<label htmlFor="s4">4</label>
 							</div>
 							<div className="amount">
 								<input
@@ -81,7 +81,7 @@ function ServicesPage() {
 									value="8"
 									onChange={set_pricing}
 								/>
-								<label for="s8">8</label>
+								<label htmlFor="s8">8</label>
 							</div>
 							<div className="amount">
 								<input
@@ -91,7 +91,7 @@ function ServicesPage() {
 									value="12"
 									onChange={set_pricing}
 								/>
-								<label for="s12">12</label>
+								<label htmlFor="s12">12</label>
 							</div>
 							<div className="amount">
 								<input
@@ -101,12 +101,15 @@ function ServicesPage() {
 									value="16"
 									onChange={set_pricing}
 								/>
-								<label for="s16">16</label>
+								<label htmlFor="s16">16</label>
 							</div>
 						</div>
 						{sessionPrice > 0 && (
 							<>
-								<h2 className="skinnyTitle" style={{ margin: 0, marginTop:"10px" }}>
+								<h2
+									className="skinnyTitle"
+									style={{ margin: 0, marginTop: "10px" }}
+								>
 									<span className="currency">${sessionPrice}</span>
 								</h2>
 								<p className="sideNote">

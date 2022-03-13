@@ -11,7 +11,6 @@ export async function getPending(client_id) {
 }
 export async function getSessions(request, client_id, token) {
 	var result = null;
-	console.log("sending token", token);
 	const data = await axios
 		.get(`${apiUrl}/${request}/${client_id}`, {
 			headers: { "x-token": token },

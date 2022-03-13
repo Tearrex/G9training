@@ -101,7 +101,7 @@ function Arrangements(props) {
 		else setPastSessions([..._sessions]);
 	}
 	return (
-		<div className="arrangements" style={{display:(hide) ? "none" : null}}>
+		<div className="arrangements" style={{ display: hide ? "none" : null }}>
 			{!props.trainer ? (
 				<div id="arrangements">
 					<h1>{props.primary ? "Upcoming" : "Previous"} Arrangements</h1>
@@ -110,7 +110,7 @@ function Arrangements(props) {
 			) : (
 				<div id="arrangements">
 					<h1>
-						<i class="fas fa-exclamation attention"></i> Attention Needed
+						<i className="fas fa-exclamation attention"></i> Attention Needed
 					</h1>
 					{!props.secondary ? (
 						<h3>These arrangements have passed, how did they go?</h3>

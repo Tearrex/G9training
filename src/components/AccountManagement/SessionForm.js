@@ -154,7 +154,9 @@ function SessionForm(props) {
 				className="confirmation"
 				style={{ display: !dismiss && !error ? null : "none" }}
 			>
-				<h1><i class="fas fa-paper-plane"></i> All set!</h1>
+				<h1>
+					<i className="fas fa-paper-plane"></i> All set!
+				</h1>
 				<p>
 					You've scheduled a <b>session</b> with your coach for{" "}
 					<span>{String(_date.toLocaleDateString("en-US"))}</span>
@@ -169,7 +171,7 @@ function SessionForm(props) {
 				style={{ display: error ? null : "none" }}
 			>
 				<h1>
-					<i class="fas fa-times"></i> That didn't work
+					<i className="fas fa-times"></i> That didn't work
 				</h1>
 				<p>
 					Something went wrong with your request.

@@ -4,7 +4,7 @@ function FeatureItem(props) {
 		<div
 			className={
 				"item themeBackMid " +
-				(props.fancy ? "fancyCard" : null) +
+				(props.fancy ? "fancyCard" : "") +
 				` ${props.padded ? "paddedItem" : ""}`
 			}
 			style={{ paddingTop: props.padTop ? "10px" : null }}

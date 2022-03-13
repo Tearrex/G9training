@@ -18,8 +18,15 @@ function VerifyWidget(props) {
 		<div className="emailWarn">
 			Your email has not been verified! Please check your inbox.
 			<br />
-			{!sent && !done ? <span className="action" onClick={() => setDone(true)}>Resend link?</span> :
-            <span className="message"><i class="far fa-envelope"></i> Link on the way!</span>}
+			{!sent && !done ? (
+				<span className="action" onClick={() => setDone(true)}>
+					Resend link?
+				</span>
+			) : (
+				<span className="message">
+					<i className="far fa-envelope"></i> Link on the way!
+				</span>
+			)}
 		</div>
 	);
 }

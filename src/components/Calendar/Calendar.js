@@ -1,5 +1,10 @@
 import { useContext, useEffect, useState } from "react";
-import { CurrentUserContext, DateContext, ScheduleDismissContext, xTokenContext } from "../Main/Contexts";
+import {
+	CurrentUserContext,
+	DateContext,
+	ScheduleDismissContext,
+	xTokenContext,
+} from "../Main/Contexts";
 import SessionForm from "../AccountManagement/SessionForm";
 import "./Calendar.scss";
 import CalendarWeek from "./CalendarWeek";
