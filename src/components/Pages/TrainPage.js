@@ -18,7 +18,7 @@ import LoginForm from "../Main/AuthForm";
 // REST API
 import Arrangements from "../AccountManagement/Arrangements";
 import { fetchToken, getClient, logout } from "../../services/clientsService";
-import ClientsBoard from "../AccountManagement/ClientsBoard";
+import ClientsBoard from "../AccountManagement/CBoard/ClientsBoard";
 import VerifyWidget from "../AccountManagement/VerifyWidget";
 
 function TrainPage() {

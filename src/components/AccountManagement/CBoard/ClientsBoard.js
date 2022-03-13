@@ -1,13 +1,13 @@
 import { useContext, useEffect, useState } from "react";
-import { fetchClients } from "../../services/clientsService";
 import {
 	clientsContext,
 	CurrentUserContext,
 	xTokenContext,
-} from "../Main/Contexts";
+} from "../../Main/Contexts";
 import "./CBoard.scss";
 import CBoardItem from "./CBoardItem";
-import { updateClient } from "../../services/clientsService";
+// growing pains
+import { updateClient, fetchClients } from "../../../services/clientsService";
 function ClientsBoard(props) {
 	const { _user, _setUser } = useContext(CurrentUserContext);
 	const { xToken, setXToken } = useContext(xTokenContext);
@@ -27,7 +27,7 @@ function ClientsBoard(props) {
 		});
 	}, []);
 	useEffect(() => {
-		if(focusIndex > -1) setFocusClient(clients[focusIndex]);
+		if (focusIndex > -1) setFocusClient(clients[focusIndex]);
 	}, [clients]);
 	// rerender the correct token amount for each chosen "client"
 	useEffect(() => {
@@ -55,27 +55,26 @@ function ClientsBoard(props) {
 				sessions: sessionTokens,
 			},
 			xToken
-		).then((s) => {
-			console.log("got response", s);
-			if(String(s.status).startsWith("4"))
-			{
-				setError(true);
-				setMessage(s.data.message);
-			}
-			else
-			{
-				setError(false);
-				setMessage("Changes have been saved!");
-				// feedback for the UI
-				var _clients = clients;
-				_clients[focusIndex].sessions = sessionTokens;
-				setClients(_clients);
-				console.log("clients are now", _clients);
-			}
-		}).catch((e) => {
-			console.log("update error", e);
-			return e;
-		});
+		)
+			.then((s) => {
+				console.log("got response", s);
+				if (String(s.status).startsWith("4")) {
+					setError(true);
+					setMessage(s.data.message);
+				} else {
+					setError(false);
+					setMessage("Changes have been saved!");
+					// feedback for the UI
+					var _clients = clients;
+					_clients[focusIndex].sessions = sessionTokens;
+					setClients(_clients);
+					console.log("clients are now", _clients);
+				}
+			})
+			.catch((e) => {
+				console.log("update error", e);
+				return e;
+			});
 	}
 	return (
 		<div className="clientsBoard">
