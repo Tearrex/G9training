@@ -14,7 +14,7 @@ import {
 	xTokenContext,
 } from "../Main/Contexts";
 import ClientPanel from "../AccountManagement/ClientPanel";
-import LoginForm from "../Main/LoginForm";
+import LoginForm from "../Main/AuthForm";
 
 // REST API
 import Arrangements from "../AccountManagement/Arrangements";
