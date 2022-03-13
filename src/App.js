@@ -6,12 +6,8 @@ import {
 } from "react-router-dom";
 import { useState } from "react";
 
-import NavBar from "./components/Main/navbar";
-import {
-	attemptLoginContext,
-	CurrentUserContext,
-	xTokenContext,
-} from "./components/Main/Contexts";
+import NavBar from "./components/navbar";
+import { CurrentUserContext, xTokenContext } from "./components/Main/Contexts";
 
 import ContactPage from "./components/Pages/ContactPage";
 import ServicesPage from "./components/Pages/ServicesPage";

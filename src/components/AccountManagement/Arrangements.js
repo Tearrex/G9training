@@ -109,9 +109,7 @@ function Arrangements(props) {
 				</div>
 			) : (
 				<div id="arrangements">
-					<h1>
-						<i className="fas fa-exclamation attention"></i> Attention Needed
-					</h1>
+					<h1>Attention Needed</h1>
 					{!props.secondary ? (
 						<h3>These arrangements have passed, how did they go?</h3>
 					) : (

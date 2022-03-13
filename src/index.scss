@@ -27,6 +27,9 @@
 		width: clamp(70px, 60%, 150px);
 	}
 }
+.faintShadow {
+	box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.1);
+}
 html {
 	scroll-behavior: smooth;
 }

@@ -10,18 +10,34 @@ export async function fetchToken() {
 	return auth.get(`${apiUrl}/token`);
 }
 
+// create a new invite code for signups, trainers only
+export async function requestInviteCode(token) {
+	return axios.get(`${apiUrl}/invite`, {
+		headers: { "x-token": token },
+	});
+}
+// get all invite codes from the database, trainers only
+export async function fetchInvites(token) {
+	return axios.get(`${apiUrl}/invites`, {
+		headers: { "x-token": token },
+	});
+}
+// add email verification link to database and send to email
 export async function requestEmailLink(email) {
 	return axios.get(`${apiUrl}/verify/${email}`);
 }
+// validate verification link in database
 export async function verifyEmailLink(token) {
 	return axios.post(`${apiUrl}/verify/${token}`, {
 		emailToken: token,
 	});
 }
+// add password reset link to database and send to email
 export async function requestPassReset(email) {
 	const res = await axios.get(`${apiUrl}/forgotpass/${email}`);
 	return res;
 }
+// validate reset link in database and reset password
 export async function resetPassword(password, token) {
 	return await axios.post(`${apiUrl}/forgotpass/${token}`, {
 		password: password,
@@ -48,6 +64,7 @@ export async function fetchClients(token) {
 	return req.data;
 }
 
+// clear refresh token
 export async function logout(_credentials) {
 	return await auth.post(`${apiUrl}/logout`, _credentials);
 }
