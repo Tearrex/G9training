@@ -17,6 +17,7 @@ export async function fetchToken() {
 		console.log("fetch error!!!!!", e);
 	});
 	return data;
+	return auth.get(`${apiUrl}/token`);
 }
 
 export async function requestEmailLink(email) {

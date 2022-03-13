@@ -1,6 +1,5 @@
 import { createContext } from "react";
 
-export const attemptLoginContext = createContext(false);
 export const xTokenContext = createContext(null);
 
 export const DateContext = createContext("");
