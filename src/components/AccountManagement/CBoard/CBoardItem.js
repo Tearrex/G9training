@@ -1,26 +1,25 @@
 import { useState } from "react";
 
+export function copy_text(text, success) {
+	if (navigator.clipboard) {
+		return navigator.clipboard.writeText(text).then(success);
+	}
+	// old browser fallback
+	var temp = document.createElement("textarea");
+	temp.value = text;
+	temp.setAttribute("readonly", "");
+	temp.style = { display: "none" };
+	document.body.appendChild(temp);
+	temp.focus();
+	temp.select();
+	document.execCommand("copy");
+	document.body.removeChild(temp);
+	success();
+}
 function CBoardItem(props) {
 	const { _id, firstName, lastName, email, verified, sessions } = props.client;
 	const [text, setText] = useState("Copy");
 
-	// called when the user wants a copy a client's ID into their clipboard
-	function copy_id(e) {
-		console.log("copy", _id);
-		if (navigator.clipboard) {
-			return navigator.clipboard.writeText(_id).then((s) => setText("Copied!"));
-		}
-		// old browser fallback
-		var temp = document.createElement("textarea");
-		temp.value = _id;
-		temp.setAttribute("readonly", "");
-		temp.style = { display: "none" };
-		document.body.appendChild(temp);
-		temp.focus();
-		temp.select();
-		document.execCommand("copy");
-		document.body.removeChild(temp);
-	}
 	return (
 		<tr>
 			<td onClick={() => props.onClick(_id)}>
@@ -39,7 +38,7 @@ function CBoardItem(props) {
 			</td>
 			<td>{sessions}</td>
 			<td
-				onClick={copy_id}
+				onClick={() => copy_text(_id, () => setText("Copied!"))}
 				className="copyId ttParent"
 				onMouseOut={(e) => setText("Copy")}
 			>
