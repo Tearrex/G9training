@@ -16,15 +16,11 @@ import HomePage from "./components/Pages/HomePage";
 import ResetPassword from "./components/Pages/ResetPassword";
 import VerifyEmail from "./components/Pages/VerifyPage";
 import Maintenance from "./components/Pages/Maintenance";
-
-// maintenance mode?
-const maintenance = true;
+import { fSettings } from "./fSettings";
 
 function App() {
 	const [_user, _setUser] = useState(null);
 	const [xToken, setXToken] = useState(null);
-	// used for refreshing access tokens upon page load
-	const [attemptedLogin, setAttemptedLogin] = useState(false);
 	return (
 		<Router>
 			<xTokenContext.Provider value={{ xToken, setXToken }}>
@@ -36,7 +32,7 @@ function App() {
 						<Route path="contact" element={<ContactPage />} />
 						<Route
 							path="training"
-							element={!maintenance ? <TrainPage /> : <Maintenance />}
+							element={!fSettings.maintenance ? <TrainPage /> : <Maintenance />}
 						/>
 						<Route exact path="verify/:emailToken" element={<VerifyEmail />} />
 						<Route exact path="resetpass/:token" element={<ResetPassword />} />
