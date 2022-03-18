@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { logout } from "../../../services/clientsService";
 import { CurrentUserContext, xTokenContext } from "../../Main/Contexts.tsx";
-import EmailPanel from "../EmailPrefs/EmailPanel.tsx";
+import EmailPanel from "../EmailPrefs/EmailPanel.js";
 import "./AccPrefs.scss";
 function AccPrefs(props) {
 	const { _user, _setUser } = useContext(CurrentUserContext);
@@ -30,15 +30,19 @@ function AccPrefs(props) {
 				</button>
 			</div>
 			{show && (
-				<div className="cmodal accPrefsModal">
-					<div className="sections">
-						<button>Email</button>
-						<button>Security</button>
+				<>
+					<div className="bgFade"></div>
+					<div className="cmodal accPrefsModal">
+						<div className="sections">
+							<button>Email</button>
+							<button>Security</button>
+							<button>Billing</button>
+						</div>
+						<div className="section">
+							<EmailPanel />
+						</div>
 					</div>
-					<div className="section">
-						<EmailPanel />
-					</div>
-				</div>
+				</>
 			)}
 		</>
 	);
