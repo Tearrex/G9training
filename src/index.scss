@@ -17,12 +17,9 @@
 	align-items: center;
 }
 .cmodal {
-	position: fixed;
+	@include full-center;
 	z-index: 5;
-	top: 50%;
-	left: 50%;
 	width: 100%;
-	transform: translate(-50%, -50%);
 	.stretchy {
 		width: clamp(70px, 60%, 150px);
 	}
@@ -44,6 +41,26 @@ p {
 }
 input {
 	outline: none; border: none; //pain
+}
+.savvyButton {
+	padding: 10px;
+	.icon {
+		font-size: 1.7rem;
+	}
+	p, .icon {
+		display: inline-block; vertical-align: middle;
+	}
+	.spin {
+        animation: spin 1.5s linear infinite;
+    }
+    @keyframes spin {
+        0% {
+            transform: rotateZ(0deg);
+        }
+        100% {
+            transform: rotateZ(360deg);
+        }
+    }
 }
 .ttParent {
 	position: relative;
@@ -97,6 +114,9 @@ input {
 }
 .currency {
 	color: $confirmCol;
+}
+.themeBackRed {
+	background-color: $redCol;
 }
 .darkMode {
 	.themeIcon {
@@ -275,11 +295,14 @@ button {
 h1,
 h2,
 p {
-	margin: 0; //color: #fff;
+	margin: 0;
+}
+.nWeight {
+	font-weight: normal;
 }
 .logActions {
 	margin-top: 20px;
-	.logout {
+	button {
 		padding: 15px;
 		margin-top: 10px;
 	}
@@ -449,7 +472,6 @@ p {
 		gap: 30px;
 		// padding: 15px;
 		width: 100%;
-		background-color: rgba($color: #000, $alpha: 0.5);
 		h1 {
 			text-shadow: 3px 3px 5px #000;
 			span {
@@ -617,6 +639,9 @@ p {
 			align-self: flex-start;
 			margin-left: auto;
 			margin-right: auto;
+			&:hover, &:active {
+				text-decoration: underline;
+			}
 		}
 	}
 	.header {

@@ -19,7 +19,7 @@ function ServicesPage() {
 	return (
 		<div>
 			<div className="steps nicePad perks layerShadow">
-				<h1 className="skinnyTitle">The Perks</h1>
+				<h1>The Perks</h1>
 				<p>No matter which path you take, you can always expect:</p>
 				<ul className="bullets themeMidText" style={{ marginBottom: 0 }}>
 					<li>An experience tailored to your body and ambition.</li>

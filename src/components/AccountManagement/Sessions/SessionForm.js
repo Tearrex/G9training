@@ -5,10 +5,10 @@ import {
 	ScheduleDismissContext,
 	sessionsContext,
 	xTokenContext,
-} from "../Main/Contexts";
+} from "../../Main/Contexts.tsx";
 
 // REST API
-import { postSession } from "../../services/sessionServices";
+import { postSession } from "../../../services/sessionServices";
 
 import { useNavigate } from "react-router";
 
@@ -146,7 +146,7 @@ function SessionForm(props) {
 						Cancel
 					</button>
 					<button id="submit">
-						{_user && _user.sessions > 0 ? "Confirm" : "Renew?"}
+						{_user && _user.sessions > 0 ? "Confirm" : "Renew"}
 					</button>
 				</div>
 			</form>

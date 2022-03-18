@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { CurrentUserContext } from "../Main/Contexts";
+import { CurrentUserContext } from "../Main/Contexts.tsx";
 
 function ClientPanel(props) {
     const { _user, _setUser } = useContext(CurrentUserContext);

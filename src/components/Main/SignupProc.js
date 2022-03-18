@@ -1,6 +1,6 @@
 import { useContext, useState, useEffect, useRef } from "react";
 import { registerClient } from "../../services/clientsService";
-import { CurrentUserContext, xTokenContext } from "./Contexts";
+import { CurrentUserContext, xTokenContext } from "./Contexts.tsx";
 import ReCAPTCHA from "react-google-recaptcha";
 import { fSettings } from "../../fSettings";
 function SignupProc(props) {

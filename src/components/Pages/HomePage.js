@@ -29,7 +29,7 @@ function HomePage() {
 				</div>
 			</div>
 			<div id="overview" style={{ padding: "40px 0" }}>
-				<h1 className="skinnyTitle">The Overview</h1>
+				<h1 className="nWeight">The Overview</h1>
 				<div className="featureList">
 					<FeatureItem
 						icon="/calendar.png"
@@ -76,7 +76,7 @@ function HomePage() {
 				</p>
 			</div>
 			<div className="steps themeBackHigh" style={{ padding: "70px 0 40px 0" }}>
-				<h1 className="skinnyTitle">Steps to success:</h1>
+				<h1 className="nWeight">Steps to success:</h1>
 				<div className="featureList">
 					<FeatureItem
 						icon="/nutrition.png"

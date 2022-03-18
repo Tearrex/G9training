@@ -7,7 +7,10 @@ import {
 import { useState } from "react";
 
 import NavBar from "./components/navbar";
-import { CurrentUserContext, xTokenContext } from "./components/Main/Contexts";
+import {
+	CurrentUserContext,
+	xTokenContext,
+} from "./components/Main/Contexts.tsx";
 
 import ContactPage from "./components/Pages/ContactPage";
 import ServicesPage from "./components/Pages/ServicesPage";
@@ -16,9 +19,10 @@ import HomePage from "./components/Pages/HomePage";
 import ResetPassword from "./components/Pages/ResetPassword";
 import VerifyEmail from "./components/Pages/VerifyPage";
 import Maintenance from "./components/Pages/Maintenance";
+import NotFoundPage from "./components/Pages/404Page";
 
 // maintenance mode?
-const maintenance = true;
+const maintenance = false;
 
 function App() {
 	const [_user, _setUser] = useState(null);
@@ -40,6 +44,7 @@ function App() {
 						/>
 						<Route exact path="verify/:emailToken" element={<VerifyEmail />} />
 						<Route exact path="resetpass/:token" element={<ResetPassword />} />
+						<Route path="/*" element={<NotFoundPage />} />
 					</Routes>
 				</CurrentUserContext.Provider>
 			</xTokenContext.Provider>

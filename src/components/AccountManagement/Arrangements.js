@@ -5,8 +5,8 @@ import {
 	prevSessionsContext,
 	sessionsContext,
 	xTokenContext,
-} from "../Main/Contexts";
-import SessionItem from "./SessionItem";
+} from "../Main/Contexts.tsx";
+import SessionItem from "./Sessions/SessionItem";
 function Arrangements(props) {
 	const { xToken, setXToken } = useContext(xTokenContext);
 	const { _user, _setUser } = useContext(CurrentUserContext);
@@ -29,6 +29,7 @@ function Arrangements(props) {
 					if (!s.message) setSessions(s);
 				});
 			} else if (props.secondary) {
+				// the client's history of sessions/appointments
 				getSessions("past", _user._id, xToken).then((s) => {
 					console.log("server returned", s);
 					// if no message key, it's probably the list of sessions!
@@ -58,14 +59,11 @@ function Arrangements(props) {
 		}
 	}, []);
 	useEffect(() => {
-		if(props.primary)
-		{
-			if(!Object.entries(sessions).length) setHide(true);
+		if (props.primary) {
+			if (!Object.entries(sessions).length) setHide(true);
 			else setHide(false);
-		}
-		else if(props.secondary)
-		{
-			if(!Object.entries(pastSessions).length) setHide(true);
+		} else if (props.secondary) {
+			if (!Object.entries(pastSessions).length) setHide(true);
 			else setHide(false);
 		}
 	}, [sessions, pastSessions]);

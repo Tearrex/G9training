@@ -11,7 +11,7 @@ import {
 	ScheduleDismissContext,
 	sessionsContext,
 	xTokenContext,
-} from "../Main/Contexts";
+} from "../Main/Contexts.tsx";
 import ClientPanel from "../AccountManagement/ClientPanel";
 import LoginForm from "../Main/AuthForm";
 
@@ -21,6 +21,7 @@ import { fetchToken, getClient, logout } from "../../services/clientsService";
 import ClientsBoard from "../AccountManagement/CBoard/ClientsBoard";
 import VerifyWidget from "../AccountManagement/VerifyWidget";
 import InviteBoard from "../AccountManagement/Invites/InviteBoard";
+import AccPrefs from "../AccountManagement/Preferences/AccPrefs";
 
 function TrainPage() {
 	const { xToken, setXToken } = useContext(xTokenContext);
@@ -102,25 +103,7 @@ function TrainPage() {
 			</div>
 			{!xToken && !_user && <LoginForm />}
 			<div id="centerPage">
-				{_user && (
-					<div className="logActions">
-						<p>
-							Logged in as <b>{_user.email}</b>
-						</p>
-						<button
-							className="logout"
-							onClick={async () => {
-								await logout(_user);
-								_setUser(null);
-								setXToken(null);
-								// don't try to auto-login after logging out
-								localStorage.setItem("refreshFail", true);
-							}}
-						>
-							<i className="fas fa-sign-out-alt"></i> Log Out
-						</button>
-					</div>
-				)}
+				{_user && <AccPrefs />}
 				{_user && !_user.verified && <VerifyWidget />}
 				{_user && !_user.trainer && <ClientPanel />}
 				{_user && _user.trainer && xToken && <InviteBoard />}

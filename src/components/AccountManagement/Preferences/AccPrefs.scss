@@ -1,0 +1,15 @@
+@import "../../../styles/utils.scss";
+
+.accPrefsModal {
+    padding: 10px; max-height: 50vh; width: auto;
+    max-width: 80vw; background-color: #000;
+    button {
+        padding: 15px 0;
+    }
+}
+.accPrefsModal .sections {
+    display: flex; flex-flow: column; gap: 2px;
+    button {
+        padding: 15px 10px;
+    }
+}

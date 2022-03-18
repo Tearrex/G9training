@@ -1,6 +1,6 @@
 import { useContext, useState, useEffect, useRef } from "react";
 import { loginClient, requestPassReset } from "../../services/clientsService";
-import { CurrentUserContext, xTokenContext } from "./Contexts";
+import { CurrentUserContext, xTokenContext } from "./Contexts.tsx";
 
 function LoginProc(props) {
 	const { xToken, setXToken } = useContext(xTokenContext);
@@ -92,9 +92,6 @@ function LoginProc(props) {
 				// ugly
 				else alert(String(e));
 			});
-	}
-	function verifyCallback(e) {
-		console.log("captcha human lol");
 	}
 	return (
 		<>

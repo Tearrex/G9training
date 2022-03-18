@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
-import { updateSession } from "../../services/sessionServices";
-import { clientsContext, xTokenContext } from "../Main/Contexts";
+import { updateSession } from "../../../services/sessionServices";
+import { clientsContext, xTokenContext } from "../../Main/Contexts.tsx";
 
 function SessionItem(props) {
 	const { clients, setClients } = useContext(clientsContext);
@@ -142,7 +142,7 @@ function SessionItem(props) {
 				<div className="timeInfo">
 					<div className="miniDate">
 						<p className="month">{month}</p>
-						<h1>{date.getDate()}</h1>
+						<h1 className="nWeight">{date.getDate()}</h1>
 					</div>
 				</div>
 			</div>

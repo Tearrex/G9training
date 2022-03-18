@@ -3,7 +3,7 @@ import {
 	fetchInvites,
 	requestInviteCode,
 } from "../../../services/clientsService";
-import { xTokenContext } from "../../Main/Contexts";
+import { xTokenContext } from "../../Main/Contexts.tsx";
 import { copy_text } from "../CBoard/CBoardItem";
 import InviteItem from "./InviteItem";
 import "./Invites.scss";
@@ -64,15 +64,15 @@ function InviteBoard(props) {
 	return (
 		<div className="inviteBoard">
 			<h1>Invite a Client</h1>
-			<p>
+			<p className="themeMidText">
 				Please be selective of who you invite as we improve our system.
 				<br />
 				Invite codes are valid for <b>24 hours</b> and are <b>single use</b>.
 			</p>
-			<button onClick={make_code}>
+			<button onClick={make_code} className="savvyButton">
 				{!creating ? (
 					<>
-						<span>
+						<span className="icon">
 							<i className="fas fa-plus"></i>
 						</span>{" "}
 						<p>Create a code</p>

@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { DateContext, sessionsContext } from "../Main/Contexts";
+import { DateContext, sessionsContext } from "../Main/Contexts.tsx";
 
 function CalendarDay(props) {
 	const { _date, _setDate } = useContext(DateContext);
