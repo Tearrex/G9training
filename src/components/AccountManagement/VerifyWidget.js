@@ -1,6 +1,6 @@
 import { useContext, useState, useEffect } from "react";
 import { requestEmailLink } from "../../services/clientsService";
-import { CurrentUserContext } from "../Main/Contexts.tsx";
+import { CurrentUserContext } from "../Main/Contexts";
 
 function VerifyWidget(props) {
     const { _user, _setUser } = useContext(CurrentUserContext);

@@ -3,7 +3,7 @@ import {
 	fetchInvites,
 	requestInviteCode,
 } from "../../../services/clientsService";
-import { xTokenContext } from "../../Main/Contexts.tsx";
+import { xTokenContext } from "../../Main/Contexts";
 import { copy_text } from "../CBoard/CBoardItem";
 import InviteItem from "./InviteItem";
 import "./Invites.scss";

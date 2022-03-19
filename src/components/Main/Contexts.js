@@ -9,7 +9,7 @@ export const clientsContext = createContext({});
 
 export const ScheduleDismissContext = createContext(true);
 
-type TUser = {
+/*type TUser = {
     _id: string;
     email: string;
     verified: boolean; // for email
@@ -22,5 +22,5 @@ type TUser = {
 interface IUser {
     _user: TUser;
 	_setUser?: () => void;
-}
-export const CurrentUserContext = createContext<IUser>(null);
+}*/
+export const CurrentUserContext = createContext/*<IUser>*/(null);

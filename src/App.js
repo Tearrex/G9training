@@ -7,10 +7,7 @@ import {
 import { useState } from "react";
 
 import NavBar from "./components/navbar";
-import {
-	CurrentUserContext,
-	xTokenContext,
-} from "./components/Main/Contexts.tsx";
+import { CurrentUserContext, xTokenContext } from "./components/Main/Contexts";
 
 import ContactPage from "./components/Pages/ContactPage";
 import ServicesPage from "./components/Pages/ServicesPage";

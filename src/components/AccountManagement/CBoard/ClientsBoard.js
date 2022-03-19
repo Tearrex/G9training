@@ -3,7 +3,7 @@ import {
 	clientsContext,
 	CurrentUserContext,
 	xTokenContext,
-} from "../../Main/Contexts.tsx";
+} from "../../Main/Contexts";
 import "./CBoard.scss";
 import CBoardItem from "./CBoardItem";
 // growing pains

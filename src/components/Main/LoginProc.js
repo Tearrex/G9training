@@ -1,6 +1,6 @@
 import { useContext, useState, useEffect, useRef } from "react";
 import { loginClient, requestPassReset } from "../../services/clientsService";
-import { CurrentUserContext, xTokenContext } from "./Contexts.tsx";
+import { CurrentUserContext, xTokenContext } from "./Contexts";
 
 function LoginProc(props) {
 	const { xToken, setXToken } = useContext(xTokenContext);

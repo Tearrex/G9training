@@ -11,7 +11,7 @@ import {
 	ScheduleDismissContext,
 	sessionsContext,
 	xTokenContext,
-} from "../Main/Contexts.tsx";
+} from "../Main/Contexts";
 import ClientPanel from "../AccountManagement/ClientPanel";
 import LoginForm from "../Main/AuthForm";
 

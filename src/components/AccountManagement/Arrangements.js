@@ -5,7 +5,7 @@ import {
 	prevSessionsContext,
 	sessionsContext,
 	xTokenContext,
-} from "../Main/Contexts.tsx";
+} from "../Main/Contexts";
 import SessionItem from "./Sessions/SessionItem";
 function Arrangements(props) {
 	const { xToken, setXToken } = useContext(xTokenContext);

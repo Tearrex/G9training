@@ -5,7 +5,7 @@ import {
 	ScheduleDismissContext,
 	sessionsContext,
 	xTokenContext,
-} from "../../Main/Contexts.tsx";
+} from "../../Main/Contexts";
 
 // REST API
 import { postSession } from "../../../services/sessionServices";

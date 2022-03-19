@@ -1,7 +1,7 @@
 import { useContext, useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router";
 import { useLocation } from "react-router-dom";
-import { CurrentUserContext } from "./Main/Contexts.tsx";
+import { CurrentUserContext } from "./Main/Contexts";
 import NavLink from "./navlink";
 function NavBar() {
 	const { pathname } = useLocation();

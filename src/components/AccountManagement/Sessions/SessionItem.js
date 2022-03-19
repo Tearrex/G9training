@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { updateSession } from "../../../services/sessionServices";
-import { clientsContext, xTokenContext } from "../../Main/Contexts.tsx";
+import { clientsContext, xTokenContext } from "../../Main/Contexts";
 
 function SessionItem(props) {
 	const { clients, setClients } = useContext(clientsContext);

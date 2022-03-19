@@ -4,7 +4,7 @@ import {
 	DateContext,
 	ScheduleDismissContext,
 	xTokenContext,
-} from "../Main/Contexts.tsx";
+} from "../Main/Contexts";
 import SessionForm from "../AccountManagement/Sessions/SessionForm";
 import "./Calendar.scss";
 import CalendarWeek from "./CalendarWeek";

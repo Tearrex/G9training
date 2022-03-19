@@ -1,5 +1,5 @@
 import { useContext, useState, useEffect, useRef } from "react";
-import { CurrentUserContext, xTokenContext } from "./Contexts.tsx";
+import { CurrentUserContext, xTokenContext } from "./Contexts";
 import LoginProc from "./LoginProc";
 import SignupProc from "./SignupProc";
 
