@@ -103,7 +103,7 @@ function TrainPage() {
 			</div>
 			{!xToken && !_user && <LoginForm />}
 			<div id="centerPage">
-				{_user && <AccPrefs />}
+				{_user && xToken && <AccPrefs />}
 				{_user && !_user.verified && <VerifyWidget />}
 				{_user && !_user.trainer && <ClientPanel />}
 				{_user && _user.trainer && xToken && <InviteBoard />}

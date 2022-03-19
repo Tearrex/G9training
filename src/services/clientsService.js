@@ -22,6 +22,12 @@ export async function fetchInvites(token) {
 		headers: { "x-token": token },
 	});
 }
+
+export async function updateEmailPrefs(token, user_id, prefs) {
+	return axios.post(`${apiUrl}/emprefs/${user_id}`, prefs, {
+		headers: { "x-token": token },
+	});
+}
 // add email verification link to database and send to email
 export async function requestEmailLink(email) {
 	return axios.get(`${apiUrl}/verify/${email}`);
