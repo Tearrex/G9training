@@ -121,29 +121,31 @@ function ClientsBoard(props) {
 				<input type="text" placeholder="Search for someone..." />
 			</div>
 			<table id="clientsList">
-				<tr>
-					<th>
-						<i className="fas fa-sort-down" /> Name
-					</th>
-					<th>Email</th>
-					<th>Sessions</th>
-					<th>ID</th>
-					<th>Edit</th>
-				</tr>
-				{clients &&
-					clients
-						.sort((a, b) => (a.lastName > b.lastName ? 1 : -1))
-						.map((client, i) => (
-							<CBoardItem
-								key={i}
-								client={client}
-								onClick={find_index}
-								choose={() => {
-									setFocusClient(client);
-									setFocusIndex(i);
-								}}
-							/>
-						))}
+				<tbody>
+					<tr>
+						<th>
+							<i className="fas fa-sort-down" /> Name
+						</th>
+						{/* <th>Email</th> */}
+						<th>Sessions</th>
+						<th>ID</th>
+						<th>Edit</th>
+					</tr>
+					{clients &&
+						clients
+							.sort((a, b) => (a.lastName > b.lastName ? 1 : -1))
+							.map((client, i) => (
+								<CBoardItem
+									key={i}
+									client={client}
+									onClick={find_index}
+									choose={() => {
+										setFocusClient(client);
+										setFocusIndex(i);
+									}}
+								/>
+							))}
+				</tbody>
 			</table>
 		</div>
 	);
