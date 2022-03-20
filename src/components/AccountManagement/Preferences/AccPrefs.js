@@ -92,11 +92,11 @@ function AccPrefs(props) {
 				.catch((e) => {
 					// handle the access token error nicely,
 					// since im too lazy to make them refresh right now....
-					if (e.reponse.status === 401) {
+					if (e.response.status === 401) {
 						setMsgStatus(false);
-						return setMessage(e.response.message);
+						return setMessage(e.response.data.message);
 					}
-					alert(`${e.response.statusText}: ${e.response.message}`);
+					alert(`${e.response.statusText}: ${e.response.data.message}`);
 				});
 		}
 	}
