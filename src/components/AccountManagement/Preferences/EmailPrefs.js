@@ -11,6 +11,7 @@ export const EmailPrefs = (props) => {
 		<>
 			<h3 style={{ marginTop: 0 }}>{_user.email}</h3>
 
+			<div className="toggles">
 				<PrefToggle
 					icon={<i className="fas fa-shield-alt" />}
 					name="Security Alerts"
@@ -33,6 +34,7 @@ export const EmailPrefs = (props) => {
 					name="Newsletter"
 					desc="Occasional quotes, announcements, exclusive content, etc.."
 					wip
+				/>
 			</div>
 		</>
 	);

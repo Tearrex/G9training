@@ -106,23 +106,25 @@ function AccPrefs(props) {
 				<p>
 					Logged in as <b>{_user.email}</b>
 				</p>
-				{!updating && (
-					<button onClick={() => setShow(!show)}>
-						<i className="fas fa-user-cog"></i> Settings
+				<div className="buttons">
+					{!updating && (
+						<button onClick={() => setShow(!show)}>
+							<i className="fas fa-user-cog"></i> Settings
+						</button>
+					)}
+					<button
+						className="logout"
+						onClick={async () => {
+							await logout(_user);
+							_setUser(null);
+							setXToken(null);
+							// don't try to auto-login after logging out
+							localStorage.setItem("refreshFail", true);
+						}}
+					>
+						<i className="fas fa-sign-out-alt"></i> Log Out
 					</button>
-				)}
-				<button
-					className="logout"
-					onClick={async () => {
-						await logout(_user);
-						_setUser(null);
-						setXToken(null);
-						// don't try to auto-login after logging out
-						localStorage.setItem("refreshFail", true);
-					}}
-				>
-					<i className="fas fa-sign-out-alt"></i> Log Out
-				</button>
+				</div>
 				{message && (
 					<p
 						className="prefMessage"
