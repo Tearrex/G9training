@@ -92,6 +92,21 @@ function ClientsBoard(props) {
 							</div>
 						)}
 						<div className="settings">
+							<div className="email">
+								<a
+									href={`mailto:${focusClient.email}?subject=Message for ${focusClient.firstName}`}
+								>
+									{focusClient.email}
+								</a>{" "}
+								{focusClient.verified && (
+									<div className="ttParent" style={{ display: "inline" }}>
+										<span className="tooltip" style={{ bottom: "1.5rem" }}>
+											Verified
+										</span>
+										<i className="fas fa-check verified" />
+									</div>
+								)}
+							</div>
 							<div className="inField">
 								<label htmlFor="sessionCount">Sessions</label>
 								<input
