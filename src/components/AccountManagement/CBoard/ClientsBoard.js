@@ -16,6 +16,8 @@ function ClientsBoard(props) {
 	// trainer interface for editing "clients"
 	const [focusClient, setFocusClient] = useState(null);
 	const [focusIndex, setFocusIndex] = useState(-1);
+	// the client name to look for in the context
+	const [search, setSearch] = useState(null);
 	const [sessionTokens, setSessionTokens] = useState(0);
 	const [message, setMessage] = useState(null);
 	const [error, setError] = useState(false);
@@ -118,7 +120,12 @@ function ClientsBoard(props) {
 					<i className="fas fa-search"></i>
 				</span>
 				{/* search bar doesnt work yet! */}
-				<input type="text" placeholder="Search for someone..." />
+				<input
+					type="text"
+					placeholder="Search for someone..."
+					value={search}
+					onChange={(e) => setSearch(String(e.target.value).toUpperCase())}
+				/>
 			</div>
 			<table id="clientsList">
 				<tbody>
@@ -134,6 +141,11 @@ function ClientsBoard(props) {
 					{clients &&
 						clients
 							.sort((a, b) => (a.lastName > b.lastName ? 1 : -1))
+							.filter((client) =>
+								String(client.firstName + " " + client.lastName)
+									.toUpperCase()
+									.includes(search)
+							)
 							.map((client, i) => (
 								<CBoardItem
 									key={i}
