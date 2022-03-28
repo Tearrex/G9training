@@ -116,10 +116,10 @@ function TrainPage() {
 								<Calendar />
 							</ScheduleDismissContext.Provider>
 							{_user && xToken && (
-								<Arrangements trainer={_user.trainer} primary />
-							)}
-							{_user && xToken && (
-								<Arrangements trainer={_user.trainer} secondary />
+								<>
+									<Arrangements primary />
+									<Arrangements secondary />
+								</>
 							)}
 						</sessionsContext.Provider>
 					</prevSessionsContext.Provider>

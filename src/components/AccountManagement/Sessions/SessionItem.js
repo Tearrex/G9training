@@ -96,14 +96,15 @@ function SessionItem(props) {
 		if (note !== "") changes["trainerNote"] = note;
 		setSettled(true);
 		setTimeout(() => {
-			updateSession(_id, changes, reimburse, xToken).then((s) => {
-				if (String(s.status).startsWith("4")) {
-					setError(`${s.statusText}: ${s.data.message}`);
-				} else {
+			updateSession(_id, changes, reimburse, xToken)
+				.then((s) => {
 					props.dismisser(_id, props.approving);
-					console.log("server updated!", s.data);
-				}
-			});
+					console.log(s);
+					console.log(s.data);
+				})
+				.catch((e) => {
+					setError(`${e.response.statusText}: ${e.response.data.message}`);
+				});
 		}, 5000);
 	}
 	return (
@@ -187,10 +188,7 @@ function SessionItem(props) {
 							!props.approving ? (
 								<p>Great! Add a recap for them if you want:</p>
 							) : (
-								<p>
-									Great! The client will be notified and you will get a
-									reminder.
-								</p>
+								<p>The client will be notified and you'll get a reminder.</p>
 							)
 						) : (
 							<p style={{ paddingBottom: "0" }}>
