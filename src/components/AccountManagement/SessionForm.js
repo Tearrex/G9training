@@ -137,7 +137,12 @@ function SessionForm(props) {
 							<label htmlFor="sessionNote">
 								Anything I should know in advance?
 							</label>
-							<textarea id="sessionNote" rows="4" name="note"></textarea>
+							<textarea
+								id="sessionNote"
+								rows="4"
+								name="note"
+								placeholder="Note for trainer..."
+							></textarea>
 						</div>
 					</div>
 				)}

@@ -34,7 +34,7 @@ function HomePage() {
 					<FeatureItem
 						icon="/calendar.png"
 						title="FLEXIBILITY"
-						color="#E74C3C"
+						color="#EF2853"
 						padded
 					>
 						<p className="themeMidText">
@@ -46,7 +46,7 @@ function HomePage() {
 					<FeatureItem
 						icon="/flex.png"
 						title="WITNESS GAINS"
-						color="#F4D03F"
+						color="#EF2853"
 						padded
 					>
 						<p className="themeMidText">
@@ -59,7 +59,7 @@ function HomePage() {
 					<FeatureItem
 						icon="/adapt.png"
 						title="ADAPTIVE LESSONS"
-						color="#8e44ad"
+						color="#EF2853"
 						padded
 					>
 						<p className="themeMidText">
@@ -108,16 +108,14 @@ function HomePage() {
 			</div>
 			<footer className="homeGame" id="homeGame">
 				<h1 className="centerMargin niceWidth">
-					KNOW THE <b>WHY</b>, TRACK THE <b>HOW</b>
+					Want to <i>1 UP</i> your game?
 				</h1>
 				<p
 					style={{ lineHeight: "2rem" }}
 					className="themeMidText centerMargin niceWidth"
 				>
-					Want to <i>1 UP</i> your game? Consult with me to see if my services
-					are the right fit for you.
-					<br />
-					All it takes is showing up 💪
+					Consult with me to see if my services are the right fit for you. All
+					it takes is showing up 💪
 					<br />
 				</p>
 				<Link to="/services" className="centerMargin">
