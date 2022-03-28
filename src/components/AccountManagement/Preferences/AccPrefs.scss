@@ -11,7 +11,7 @@
 .accPrefsModal .sections {
     display: flex; flex-flow: column; gap: 2px;
     button {
-        padding: 15px 10px; font-size: 1.1rem; flex: 100%;
+        padding: 15px 10px; font-size: 1.1rem; flex: 0;
     }
 }
 .accPrefsModal .section {
@@ -29,8 +29,12 @@
         display: none;
     }
     input:checked + .slider::before {
-        transform: translateX(-100%); // still not pixel perfect...
-        left: 100%; // more intensive than transform
+        //transform: translateX(-100%); // still not pixel perfect...
+        //left: 100%; // more intensive than transform
+        right: 0;
+    }
+    input:not(:checked) + .slider::before {
+        left: 0;
     }
     .slider {
         position: absolute; width: 100%; height: 100%; background-color: $greyCol;
@@ -38,7 +42,7 @@
         &::before {
             aspect-ratio: 1/1;
             position: absolute; content: ""; background-color: #fff;
-            height: 100%; top: 0; left: 0%;
+            height: 100%; top: 0; //left: 0%;
             transform: translateX(0%);
             transition: transform 0.1s ease-in, left 0.1s ease-in;
         }
@@ -79,6 +83,9 @@
     }
     .accPrefsModal .sections {
         flex-flow: row;
+        button {
+            flex: 100%;
+        }
     }
 }
 

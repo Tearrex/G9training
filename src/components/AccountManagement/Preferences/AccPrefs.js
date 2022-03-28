@@ -147,12 +147,14 @@ function AccPrefs(props) {
 							<button
 								onClick={() => setSection("security")}
 								style={{ opacity: 0.5 }}
+								disabled
 							>
 								Security
 							</button>
 							<button
 								onClick={() => setSection("billing")}
 								style={{ opacity: 0.5 }}
+								disabled
 							>
 								Billing
 							</button>
