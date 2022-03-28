@@ -4,12 +4,12 @@
     width: clamp(300px, 90%, 600px);
     .fade {
         position: fixed; width: 100vw; height: 100vh; top: 0; left: 0;
-        background-color: #000; opacity: 0.5; z-index: 2;
+        background-color: #000; opacity: 0.5; z-index: 20;
     }
     .modal {
         @include full-center;
         background-color: $greyCol; padding: 20px; //width: clamp(300px, 90%, 500px);
-        box-shadow: 0 0 5px 5px rgba($color: #000000, $alpha: 0.5); z-index: 5;
+        box-shadow: 0 0 5px 5px rgba($color: #000000, $alpha: 0.5); z-index: 21;
         max-height: 50%;
         .logMessage {
             padding: 15px 10px; color: #fff;
@@ -23,6 +23,9 @@
     }
     .modal .settings {
         display: flex; flex-flow: column; gap: 10px; align-items: center;
+        .email .verified {
+            color: $confirmCol;
+        }
         .options {
             display: flex; flex-flow: row; gap: 10px;
             button {
@@ -68,9 +71,6 @@
     }
     td, th {
         padding: 10px; border: 2px solid $greyCol;
-    }
-    .verified {
-        color: $confirmCol;
     }
     .copyId {
         position: relative;

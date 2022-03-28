@@ -63,10 +63,10 @@ function HomePage() {
 						padded
 					>
 						<p className="themeMidText">
-							Your training will be tweaked, as needed, with assessments and
-							each subsequent session to ensure the program stays up to par with
-							your goals. <b>We are a team</b> and you're always welcome to
-							exchange feedback with me!
+							Your training will be adjusted with each subsequent assessment to
+							ensure the program stays up to par with your goals.{" "}
+							<b>We are a team</b> and you're always welcome to exchange
+							feedback with me!
 						</p>
 					</FeatureItem>
 				</div>
@@ -75,7 +75,7 @@ function HomePage() {
 					it ultimately depends on your determination.
 				</p>
 			</div>
-			<div className="steps themeBackHigh" style={{ padding: "70px 0 40px 0" }}>
+			<div className="steps themeBackHigh" style={{ padding: "70px 0" }}>
 				<h1 className="nWeight">Steps to success:</h1>
 				<div className="featureList">
 					<FeatureItem
@@ -120,10 +120,12 @@ function HomePage() {
 					All it takes is showing up 💪
 					<br />
 				</p>
-				<Link to="/services" className="centerMargin">
-					<button className="coolButton" onClick={() => window.scrollTo(0, 0)}>
-						VIEW RATES
-					</button>
+				<Link
+					to="/services"
+					className="centerMargin"
+					onClick={() => window.scrollTo(0, 0)}
+				>
+					<button className="coolButton">VIEW RATES</button>
 				</Link>
 			</footer>
 			{/* <div className="instagramSplash">

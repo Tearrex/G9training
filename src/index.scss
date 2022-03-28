@@ -17,7 +17,12 @@
 	align-items: center;
 }
 .vmargin {
-	margin-top: auto; margin-bottom: auto;
+	margin-top: auto;
+	margin-bottom: auto;
+}
+.hmargin {
+	margin-left: auto;
+	margin-right: auto;
 }
 .cmodal {
 	@include full-center;
@@ -254,12 +259,11 @@ input {
 	h1 {
 		color: $blackCol;
 	}
-	.fancyCard {
-		background-color: #fff;
+	.sessionItem .miniDate {
+		// more discernable since white theme uses
+		// same background color as the date of the month 
+		border: 2px solid #cacaca;
 	}
-	// .bullets {
-	//   color: $blackCol;
-	// }
 	.fancyCard .pricing {
 		background-color: #eff1f3;
 		.seshSelect label {
@@ -273,9 +277,6 @@ input {
 	#clientsList {
 		color: $blackCol;
 	}
-	// .navigator {
-	//   background-color: $greyCol;
-	// }
 	.monthCycle {
 		background: $coolCol;
 		h1 {
@@ -305,6 +306,7 @@ input {
 button {
 	outline: none;
 	border: none;
+	font-size: 1rem;
 }
 h1,
 h2,
@@ -327,7 +329,10 @@ p {
 .logActions {
 	margin-top: 20px;
 	.buttons {
-		display: flex; flex-flow: row; gap: 3px; justify-content: center;
+		display: flex;
+		flex-flow: row;
+		gap: 3px;
+		justify-content: center;
 	}
 	button {
 		padding: 15px;
@@ -488,7 +493,7 @@ p {
 	display: flex;
 	justify-content: center;
 	background-attachment: fixed;
-	background-position: bottom;
+	//background-position: bottom;
 	height: 100vh;
 	.full-logo {
 		width: clamp(250px, 50%, 700px);
@@ -555,6 +560,27 @@ p {
 .niceWidth {
 	width: clamp(250px, 80%, 500px);
 }
+// .steps {
+// 	&:after {
+// 		content: "";
+// 		position: absolute;
+// 		left: 50%;
+// 		transform: translateX(-50%);
+// 		height: 30px;
+// 		width: 100%;
+// 		//background-color: #0f0;
+// 		background: radial-gradient(
+// 				circle,
+// 				#fff,
+// 				#fff 50%,
+// 				transparent 50%,
+// 				transparent 100%
+// 			);
+// 		background-position-y: -10px;
+// 		background-size: 40px;
+// 		background-repeat: repeat-x;
+// 	}
+// }
 .homeGame {
 	scroll-margin-top: 70px;
 	gap: 20px;
@@ -703,7 +729,7 @@ p {
 	gap: 20px;
 	justify-content: center;
 	gap: 40px;
-	padding: 40px 0;
+	padding-top: 40px;
 	margin-left: auto;
 	margin-right: auto;
 	flex-wrap: wrap;
@@ -714,8 +740,38 @@ p {
 	backface-visibility: hidden;
 	transform: translateZ(0);
 	.pricing {
-		width: 100%;
-		padding: 10px 0;
+		//width: 100%;
+		padding: 10px;
+		button {
+			width: 100%;
+			padding: 20px 0;
+			margin-top: 10px;
+			color: #fff;
+			transition: box-shadow 0.2s ease-in;
+			&:hover {
+				box-shadow: inset 0 0 0 0.4rem rgba(0, 0, 0, 0.3);
+			}
+		}
+		button i {
+			font-size: 1.5rem;
+			margin-right: 10px;
+		}
+		button > * {
+			display: inline-block;
+			vertical-align: middle;
+		}
+		.inPersonRegBtn {
+			background-color: #ea5329;
+			cursor: pointer;
+		}
+		.onlineRegBtn {
+			background-color: #7d3c98;
+			cursor: pointer;
+		}
+		.onlineRegBtn > * {
+			display: inline-block;
+			vertical-align: middle;
+		}
 		.seshSelect {
 			display: flex;
 			flex-flow: row;
@@ -743,7 +799,7 @@ p {
 .featureList .item {
 	display: flex;
 	flex-flow: column;
-	align-items: center;
+	align-items: stretch; //center;
 	align-self: flex-start;
 	width: clamp(300px, 80%, 500px); //padding: 20px 10px;
 	//border-radius: 1rem;

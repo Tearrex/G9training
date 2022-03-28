@@ -18,7 +18,7 @@ function ServicesPage() {
 	}
 	return (
 		<div>
-			<div className="steps nicePad perks layerShadow">
+			<div className="themeBackMid nicePad perks">
 				<h1>The Perks</h1>
 				<p>No matter which path you take, you can always expect:</p>
 				<ul className="bullets themeMidText" style={{ marginBottom: 0 }}>
@@ -47,15 +47,12 @@ function ServicesPage() {
 					<p className="description">
 						Great for developing a solid synergy between us while being able to
 						provide you with the best, in-depth coaching environment that I can.{" "}
-						<b>
-							Ideal for those in the local area and/or that need an extra push.
-						</b>
+						Ideal for those in the local area and/or that need an extra push.
 					</p>
 					<ul className="themeMidText">
-						<li>60 minute sessions</li>
+						<li>TrainHeroic membership</li>
+						<li>One on one 60 minute sessions</li>
 						<li>Equipment provided</li>
-						<li>One on one engagement</li>
-						<li>Self-paced commitment</li>
 					</ul>
 					<div className="pricing">
 						<p>
@@ -113,10 +110,20 @@ function ServicesPage() {
 									<span className="currency">${sessionPrice}</span>
 								</h2>
 								<p className="sideNote">
-									${Number(eachSesh).toFixed(2)} per session
+									{Number(eachSesh).toFixed(2)}$ per session
 								</p>
 							</>
 						)}
+						<a
+							href="https://docs.google.com/forms/d/e/1FAIpQLScd265Iyf1gVkrIjvSxr8XkTmsNA4C-rWip9kNy-R_n9US5aw/viewform"
+							target="_blank"
+							rel="noreferrer"
+						>
+							<button className="inPersonRegBtn">
+								<i className="fas fa-file-alt"></i>
+								<p>Google Form</p>
+							</button>
+						</a>
 					</div>
 				</FeatureItem>
 				<FeatureItem
@@ -127,11 +134,11 @@ function ServicesPage() {
 					padTop
 				>
 					<p className="description">
-						The lockdown hasn't been fun for anyone, make a comeback with a
-						killer workout from the comfort of your home!{" "}
-						<b>If you have the self-discipline, this one's for you.</b>
+						Get a killer workout from the comfort of your home! If you have the
+						self-discipline, this one's for you.
 					</p>
 					<ul className="themeMidText">
+						<li>TrainHeroic membership</li>
 						<li>Virtual 60 minute sessions</li>
 						<li>Improvise equipment at hand</li>
 						<li>One on one engagement</li>
@@ -141,9 +148,19 @@ function ServicesPage() {
 							<span className="currency">$45</span> Monthly Subscription
 						</h2>
 						<p className="sideNote">Cancel service at anytime.</p>
+						<a
+							href="https://docs.google.com/forms/d/1BoT36mL4mLu38FerTA1e9j-fpsmKWCDpt51zQZnVMbs/viewform"
+							target="_blank"
+							rel="noreferrer"
+						>
+							<button className="onlineRegBtn">
+								<i className="fas fa-file-alt"></i>
+								<p>Google Form</p>
+							</button>
+						</a>
 					</div>
 				</FeatureItem>
-				<FeatureItem
+				{/* <FeatureItem
 					icon="/hybrid.png"
 					title="Hybrid"
 					color="#79bc43"
@@ -151,10 +168,10 @@ function ServicesPage() {
 					padTop
 				>
 					<p className="pricing">
-						Want the best of both worlds? No problem. Consult with me so we can
-						strategize a game plan.
+						Want the best of both worlds? Consult with me so we can strategize a
+						game plan.
 					</p>
-				</FeatureItem>
+				</FeatureItem> */}
 			</div>
 			<div className="themeMidText" style={{ paddingBottom: "40px" }}>
 				<span style={{ color: "#ea5329" }}>*</span> Sessions bought in bulk,

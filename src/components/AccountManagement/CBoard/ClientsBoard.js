@@ -17,7 +17,7 @@ function ClientsBoard(props) {
 	const [focusClient, setFocusClient] = useState(null);
 	const [focusIndex, setFocusIndex] = useState(-1);
 	// the client name to look for in the context
-	const [search, setSearch] = useState(null);
+	const [search, setSearch] = useState("");
 	const [sessionTokens, setSessionTokens] = useState(0);
 	const [message, setMessage] = useState(null);
 	const [error, setError] = useState(false);
