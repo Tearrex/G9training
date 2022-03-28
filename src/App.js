@@ -9,7 +9,7 @@ import { useState } from "react";
 import NavBar from "./components/navbar";
 import { CurrentUserContext, xTokenContext } from "./components/Main/Contexts";
 
-import ContactPage from "./components/Pages/ContactPage";
+import ContactPage from "./components/Pages/Contact/ContactPage";
 import ServicesPage from "./components/Pages/ServicesPage";
 import TrainPage from "./components/Pages/TrainPage";
 import HomePage from "./components/Pages/HomePage";
@@ -24,8 +24,6 @@ const maintenance = false;
 function App() {
 	const [_user, _setUser] = useState(null);
 	const [xToken, setXToken] = useState(null);
-	// used for refreshing access tokens upon page load
-	const [attemptedLogin, setAttemptedLogin] = useState(false);
 	return (
 		<Router>
 			<xTokenContext.Provider value={{ xToken, setXToken }}>
