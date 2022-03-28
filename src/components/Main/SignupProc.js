@@ -77,6 +77,8 @@ function SignupProc(props) {
 				}
 			})
 			.catch((e) => {
+				// make it pop with red
+				props.setClass("error");
 				switch (e.response.data.message) {
 					case "Email already in use.":
 						setOldEmail(_json.email);

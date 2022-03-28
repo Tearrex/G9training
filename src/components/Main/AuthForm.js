@@ -42,9 +42,9 @@ function AuthForm() {
 					<div className={"logMessage " + msgClass}>{formMessage}</div>
 				)}
 				{chooseLogin ? (
-					<LoginProc setMessage={setFormMessage} />
+					<LoginProc setMessage={setFormMessage} setClass={setMsgClass} />
 				) : (
-					<SignupProc setMessage={setFormMessage} />
+					<SignupProc setMessage={setFormMessage} setClass={setMsgClass} />
 				)}
 			</div>
 		</div>
