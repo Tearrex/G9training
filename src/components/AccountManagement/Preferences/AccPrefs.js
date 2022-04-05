@@ -120,6 +120,8 @@ function AccPrefs(props) {
 					<button
 						className="logout"
 						onClick={async () => {
+							var confirm = window.confirm("Confirm log out?");
+							if (!confirm) return;
 							await logout(_user);
 							_setUser(null);
 							setXToken(null);
