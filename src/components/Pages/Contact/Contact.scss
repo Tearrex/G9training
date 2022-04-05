@@ -1,0 +1,91 @@
+@import "../../../styles/utils.scss";
+
+.instaPage {
+    display: flex; flex-flow: row-reverse; flex-wrap: wrap; justify-content: center;
+    color: #000; flex-wrap: wrap; padding: 20px 0;
+}
+.instaPage .info {
+    max-width: 420px !important; padding: 20px;
+    display: flex; flex-flow: column; align-items: center; justify-content: center;
+    a {
+        margin-top: 10px; border-radius: 1.1rem 0.2rem;
+    }
+    a > button {
+        padding: 15px 10px;
+        color: $redCol; background: none;
+        border: 3px solid $redCol; border-radius: 1.1rem 0.2rem;
+        &:hover {
+            background-color: $redCol; color: #fff;
+        }
+    }
+    a > button > i {
+        font-size: 1.6rem; margin-right: 10px;
+    }
+    a > button > * {
+        display: inline-block; vertical-align: middle;
+    }
+}
+// @media screen and (min-width: 600px){
+//     .instaPage > .instaGrid {
+        
+//     }
+// }
+.textHog {
+    object-position: left;
+}
+@media screen and (max-width: 600px){
+    .instaPage > .instaGrid{
+        flex-flow: column !important; gap: 0 !important;
+        & > img {
+            width: 90vw !important;
+        }
+        .small {
+            width: 90vw; flex-flow: row !important;  flex-shrink: 0;
+            gap: 0 !important; flex: 50%; width: 100%;
+            img {
+                height: 100% !important;
+                width: 50% !important;
+                flex: 50%; max-width:max-content !important;
+            }
+            .textHog {
+                object-position: left;
+            }
+        }
+    }
+}
+.instaPage > .instaGrid {
+    display: flex; flex-flow: row; gap: 10px; //flex-wrap: wrap; //max-height: 500px;
+    justify-content: center; //flex: 60%; //max-width: 600px;
+    align-items: stretch; //max-height: 500px;
+    width: clamp(230px, 90vw, 900px);
+    .small {
+        display: flex; flex-flow: column-reverse; gap: 10px; //max-height: 400px;
+    }
+    .small > img {
+        object-fit: cover;
+        background-color: #000; color: #fff;
+        flex: 50%;
+        flex-grow: 1;
+        max-width: 250px;
+    }
+    // large image
+    & > a:hover {
+        i {
+            visibility: visible; z-index: 3;
+        }
+        img {
+            filter: blur(5px);
+            object-position: right;
+        }
+    }
+    & > a > img {
+        width: clamp(250px, 90vw, 500px); object-fit: cover; //max-height: 400px;
+        object-position: right; // show more image text
+        // don't stretch further than the image's dimensions
+        flex-grow: 0; height: 100%; width: 100%;
+    }
+    & > a > i {
+        position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+        font-size: 1.8rem; color: #fff; visibility: hidden;
+    }
+}

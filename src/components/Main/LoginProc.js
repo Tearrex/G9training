@@ -32,7 +32,7 @@ function LoginProc(props) {
 	function login(e) {
 		e.preventDefault();
 
-		if (email === oldEmail || password === oldPass) return;
+		if (email === oldEmail || (password === oldPass && !forgotPass)) return;
 
 		// reset password process
 		if (forgotPass) {
@@ -42,6 +42,7 @@ function LoginProc(props) {
 				if (s.status === 200) {
 					setEmail("");
 					setForgotPass(false);
+					props.setClass("success");
 					props.setMessage(s.data.message);
 				}
 			});
@@ -92,9 +93,6 @@ function LoginProc(props) {
 				// ugly
 				else alert(String(e));
 			});
-	}
-	function verifyCallback(e) {
-		console.log("captcha human lol");
 	}
 	return (
 		<>

@@ -41,7 +41,13 @@ function VerifyEmail(props) {
 	) : (
 		<div className="verifyWindow cmodal">
 			<h1>Something went wrong.</h1>
-			<p><i className="fas fa-info-circle infocolor" style={{fontSize:"1rem"}}></i> {error}</p>
+			<p className="themeMidText">
+				<i
+					className="fas fa-info-circle infocolor"
+					style={{ fontSize: "1rem" }}
+				></i>{" "}
+				{error}
+			</p>
 		</div>
 	);
 }
