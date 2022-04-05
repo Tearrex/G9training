@@ -266,6 +266,9 @@ input {
 	h2 {
 		color: $darkGrey;
 	}
+	.themeHighText {
+		color: #000;
+	}
 	h1 {
 		color: $blackCol;
 	}
@@ -320,6 +323,7 @@ button {
 }
 h1,
 h2,
+h3,
 p {
 	margin: 0;
 }
