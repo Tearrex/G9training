@@ -107,6 +107,12 @@ function ClientsBoard(props) {
 									</div>
 								)}
 							</div>
+							{!focusClient.verified && (
+								<p className="themeBackMid userPlan">
+									<i className="fas fa-times-circle icon"></i> User has not
+									verified their email.
+								</p>
+							)}
 							{focusClient.plan ? (
 								<div className="themeBackMid userPlan">
 									<p className="themeHighText">
