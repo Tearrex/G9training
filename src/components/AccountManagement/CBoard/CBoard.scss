@@ -11,6 +11,7 @@
         background-color: $greyCol; padding: 20px; //width: clamp(300px, 90%, 500px);
         box-shadow: 0 0 5px 5px rgba($color: #000000, $alpha: 0.5); z-index: 21;
         max-height: 50%;
+        overflow-y: scroll;
         .logMessage {
             padding: 15px 10px; color: #fff;
         }
@@ -19,6 +20,19 @@
         }
         .error {
             background-color: $redCol;
+        }
+    }
+    .modal .userPlan {
+        padding: 10px;
+        border-radius: 0.8rem;
+    
+        &>* {
+            display: inline-block;
+            vertical-align: middle;
+        }
+    
+        .icon {
+            font-size: 1.5rem;
         }
     }
     .modal .settings {
@@ -38,11 +52,8 @@
                 background-color: #626567;
             }
         }
-        .inField {
-            padding: 10px 0;
-            label {
-                margin-right: 10px;
-            }
+        .inField label {
+            margin-right: 10px;
         }
         #sessionCount {
             padding: 10px; width: 40%;

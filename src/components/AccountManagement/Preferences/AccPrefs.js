@@ -5,7 +5,9 @@ import EmailPrefs from "./EmailPrefs.js";
 import "./AccPrefs.scss";
 import BillingPrefs from "./BillingPrefs";
 import SecurityPrefs from "./SecurityPrefs";
+import { useNavigate } from "react-router-dom";
 function AccPrefs(props) {
+	const navigate = useNavigate();
 	const { _user, _setUser } = useContext(CurrentUserContext);
 	const { xToken, setXToken } = useContext(xTokenContext);
 	const [section, setSection] = useState("email");
@@ -112,6 +114,9 @@ function AccPrefs(props) {
 							<i className="fas fa-user-cog"></i> Settings
 						</button>
 					)}
+					<button onClick={() => navigate(`/setup`)}>
+						<i className="fas fa-clipboard-list"></i> My Plan
+					</button>
 					<button
 						className="logout"
 						onClick={async () => {

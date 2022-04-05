@@ -17,6 +17,7 @@ import ResetPassword from "./components/Pages/ResetPassword";
 import VerifyEmail from "./components/Pages/VerifyPage";
 import Maintenance from "./components/Pages/Maintenance";
 import NotFoundPage from "./components/Pages/404Page";
+import SetupPage from "./components/Pages/Setup/SetupPage";
 
 // maintenance mode?
 const maintenance = false;
@@ -37,6 +38,7 @@ function App() {
 							path="training"
 							element={!maintenance ? <TrainPage /> : <Maintenance />}
 						/>
+						<Route path="setup" element={<SetupPage />} />
 						<Route exact path="verify/:emailToken" element={<VerifyEmail />} />
 						<Route exact path="resetpass/:token" element={<ResetPassword />} />
 						<Route path="/*" element={<NotFoundPage />} />

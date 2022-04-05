@@ -107,6 +107,31 @@ function ClientsBoard(props) {
 									</div>
 								)}
 							</div>
+							{focusClient.plan ? (
+								<div className="themeBackMid userPlan">
+									<p className="themeHighText">
+										Weight <b>{focusClient.plan.weight} lbs</b> Height{" "}
+										<b>
+											{focusClient.plan.heightFt}' {focusClient.plan.heightIn}"
+										</b>
+										<br />
+										Level <b>{focusClient.plan.experience}</b>{" "}
+										<i>
+											{focusClient.plan.prevInjury
+												? "Previous Injuries"
+												: "No Injuries"}
+										</i>
+									</p>
+									<p className="themeHighText">
+										Preferred Style: <b>{focusClient.plan.style}</b>
+									</p>
+								</div>
+							) : (
+								<p className="themeBackMid userPlan">
+									<i className="fas fa-times-circle icon"></i> User has not
+									setup their account plan.
+								</p>
+							)}
 							<div className="inField">
 								<label htmlFor="sessionCount">Sessions</label>
 								<input
