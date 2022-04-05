@@ -3,6 +3,8 @@ import FeatureItem from "../HomeComps/FeatureItem";
 import { Link } from "react-router-dom";
 
 function HomePage() {
+	const mainTheme = "#EF2853";
+	const asterisk = <span style={{ color: mainTheme }}>*</span>;
 	return (
 		<>
 			<div
@@ -34,7 +36,7 @@ function HomePage() {
 					<FeatureItem
 						icon="/calendar.png"
 						title="FLEXIBILITY"
-						color="#E74C3C"
+						color={mainTheme}
 						padded
 					>
 						<p className="themeMidText">
@@ -46,20 +48,20 @@ function HomePage() {
 					<FeatureItem
 						icon="/flex.png"
 						title="WITNESS GAINS"
-						color="#F4D03F"
+						color={mainTheme}
 						padded
 					>
 						<p className="themeMidText">
 							I work closely with every individual to make them feel proud of
 							their commitment, <b>trust the process</b> of your efforts.{" "}
-							<span style={{ color: "#F4D03F" }}>*</span> On average, our
-							clients begin to notice results at the 3 month mark.
+							{asterisk} On average, our clients begin to notice results at the
+							3 month mark.
 						</p>
 					</FeatureItem>
 					<FeatureItem
 						icon="/adapt.png"
 						title="ADAPTIVE LESSONS"
-						color="#8e44ad"
+						color={mainTheme}
 						padded
 					>
 						<p className="themeMidText">
@@ -71,8 +73,8 @@ function HomePage() {
 					</FeatureItem>
 				</div>
 				<p className="themeHighText">
-					<span style={{ color: "#F4D03F" }}>*</span> Every body is different,
-					it ultimately depends on your determination.
+					{asterisk} Every body is different, it ultimately depends on your
+					determination.
 				</p>
 			</div>
 			<div className="steps themeBackHigh" style={{ padding: "70px 0" }}>
