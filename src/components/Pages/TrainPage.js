@@ -76,18 +76,7 @@ function TrainPage() {
 	return (
 		<DateContext.Provider value={{ _date, _setDate }}>
 			<div className="warnBanner">
-				{!_user ? (
-					<>
-						<h3>
-							<i className="fas fa-info-circle"></i> To our Guests
-						</h3>
-						<p>
-							This page is in early testing phases.
-							<br />
-							You'll need an invite to create an account.
-						</p>
-					</>
-				) : (
+				{_user && (
 					<>
 						<h3>
 							<i className="fas fa-dumbbell blood"></i>
