@@ -17,7 +17,7 @@ function AuthForm() {
 		<div className="authSplash">
 			<div className="authForm">
 				<div className="header">
-					<img src="/android-chrome-192x192.png" />
+					<img src="/apple-touch-icon.png" />
 					<p>Gonz9Training</p>
 				</div>
 				<div className="authTypes">
