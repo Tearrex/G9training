@@ -72,6 +72,7 @@ function LoginProc(props) {
 			.catch((e) => {
 				var s = e.response;
 				if (s.data && s.data.message) {
+					props.setClass("error");
 					props.setMessage(s.data.message);
 					// don't want to make it easier for attackers
 					// to penetrate the website's security...
@@ -122,7 +123,10 @@ function LoginProc(props) {
 					/>
 				)}
 				{!forgotPass && (
-					<span className="forgotPass" onClick={() => setForgotPass(true)}>
+					<span
+						className="forgotPass linkHover"
+						onClick={() => setForgotPass(true)}
+					>
 						Forgot password?
 					</span>
 				)}
@@ -136,6 +140,23 @@ function LoginProc(props) {
 						/>
 					)}
 			</form>
+			{!forgotPass ? (
+				<span
+					className="themeHighText themeBackLow signup"
+					onClick={() => props.chooseLogin(false)}
+					style={{ padding: "10px 0" }}
+				>
+					<i className="fas fa-angle-double-right"></i> Register Membership
+				</span>
+			) : (
+				<span
+					className="themeHighText themeBackLow signup"
+					onClick={() => setForgotPass(false)}
+					style={{ padding: "10px 0" }}
+				>
+					<i className="fas fa-angle-double-left"></i> Back to login
+				</span>
+			)}
 		</>
 	);
 }

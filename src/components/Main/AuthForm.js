@@ -1,4 +1,4 @@
-import { useContext, useState, useEffect, useRef } from "react";
+import { useContext, useState, useEffect } from "react";
 import { CurrentUserContext, xTokenContext } from "./Contexts";
 import LoginProc from "./LoginProc";
 import SignupProc from "./SignupProc";
@@ -13,14 +13,19 @@ function AuthForm() {
 
 	// login or signup?
 	const [chooseLogin, setChooseLogin] = useState(true);
+
+	// clear any previous errors or form messages
+	useEffect(() => {
+		setFormMessage("");
+	}, [chooseLogin]);
 	return (
 		<div className="authSplash">
 			<div className="authForm">
 				<div className="header">
-					<img src="/android-chrome-192x192.png" />
-					<p>Gonz9Training</p>
+					<img src="/slim-icon.png" />
+					<p>onz9Training</p>
 				</div>
-				<div className="authTypes">
+				{/* <div className="authTypes">
 					<span
 						className={chooseLogin ? "active" : null}
 						onClick={() => {
@@ -37,14 +42,29 @@ function AuthForm() {
 					>
 						Sign Up
 					</span>
-				</div>
+				</div> */}
 				{formMessage !== "" && (
-					<div className={"logMessage " + msgClass}>{formMessage}</div>
+					<div className={"logMessage"}>
+						{msgClass === "success" ? (
+							<i className="fas fa-check"></i>
+						) : (
+							<i className="fas fa-times"></i>
+						)}
+						{formMessage}
+					</div>
 				)}
 				{chooseLogin ? (
-					<LoginProc setMessage={setFormMessage} />
+					<LoginProc
+						setMessage={setFormMessage}
+						setClass={setMsgClass}
+						chooseLogin={(e) => setChooseLogin(e)}
+					/>
 				) : (
-					<SignupProc setMessage={setFormMessage} />
+					<SignupProc
+						setMessage={setFormMessage}
+						setClass={setMsgClass}
+						chooseLogin={(e) => setChooseLogin(e)}
+					/>
 				)}
 			</div>
 		</div>

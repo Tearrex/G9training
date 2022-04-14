@@ -502,6 +502,14 @@ p {
 .niceWidth {
 	width: clamp(250px, 80%, 500px);
 }
+.linkHover {
+	cursor: pointer;
+
+	&:hover,
+	&:active {
+		text-decoration: underline;
+	}
+}
 .homeGame {
 	scroll-margin-top: 70px;
 	gap: 20px;
@@ -531,6 +539,13 @@ p {
 	justify-content: center;
 	padding: 30px 0;
 	background-color: $blackCol;
+	.codeNote {
+		padding: 10px 0;
+	}
+	
+	.codeNote p {
+		color: #565759 !important;
+	}
 	.authForm {
 		display: flex;
 		flex-flow: column;
@@ -543,18 +558,27 @@ p {
 			font-weight: 600;
 		}
 		.logMessage {
-			padding: 20px 10px;
-			color: $whiteCol;
+			padding: 5px 10px;
+			color: $blackCol !important;
+			border-bottom: 2px solid #cacaca;
+			}
+			
+			.logMessage>i {
+				font-size: 1.3rem;
+				margin-right: 10px;
+			}
+			
+			.logMessage>* {
+				display: inline-block;
+				vertical-align: middle;
+				line-height: 0;
 		}
 		.continue {
-			background-color: $activityCol; padding: 20px 0; font-size: 1.1rem;
-			cursor: pointer; color: #fff;
-		}
-		.error {
 			background-color: $redCol;
-		}
-		.success {
-			background-color: $confirmCol;
+			padding: 20px 0;
+			font-size: 1.1rem;
+			cursor: pointer;
+			color: #fff;
 		}
 		.authTypes {
 			display: flex;
@@ -618,17 +642,27 @@ p {
 			margin-left: auto;
 			margin-right: auto;
 		}
+		.signup:hover {
+			filter: invert(0.9);
+			cursor: default;
+		}
 	}
 	.header {
 		padding: 10px;
-		background-color: $greyCol;
+		background-color: $redCol;
 		display: flex;
-		flex-flow: column;
-		gap: 10px;
+		flex-flow: row;
+		justify-content: center;
+		gap: 5px;
 		align-items: center;
+		p {
+			font-size: 1.4rem;
+			color: #fff !important;
+		}
 		img {
 			width: 60px;
 			height: 60px;
+			filter: invert(1);
 		}
 	}
 }

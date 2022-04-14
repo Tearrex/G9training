@@ -23,6 +23,7 @@ function SignupProc(props) {
 	const [showCaptcha, setShowCaptcha] = useState(false);
 	const captchaRef = useRef();
 
+	const [conform, setConform] = useState(false);
 	// toggle the invite code form that's required for signup
 	// temporary for backend improvements
 	const [inviteProc, setInviteProc] = useState(false);
@@ -55,7 +56,8 @@ function SignupProc(props) {
 		}
 	}
 	// called when the user completes the captcha
-	function signup() {
+	function signup(e) {
+		e.preventDefault(); // not sure if it will try to submit
 		// register the user
 		const _json = {
 			email: email,
@@ -109,84 +111,114 @@ function SignupProc(props) {
 	}
 	return (
 		<>
-			<form className="formFields" onSubmit={signup_action}>
-				{!inviteProc ? (
-					<>
-						<div className="nameFields">
-							<input
-								placeholder="First Name"
-								value={firstName}
-								onChange={(e) => setFirstName(e.target.value)}
-								required
-							/>
-							<input
-								placeholder="Last Name"
-								value={lastName}
-								onChange={(e) => setLastName(e.target.value)}
-								required
-							/>
-						</div>
-						<input
-							type="email"
-							placeholder="your@email.com"
-							required
-							value={email}
-							onChange={(e) => setEmail(e.target.value.trim())}
-						/>
-						<input
-							type="password"
-							placeholder="Password"
-							id="pswField"
-							value={password}
-							onChange={(e) => setPassword(e.target.value)}
-							required
-						/>
-						<input
-							type="password"
-							placeholder="Repeat Password"
-							id="cPswField"
-							value={cPassword}
-							onChange={(e) => setCPassword(e.target.value)}
-							required
-						/>
-
-						{showCaptcha && (
-							<ReCAPTCHA
-								ref={captchaRef}
-								sitekey={fSettings.siteKey}
-								size="normal"
-								onChange={() => setInviteProc(true)}
-								theme="dark"
-							/>
-						)}
-						{email !== "" &&
-							email.includes("@") &&
-							email !== oldEmail &&
-							password !== "" &&
-							password === cPassword && (
-								<input type="submit" value="Continue" />
-							)}
-					</>
-				) : (
-					<>
-						<div>
-							<h2 className="themeLowText">Almost there</h2>
-							<p className="themeMidText">Input your invite code below</p>
-						</div>
-						<input
-							type="text"
-							style={{ textAlign: "center" }}
-							value={code}
-							onChange={changeCode}
-						/>
-					</>
-				)}
-			</form>
-			{inviteProc && String(code).length >= 5 && code != oldCode && (
-				<button className="continue" onClick={signup}>
-					Confirm
-				</button>
+			{!conform && (
+				<div className="codeNote">
+					<h3>
+						<i className="fas fa-info-circle"></i> To our Guests
+					</h3>
+					<p className="themeMidText">
+						An invite code is required to proceed.
+						<br />
+						Please book a consultation below if you haven't already!
+					</p>
+					<button
+						className="coolButton themeBackMid themeHighText noEffects"
+						onClick={() => setConform(true)}
+						style={{ marginTop: "5px" }}
+					>
+						Continue
+					</button>
+				</div>
 			)}
+			{conform && (
+				<form className="formFields" onSubmit={signup_action}>
+					{!inviteProc ? (
+						<>
+							<div className="nameFields">
+								<input
+									placeholder="First Name"
+									value={firstName}
+									onChange={(e) => setFirstName(e.target.value)}
+									required
+								/>
+								<input
+									placeholder="Last Name"
+									value={lastName}
+									onChange={(e) => setLastName(e.target.value)}
+									required
+								/>
+							</div>
+							<input
+								type="email"
+								placeholder="your@email.com"
+								required
+								value={email}
+								onChange={(e) => setEmail(e.target.value.trim())}
+							/>
+							<input
+								type="password"
+								placeholder="Password"
+								id="pswField"
+								value={password}
+								onChange={(e) => setPassword(e.target.value)}
+								required
+							/>
+							<input
+								type="password"
+								placeholder="Repeat Password"
+								id="cPswField"
+								value={cPassword}
+								onChange={(e) => setCPassword(e.target.value)}
+								required
+							/>
+
+							{showCaptcha && (
+								<ReCAPTCHA
+									ref={captchaRef}
+									sitekey={fSettings.siteKey}
+									size="normal"
+									onChange={() => setInviteProc(true)}
+									theme="dark"
+								/>
+							)}
+							{email !== "" &&
+								email.includes("@") &&
+								email !== oldEmail &&
+								password !== "" &&
+								password === cPassword && (
+									<input type="submit" value="Continue" />
+								)}
+						</>
+					) : (
+						<>
+							<div>
+								<h2 className="themeLowText skinnyTitle">
+									Type your code below
+								</h2>
+							</div>
+							<input
+								type="text"
+								style={{ textAlign: "center" }}
+								value={code}
+								onChange={changeCode}
+								placeholder="ABC123"
+							/>
+						</>
+					)}
+					{inviteProc && String(code).length >= 5 && code != oldCode && (
+						<button className="continue" onClick={signup}>
+							Confirm
+						</button>
+					)}
+				</form>
+			)}
+			<span
+				className="themeHighText themeBackLow signup"
+				onClick={() => props.chooseLogin(true)}
+				style={{ padding: "10px 0" }}
+			>
+				<i className="fas fa-angle-double-left"></i> Back to login
+			</span>
 		</>
 	);
 }
