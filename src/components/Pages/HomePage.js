@@ -128,11 +128,6 @@ function HomePage() {
 					<button className="coolButton">VIEW RATES</button>
 				</Link>
 			</footer>
-			{/* <div className="instagramSplash">
-				<a href="https://www.instagram.com/gonz9training/" target="_blank">
-					<button>Follow me on Instagram</button>
-				</a>
-			</div> */}
 		</>
 	);
 }

@@ -133,6 +133,9 @@ input {
 	.themeIcon {
 		filter: invert(90%);
 	}
+	.coolButton {
+		border: 5px solid $whiteCol;
+	}
 	.themeBackLow {
 		background-color: $gothCol;
 	}
@@ -173,12 +176,6 @@ input {
 			}
 		}
 	}
-	// .item ul {
-	//   color: $whiteCol;
-	// }
-	// .navigator {
-	//   background-color: #1e1e1e;
-	// }
 	.monthCycle {
 		background: $blackCol;
 		h1 {
@@ -246,7 +243,7 @@ input {
 		color: #fff;
 	
 		&:hover {
-			color: $shade;
+			color: $shade !important;
 		}
 	}
 	// start modularizing classes
@@ -484,7 +481,7 @@ p {
 	align-items: center;
 }
 .coolButton {
-	border: 5px solid $whiteCol;
+	//border: 5px solid $whiteCol;
 	color: $darkGrey;
 	background-color: $whiteCol;
 	padding: 10px 20px;
@@ -492,6 +489,9 @@ p {
 	font-size: 1.1rem;
 	//transition: color 0.2s ease-in;
 	border-radius: 100vh;
+}
+
+.coolButton:not(.noEffects) {
 	&:hover {
 		background-color: rgba($color: #000000, $alpha: 0);
 		color: $whiteCol;
@@ -567,9 +567,13 @@ p {
 #overview {
 	padding-top: 70px !important;
 }
-.centerMargin {
+.centerMargin, .hmargin {
 	margin-left: auto;
 	margin-right: auto;
+}
+.vmargin {
+	margin-top: auto;
+	margin-bottom: auto;
 }
 .niceWidth {
 	width: clamp(250px, 80%, 500px);
@@ -628,7 +632,7 @@ p {
 		position: relative;
 		width: clamp(200px, 90%, 350px);
 		p {
-			font-size: 1.2rem;
+			font-size: 1.1rem;
 			font-weight: 600;
 		}
 		.logMessage {

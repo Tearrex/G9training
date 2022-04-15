@@ -16,13 +16,13 @@ import HomePage from "./components/Pages/HomePage";
 import ResetPassword from "./components/Pages/ResetPassword";
 import VerifyEmail from "./components/Pages/VerifyPage";
 import Maintenance from "./components/Pages/Maintenance";
-import { fSettings } from "./fSettings";
-import NotFoundPage from "./components/Pages/404Page";
 import SetupPage from "./components/Pages/Setup/SetupPage";
+import { fSettings } from "./fSettings";
+import NotFoundPage from "./components/Pages/404page";
 
 function App() {
-	const [_user, _setUser] = useState(null);
-	const [xToken, setXToken] = useState(null);
+	const [_user, _setUser] = useState(null); // user data
+	const [xToken, setXToken] = useState(null); // access token
 	return (
 		<Router>
 			<xTokenContext.Provider value={{ xToken, setXToken }}>
@@ -32,9 +32,12 @@ function App() {
 						<Route path="/" element={<HomePage />} />
 						<Route path="services" element={<ServicesPage />} />
 						<Route path="contact" element={<ContactPage />} />
+						<Route path="setup" element={<SetupPage />} />
 						<Route
 							path="training"
-							element={!fSettings.maintenance ? <TrainPage /> : <Maintenance />}
+							element={
+								!fSettings["maintenance"] ? <TrainPage /> : <Maintenance />
+							}
 						/>
 						<Route path="setup" element={<SetupPage />} />
 						<Route exact path="verify/:emailToken" element={<VerifyEmail />} />
