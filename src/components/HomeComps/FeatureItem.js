@@ -9,7 +9,7 @@ function FeatureItem(props) {
 			}
 			style={{ paddingTop: props.padTop ? "10px" : null }}
 		>
-			<img src={icon} className="lightenedDarkness themeIcon" />
+			<img src={icon} className="lightenedDarkness themeIcon hmargin" />
 			<h2 style={{ color: color || null }}>{title}</h2>
 			{props.children}
 		</div>

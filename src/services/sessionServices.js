@@ -10,24 +10,10 @@ export async function getPending(client_id) {
 	return data;
 }
 export async function getSessions(request, client_id, token) {
-	var result = null;
-	const data = await axios
-		.get(`${apiUrl}/${request}/${client_id}`, {
-			headers: { "x-token": token },
-			withCredentials: true,
-		})
-		.then((s) => {
-			console.log("good response", s);
-			result = s.data;
-			return result;
-		})
-		.catch((e) => {
-			if (e.response) {
-				console.log("error", e.response.data);
-				result = e.response.status;
-			}
-		});
-	return result;
+	return axios.get(`${apiUrl}/${request}/${client_id}`, {
+		headers: { "x-token": token },
+		withCredentials: true,
+	});
 }
 
 export async function postSession(session, token) {
@@ -52,22 +38,8 @@ export async function postSession(session, token) {
 }
 
 export async function updateSession(sessionId, changes, reimburse, token) {
-	var result = null;
-	const req = await axios
-		.put(`${apiUrl}/${sessionId}/${reimburse}`, changes, {
-			headers: { "x-token": token },
-			withCredentials: true,
-		})
-		.then((s) => {
-			console.log("good response", s);
-			result = s;
-			return s;
-		})
-		.catch((e) => {
-			if (e.response) {
-				console.log("error", e.response.data);
-				result = e.response;
-			}
-		});
-	return result;
+	return axios.put(`${apiUrl}/${sessionId}/${reimburse}`, changes, {
+		headers: { "x-token": token },
+		withCredentials: true,
+	});
 }

@@ -16,6 +16,8 @@ function ClientsBoard(props) {
 	// trainer interface for editing "clients"
 	const [focusClient, setFocusClient] = useState(null);
 	const [focusIndex, setFocusIndex] = useState(-1);
+	// the client name to look for in the context
+	const [search, setSearch] = useState("");
 	const [sessionTokens, setSessionTokens] = useState(0);
 	const [message, setMessage] = useState(null);
 	const [error, setError] = useState(false);
@@ -90,6 +92,52 @@ function ClientsBoard(props) {
 							</div>
 						)}
 						<div className="settings">
+							<div className="email">
+								<a
+									href={`mailto:${focusClient.email}?subject=Message for ${focusClient.firstName}`}
+								>
+									{focusClient.email}
+								</a>{" "}
+								{focusClient.verified && (
+									<div className="ttParent" style={{ display: "inline" }}>
+										<span className="tooltip" style={{ bottom: "1.5rem" }}>
+											Verified
+										</span>
+										<i className="fas fa-check verified" />
+									</div>
+								)}
+							</div>
+							{!focusClient.verified && (
+								<p className="themeBackMid userPlan">
+									<i className="fas fa-times-circle icon"></i> User has not
+									verified their email.
+								</p>
+							)}
+							{focusClient.plan ? (
+								<div className="themeBackMid userPlan">
+									<p className="themeHighText">
+										Weight <b>{focusClient.plan.weight} lbs</b> Height{" "}
+										<b>
+											{focusClient.plan.heightFt}' {focusClient.plan.heightIn}"
+										</b>
+										<br />
+										Level <b>{focusClient.plan.experience}</b>{" "}
+										<i>
+											{focusClient.plan.prevInjury
+												? "Previous Injuries"
+												: "No Injuries"}
+										</i>
+									</p>
+									<p className="themeHighText">
+										Preferred Style: <b>{focusClient.plan.style}</b>
+									</p>
+								</div>
+							) : (
+								<p className="themeBackMid userPlan">
+									<i className="fas fa-times-circle icon"></i> User has not
+									setup their account plan.
+								</p>
+							)}
 							<div className="inField">
 								<label htmlFor="sessionCount">Sessions</label>
 								<input
@@ -118,32 +166,44 @@ function ClientsBoard(props) {
 					<i className="fas fa-search"></i>
 				</span>
 				{/* search bar doesnt work yet! */}
-				<input type="text" placeholder="Search for someone..." />
+				<input
+					type="text"
+					placeholder="Search for someone..."
+					value={search}
+					onChange={(e) => setSearch(String(e.target.value).toUpperCase())}
+				/>
 			</div>
 			<table id="clientsList">
-				<tr>
-					<th>
-						<i className="fas fa-sort-down" /> Name
-					</th>
-					<th>Email</th>
-					<th>Sessions</th>
-					<th>ID</th>
-					<th>Edit</th>
-				</tr>
-				{clients &&
-					clients
-						.sort((a, b) => (a.lastName > b.lastName ? 1 : -1))
-						.map((client, i) => (
-							<CBoardItem
-								key={i}
-								client={client}
-								onClick={find_index}
-								choose={() => {
-									setFocusClient(client);
-									setFocusIndex(i);
-								}}
-							/>
-						))}
+				<tbody>
+					<tr>
+						<th>
+							<i className="fas fa-sort-down" /> Name
+						</th>
+						{/* <th>Email</th> */}
+						<th>Sessions</th>
+						<th>ID</th>
+						<th>Edit</th>
+					</tr>
+					{clients &&
+						clients
+							.sort((a, b) => (a.lastName > b.lastName ? 1 : -1))
+							.filter((client) =>
+								String(client.firstName + " " + client.lastName)
+									.toUpperCase()
+									.includes(search)
+							)
+							.map((client, i) => (
+								<CBoardItem
+									key={i}
+									client={client}
+									onClick={find_index}
+									choose={() => {
+										setFocusClient(client);
+										setFocusIndex(i);
+									}}
+								/>
+							))}
+				</tbody>
 			</table>
 		</div>
 	);

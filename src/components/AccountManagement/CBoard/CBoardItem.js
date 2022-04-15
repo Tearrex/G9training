@@ -25,7 +25,7 @@ function CBoardItem(props) {
 			<td onClick={() => props.onClick(_id)}>
 				{lastName}, {firstName}
 			</td>
-			<td>
+			{/* <td>
 				<a href={`mailto:${email}?subject=Message for ${firstName}`}>{email}</a>{" "}
 				{verified && (
 					<div className="ttParent" style={{ display: "inline" }}>
@@ -35,7 +35,7 @@ function CBoardItem(props) {
 						<i className="fas fa-check verified" />
 					</div>
 				)}
-			</td>
+			</td> */}
 			<td>{sessions}</td>
 			<td
 				onClick={() => copy_text(_id, () => setText("Copied!"))}

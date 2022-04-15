@@ -18,13 +18,6 @@ export const EmailPrefs = (props) => {
 					desc="Updates and suspicious activity related to your account."
 					context={{ state: security, setState: setSecurity }}
 				/>
-				{/* {(_user.trainer || _user.admin) && (
-					<PrefToggle
-						icon={<i className="fas fa-paper-plane" />}
-						name="Management"
-						desc="Get notified when a client schedules an arrangement."
-					/>
-				)} */}
 				<PrefToggle
 					icon={<i className="fas fa-bell" />}
 					name="Reminders"

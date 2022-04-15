@@ -3,7 +3,9 @@ import { registerClient } from "../../services/clientsService";
 import { CurrentUserContext, xTokenContext } from "./Contexts";
 import ReCAPTCHA from "react-google-recaptcha";
 import { fSettings } from "../../fSettings";
+import { useNavigate } from "react-router-dom";
 function SignupProc(props) {
+	const navigate = useNavigate();
 	const { xToken, setXToken } = useContext(xTokenContext);
 	const { _user, _setUser } = useContext(CurrentUserContext);
 
@@ -75,10 +77,14 @@ function SignupProc(props) {
 					// we should have a new refresh token now
 					// reset the cookie so we can use it again
 					localStorage.removeItem("refreshFail");
+					// user will be sent to setup page right away
+					navigate("/setup");
 					// rest of the components load past the login wall
 				}
 			})
 			.catch((e) => {
+				// make it pop with red
+				props.setClass("error");
 				switch (e.response.data.message) {
 					case "Email already in use.":
 						setOldEmail(_json.email);

@@ -3,6 +3,8 @@ import FeatureItem from "../HomeComps/FeatureItem";
 import { Link } from "react-router-dom";
 
 function HomePage() {
+	const mainTheme = "#EF2853";
+	const asterisk = <span style={{ color: mainTheme }}>*</span>;
 	return (
 		<>
 			<div
@@ -29,12 +31,12 @@ function HomePage() {
 				</div>
 			</div>
 			<div id="overview" style={{ padding: "40px 0" }}>
-				<h1 className="skinnyTitle">The Overview</h1>
+				<h1 className="nWeight">The Overview</h1>
 				<div className="featureList">
 					<FeatureItem
 						icon="/calendar.png"
 						title="FLEXIBILITY"
-						color="#EF2853"
+						color={mainTheme}
 						padded
 					>
 						<p className="themeMidText">
@@ -46,37 +48,37 @@ function HomePage() {
 					<FeatureItem
 						icon="/flex.png"
 						title="WITNESS GAINS"
-						color="#EF2853"
+						color={mainTheme}
 						padded
 					>
 						<p className="themeMidText">
 							I work closely with every individual to make them feel proud of
 							their commitment, <b>trust the process</b> of your efforts.{" "}
-							<span style={{ color: "#F4D03F" }}>*</span> On average, our
-							clients begin to notice results at the 3 month mark.
+							{asterisk} On average, our clients begin to notice results at the
+							3 month mark.
 						</p>
 					</FeatureItem>
 					<FeatureItem
 						icon="/adapt.png"
 						title="ADAPTIVE LESSONS"
-						color="#EF2853"
+						color={mainTheme}
 						padded
 					>
 						<p className="themeMidText">
-							Your training will be tweaked, as needed, with assessments and
-							each subsequent session to ensure the program stays up to par with
-							your goals. <b>We are a team</b> and you're always welcome to
-							exchange feedback with me!
+							Your training will be adjusted with each subsequent assessment to
+							ensure the program stays up to par with your goals.{" "}
+							<b>We are a team</b> and you're always welcome to exchange
+							feedback with me!
 						</p>
 					</FeatureItem>
 				</div>
 				<p className="themeHighText">
-					<span style={{ color: "#F4D03F" }}>*</span> Every body is different,
-					it ultimately depends on your determination.
+					{asterisk} Every body is different, it ultimately depends on your
+					determination.
 				</p>
 			</div>
-			<div className="steps themeBackHigh" style={{ padding: "70px 0 40px 0" }}>
-				<h1 className="skinnyTitle">Steps to success:</h1>
+			<div className="steps themeBackHigh" style={{ padding: "70px 0" }}>
+				<h1 className="nWeight">Steps to success:</h1>
 				<div className="featureList">
 					<FeatureItem
 						icon="/nutrition.png"
@@ -118,10 +120,12 @@ function HomePage() {
 					it takes is showing up 💪
 					<br />
 				</p>
-				<Link to="/services" className="centerMargin">
-					<button className="coolButton" onClick={() => window.scrollTo(0, 0)}>
-						VIEW RATES
-					</button>
+				<Link
+					to="/services"
+					className="centerMargin"
+					onClick={() => window.scrollTo(0, 0)}
+				>
+					<button className="coolButton">VIEW RATES</button>
 				</Link>
 			</footer>
 			{/* <div className="instagramSplash">

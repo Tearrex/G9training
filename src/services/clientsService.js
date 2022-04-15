@@ -10,6 +10,12 @@ export async function fetchToken() {
 	return auth.get(`${apiUrl}/token`);
 }
 
+export async function postPlan(token, user_id, plan) {
+	return auth.put(`${apiUrl}/plan/${user_id}`, plan, {
+		headers: { "x-token": token },
+	});
+}
+
 // create a new invite code for signups, trainers only
 export async function requestInviteCode(token) {
 	return axios.get(`${apiUrl}/invite`, {
@@ -19,6 +25,12 @@ export async function requestInviteCode(token) {
 // get all invite codes from the database, trainers only
 export async function fetchInvites(token) {
 	return axios.get(`${apiUrl}/invites`, {
+		headers: { "x-token": token },
+	});
+}
+
+export async function updateEmailPrefs(token, user_id, prefs) {
+	return axios.post(`${apiUrl}/emprefs/${user_id}`, prefs, {
 		headers: { "x-token": token },
 	});
 }

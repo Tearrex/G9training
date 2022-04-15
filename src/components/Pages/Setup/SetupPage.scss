@@ -1,0 +1,174 @@
+@import "../../../styles/utils.scss";
+
+.styleList {
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    align-items: stretch;
+    //max-width: 700px;
+    max-width: 90vw;
+    width: clamp(300px, 90%, 600px);
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+@media screen and (max-width: 600px) {
+    .selection {
+        flex: 40% !important;
+    }
+
+    .selection .info {
+        flex-flow: column;
+        align-items: center;
+    }
+}
+
+.selection {
+    position: relative;
+    //background-color: #cecece;
+    border-radius: 0.8rem;
+    //width: 33.33%;
+
+    flex-grow: 0;
+    cursor: pointer;
+    //vertical center
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+
+
+    .info {
+        padding: 10px;
+        display: flex;
+        align-items: center;
+    }
+
+    .info h2 {
+        margin-bottom: 5px;
+    }
+
+    img {
+        height: 80px;
+        min-width: 80px;
+        object-fit: contain;
+        flex-shrink: 0;
+    }
+
+    img:has(.special) {
+        max-width: 130px !important;
+    }
+}
+
+.selection.active {
+    cursor: default;
+
+    .info {
+        border-radius: 0.8rem 0 0 0.8rem;
+    }
+
+    img {
+        filter: invert(85%);
+    }
+}
+
+.selection.active:not(.selected) {
+    background-color: $redCol !important;
+
+    h2 {
+        color: #fff !important;
+    }
+}
+
+.selection.active.selected {
+    width: clamp(250px, 90%, 500px) !important;
+
+    .sideText {
+        flex: 100%;
+    }
+
+    .info {
+        background-color: $redCol !important;
+    }
+
+    .health {
+        background-color: #5dade2 !important;
+    }
+
+    img {
+        filter: invert(100%);
+        height: 60px;
+        min-width: 60px;
+    }
+}
+
+.selection:not(.selected) {
+    max-width: 250px;
+    flex: 30%;
+}
+
+.selection.selected .sideText {
+    padding: 10px 20px;
+}
+
+// we don't want the modal to be offset from the screen's center
+// upon rendering the prompt to continue with the form process
+.actions {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+}
+
+.styleBanner {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.styleBanner span {
+    padding: 0 20px;
+    background-color: #000;
+    height: 100%;
+}
+
+.setupForm {
+    display: flex;
+    flex-flow: column;
+    gap: 10px;
+}
+
+.fineRadios {
+    display: flex;
+    flex-flow: row;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin simplenumber {
+    width: 70px;
+    padding: 10px;
+    margin-right: 5px;
+}
+
+.simplenum {
+    @include simplenumber
+}
+
+.simpleText {
+    width: clamp(200px, 80%, 400px);
+    resize: none;
+}
+
+.heightSection .fields {
+    label input {
+        @include simplenumber
+    }
+
+    label {
+        font-weight: bold;
+    }
+}

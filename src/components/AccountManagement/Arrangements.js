@@ -6,7 +6,7 @@ import {
 	sessionsContext,
 	xTokenContext,
 } from "../Main/Contexts";
-import SessionItem from "./SessionItem";
+import SessionItem from "./Sessions/SessionItem";
 function Arrangements(props) {
 	const { xToken, setXToken } = useContext(xTokenContext);
 	const { _user, _setUser } = useContext(CurrentUserContext);
@@ -18,55 +18,27 @@ function Arrangements(props) {
 	// !!! i should really start using Redux to avoid this chaotic mess !!!
 	const { pastSessions, setPastSessions } = useContext(prevSessionsContext);
 	const [hide, setHide] = useState(false);
+
 	useEffect(() => {
 		if (!xToken) return;
 		// should probably compensate for errors...
-		if (!props.trainer) {
-			if (props.primary) {
-				getSessions("upcoming", _user._id, xToken).then((s) => {
-					console.log("server returned", s);
-					// if no message key, it's probably the list of sessions!
-					if (!s.message) setSessions(s);
-				});
-			} else if (props.secondary) {
-				getSessions("past", _user._id, xToken).then((s) => {
-					console.log("server returned", s);
-					// if no message key, it's probably the list of sessions!
-					if (!s.message) setPastSessions(s);
-				});
-			}
-		} else {
-			if (props.secondary) {
-				// pending sessions awaiting approval from the trainer
-				getSessions("pending", null, xToken).then((s) => {
-					console.log("server returned", s);
-					// if no message key, it's probably the list of sessions!
-					if (!s.message) {
-						setPastSessions(s);
-					}
-				});
-			} else {
-				// past sessions awaiting confirmation of attendance
-				getSessions("confirming", null, xToken).then((s) => {
-					console.log("server returned", s);
-					// if no message key, it's probably the list of sessions!
-					if (!s.message) {
-						setSessions(s);
-					}
-				});
-			}
-		}
+		var seshType;
+		if (_user.trainer) seshType = props.primary ? "confirming" : "pending";
+		else seshType = props.primary ? "upcoming" : "past";
+
+		getSessions(seshType, !_user.trainer ? _user._id : null, xToken)
+			.then((s) => {
+				if (!s.data.message) setPastSessions(s.data);
+			})
+			.catch((e) => {
+				console.log("Failed to retrieve sessions.", e.response.data.message);
+			});
 	}, []);
 	useEffect(() => {
-		if(props.primary)
-		{
-			if(!Object.entries(sessions).length) setHide(true);
-			else setHide(false);
-		}
-		else if(props.secondary)
-		{
-			if(!Object.entries(pastSessions).length) setHide(true);
-			else setHide(false);
+		if (props.primary) {
+			setHide(Object.entries(sessions).length === 0);
+		} else if (props.secondary) {
+			setHide(Object.entries(pastSessions).length === 0);
 		}
 	}, [sessions, pastSessions]);
 	// called when the trainer wants to update the status of a client's session
@@ -102,7 +74,7 @@ function Arrangements(props) {
 	}
 	return (
 		<div className="arrangements" style={{ display: hide ? "none" : null }}>
-			{!props.trainer ? (
+			{!_user.trainer ? (
 				<div id="arrangements">
 					<h1>{props.primary ? "Upcoming" : "Previous"} Arrangements</h1>
 					<h3>{props.primary ? "Descending" : "Ascending"}</h3>
@@ -111,9 +83,11 @@ function Arrangements(props) {
 				<div id="arrangements">
 					<h1>Attention Needed</h1>
 					{!props.secondary ? (
-						<h3>These arrangements have passed, how did they go?</h3>
+						<h3 className="nWeight">
+							These arrangements have passed, how did they go?
+						</h3>
 					) : (
-						<h3>Clients are requesting your services.</h3>
+						<h3 className="nWeight">Clients are requesting your services.</h3>
 					)}
 				</div>
 			)}

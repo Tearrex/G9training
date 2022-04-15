@@ -45,10 +45,10 @@ function ResetPassword() {
 		console.log("do magic");
 	}
 	return (
-		<div className="loginForm">
-			<form onSubmit={login}>
+		<div className="authSplash">
+			<form onSubmit={login} className="authForm">
 				<div className="header">
-					<img src="/android-chrome-192x192.png" />
+					<img src="/android-chrome-192x192.png" alt="LOGO" />
 					<p>Reset Password</p>
 				</div>
 				{formMessage && (
