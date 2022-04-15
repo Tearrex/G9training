@@ -16,6 +16,10 @@ export async function postPlan(token, user_id, plan) {
 	});
 }
 
+export async function postConsultation(_json) {
+	return axios.post(`${apiUrl}/consult`, _json);
+}
+
 // create a new invite code for signups, trainers only
 export async function requestInviteCode(token) {
 	return axios.get(`${apiUrl}/invite`, {

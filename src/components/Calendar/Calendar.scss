@@ -1,81 +1,129 @@
 @import "../../styles/utils.scss";
 
 .cPanel {
-    h1 {
-        font-weight: lighter; background-color: $darkGrey; padding: 10px;
-        border-radius: 0.5rem;
-        span {
-            color: $activityCol;
-        }
-        .empty {
-            color: $greyCol;
-        }
-    }
+	h1 {
+		font-weight: lighter;
+		background-color: $darkGrey;
+		padding: 10px;
+		border-radius: 0.5rem;
+		span {
+			color: $activityCol;
+		}
+		.empty {
+			color: $greyCol;
+		}
+	}
 }
 
 .calendarField {
-    display: flex; flex-flow: column; gap: 10px; align-items: center; width: 100%;
+	display: flex;
+	flex-flow: column;
+	gap: 10px;
+	align-items: center;
+	width: 100%;
 }
 .calendarBody {
-    display: flex; flex-flow: column; width: clamp(300px, 90%, 600px);
-    background-color: $greyCol; gap: 10px; position: relative;
-    .overlay {
-        position: absolute; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5);
-        transition: opacity 0.5s ease-in; z-index: 1;
-        h1 {
-            padding: 0 10px;
-        }
-    }
-    .monthCycle {
-        display: flex; flex-flow: row; align-items: center; //background-color: $whiteCol;
-        font-family: 'Trebuchet MS';
-        button {
-            flex-shrink: 0; padding: 10px 25px; font-size: 1.5rem; background: none;
-        }
-        h1 {
-            flex: 100%; //color: $darkGrey;
-        }
-    }
-    .weekDays {
-        padding: 0;
-    }
-    ul {
-        list-style-type: none; padding: 0; margin: 0; padding: 10px 0;
-        display: flex; flex-flow: row; justify-content: center; gap: 10px;
-    }
-    .calendarWeek {
-        padding: 0;
-        .active {
-            background-color: $redCol; cursor: default;
-        }
-        .inactive {
-            opacity: 0; cursor: default;
-        }
-        .current {
-            background-color: $darkGrey; cursor: default;
-        }
-        
-        li {
-            padding: 15px 0; color: $whiteCol; cursor: pointer;
-        }
-        .past {
-            opacity: 0.5; cursor: no-drop;
-        }
-        .pending {
-            background-color: $pendingCol; cursor: default;
-        }
-        .approved {
-            background-color: $confirmCol; cursor: default;
-        }
-    }
-    li {
-        width: 13.6%; font-size: 1.2rem;
-    }
-    /*
-    .weekDays {
-        display: flex; flex-flow: row; justify-content: center; gap: 10px;
-    }
-    */
+	display: flex;
+	flex-flow: column;
+	width: clamp(300px, 90%, 600px);
+	background-color: $greyCol;
+	gap: 10px;
+	position: relative;
+	.overlay {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0, 0, 0, 0.5);
+		transition: opacity 0.5s ease-in;
+		z-index: 1;
+		display: flex;
+		flex-flow: column;
+		gap: 10px;
+		color: #fff;
+		h1 {
+			padding: 0 10px;
+		}
+	}
+	.formBtn {
+		//background: none;
+		border: 5px solid $whiteCol;
+		border-radius: 100vw;
+		padding: 10px 20px;
+	}
+	.formBtn > img {
+		margin-right: 5px;
+		filter: invert(0.2);
+		max-width: 40px;
+	}
+
+	.formBtn > * {
+		display: inline-block;
+		color: $blackCol !important;
+		vertical-align: middle;
+	}
+	.monthCycle {
+		display: flex;
+		flex-flow: row;
+		align-items: center; //background-color: $whiteCol;
+		font-family: "Trebuchet MS";
+		button {
+			flex-shrink: 0;
+			padding: 10px 25px;
+			font-size: 1.5rem;
+			background: none;
+		}
+		h1 {
+			flex: 100%; //color: $darkGrey;
+		}
+	}
+	.weekDays {
+		padding: 0;
+	}
+	ul {
+		list-style-type: none;
+		padding: 0;
+		margin: 0;
+		padding: 10px 0;
+		display: flex;
+		flex-flow: row;
+		justify-content: center;
+		gap: 10px;
+	}
+	.calendarWeek {
+		padding: 0;
+		.active {
+			background-color: $redCol;
+			cursor: default;
+		}
+		.inactive {
+			opacity: 0;
+			cursor: default;
+		}
+		.current {
+			background-color: $darkGrey;
+			cursor: default;
+		}
+
+		li {
+			padding: 15px 0;
+			color: $whiteCol;
+			cursor: pointer;
+		}
+		.past {
+			opacity: 0.5;
+			cursor: no-drop;
+		}
+		.pending {
+			background-color: $pendingCol;
+			cursor: default;
+		}
+		.approved {
+			background-color: $confirmCol;
+			cursor: default;
+		}
+	}
+	li {
+		width: 13.6%;
+		font-size: 1.2rem;
+	}
 }
-// «
-// »

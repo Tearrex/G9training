@@ -898,6 +898,9 @@ p {
 		flex-flow: column;
 		gap: 10px;
 	}
+	@mixin thinBorder {
+		border: 2px solid #8e8e8e;
+	}
 	.arrField label {
 		margin-right: 10px;
 	}
@@ -905,6 +908,7 @@ p {
 		border: none;
 		outline: none;
 		padding: 10px 5px;
+		@include thinBorder();
 	}
 	.timeField {
 		display: flex;
@@ -913,8 +917,24 @@ p {
 		justify-content: center;
 		align-items: center;
 		input {
-			padding: 10px;
+			padding: 10px; @include thinBorder();
 		}
+	}
+	.emailField label {
+		margin-right: 10px;
+	}
+	.emailField input {
+		@include thinBorder();
+		text-transform: uppercase;
+	}
+	.emailField input + p {
+		display: none;
+		border-top: 2px solid #cacaca;
+		margin-top: 10px;
+		padding-top: 5px;
+	}
+	.emailField input:focus + p , .emailField input:active + p {
+		display: block;
 	}
 	.infoField {
 		display: flex;
@@ -931,11 +951,16 @@ p {
 			font-size: 1rem;
 			outline: none;
 			padding: 10px;
+			color: #fff;
+		}
+		textarea::placeholder {
+			color: $greyCol;
 		}
 	}
 	.subField {
 		display: flex;
 		flex-flow: row;
+		gap: 20px;
 		button {
 			flex: 50%;
 			padding: 20px 0;
@@ -943,9 +968,22 @@ p {
 			color: $whiteCol;
 			transform: scale(1);
 			transition: transform 0.2s ease-in;
-			&:hover,
-			&:focus {
-				transform: scale(0.95);
+			&:hover::before,
+			&:focus::before {
+				//transform: scale(0.95);
+				max-width: 0%;
+			}
+			&::before {
+				content: "";
+				position: absolute;
+				top: 0;
+				left: 0;
+				height: 100%;
+				max-width: 100%;
+				width: 100%;
+				background-color: #000;
+				opacity: 0.2;
+				transition: max-width 0.2s ease-in;
 			}
 		}
 		#cancel {
