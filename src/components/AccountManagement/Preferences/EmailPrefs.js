@@ -40,8 +40,4 @@ export const EmailPrefs = (props) => {
 	);
 };
 
-<<<<<<< HEAD
 export default EmailPrefs;
-=======
-export default EmailPrefs;
->>>>>>> experiment
