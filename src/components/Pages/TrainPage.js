@@ -21,6 +21,7 @@ import { fetchToken, getClient, logout } from "../../services/clientsService";
 import ClientsBoard from "../AccountManagement/CBoard/ClientsBoard";
 import VerifyWidget from "../AccountManagement/VerifyWidget";
 import InviteBoard from "../AccountManagement/Invites/InviteBoard";
+import AccPrefs from "../AccountManagement/Preferences/AccPrefs";
 
 function TrainPage() {
 	const { xToken, setXToken } = useContext(xTokenContext);
@@ -75,18 +76,7 @@ function TrainPage() {
 	return (
 		<DateContext.Provider value={{ _date, _setDate }}>
 			<div className="warnBanner">
-				{!_user ? (
-					<>
-						<h3>
-							<i className="fas fa-info-circle"></i> To our Guests
-						</h3>
-						<p>
-							This page is in early testing phases.
-							<br />
-							You'll need an invite to create an account.
-						</p>
-					</>
-				) : (
+				{_user && (
 					<>
 						<h3>
 							<i className="fas fa-dumbbell blood"></i>
@@ -102,25 +92,7 @@ function TrainPage() {
 			</div>
 			{!xToken && !_user && <LoginForm />}
 			<div id="centerPage">
-				{_user && (
-					<div className="logActions">
-						<p>
-							Logged in as <b>{_user.email}</b>
-						</p>
-						<button
-							className="logout"
-							onClick={async () => {
-								await logout(_user);
-								_setUser(null);
-								setXToken(null);
-								// don't try to auto-login after logging out
-								localStorage.setItem("refreshFail", true);
-							}}
-						>
-							<i className="fas fa-sign-out-alt"></i> Log Out
-						</button>
-					</div>
-				)}
+				{_user && xToken && <AccPrefs />}
 				{_user && !_user.verified && <VerifyWidget />}
 				{_user && !_user.trainer && <ClientPanel />}
 				{_user && _user.trainer && xToken && <InviteBoard />}
@@ -133,10 +105,10 @@ function TrainPage() {
 								<Calendar />
 							</ScheduleDismissContext.Provider>
 							{_user && xToken && (
-								<Arrangements trainer={_user.trainer} primary />
-							)}
-							{_user && xToken && (
-								<Arrangements trainer={_user.trainer} secondary />
+								<>
+									<Arrangements primary />
+									<Arrangements secondary />
+								</>
 							)}
 						</sessionsContext.Provider>
 					</prevSessionsContext.Provider>

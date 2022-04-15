@@ -16,13 +16,18 @@
 	justify-content: center;
 	align-items: center;
 }
+.vmargin {
+	margin-top: auto;
+	margin-bottom: auto;
+}
+.hmargin {
+	margin-left: auto;
+	margin-right: auto;
+}
 .cmodal {
-	position: fixed;
+	@include full-center;
 	z-index: 5;
-	top: 50%;
-	left: 50%;
 	width: 100%;
-	transform: translate(-50%, -50%);
 	.stretchy {
 		width: clamp(70px, 60%, 150px);
 	}
@@ -43,7 +48,30 @@ p {
 	font-size: 1.1rem;
 }
 input {
-	outline: none; border: none; //pain
+	outline: none;
+	border: none; //pain
+}
+.savvyButton {
+	padding: 10px;
+	.icon {
+		font-size: 1.7rem;
+	}
+	p,
+	.icon {
+		display: inline-block;
+		vertical-align: middle;
+	}
+	.spin {
+		animation: spin 1.5s linear infinite;
+	}
+	@keyframes spin {
+		0% {
+			transform: rotateZ(0deg);
+		}
+		100% {
+			transform: rotateZ(360deg);
+		}
+	}
 }
 .ttParent {
 	position: relative;
@@ -97,6 +125,9 @@ input {
 }
 .currency {
 	color: $confirmCol;
+}
+.themeBackRed {
+	background-color: $redCol;
 }
 .darkMode {
 	.themeIcon {
@@ -201,6 +232,23 @@ input {
 }
 .lightMode {
 	background-color: $whiteCol;
+	// give settings modal a white feel
+	.accPrefsModal .section {
+		background-color: $whiteCol;
+		i {
+			opacity: 0.7; // gives icons a nice shade of grey
+		}
+	}
+	.coolButton {
+		$shade: #212121;
+		border: 5px solid $shade;
+		background-color: $shade;
+		color: #fff;
+	
+		&:hover {
+			color: $shade;
+		}
+	}
 	// start modularizing classes
 	.themeIcon {
 		filter: invert(30%);
@@ -214,18 +262,21 @@ input {
 	.themeBackHigh {
 		background-color: $coolCol !important;
 	}
-	.themeMidText, h2 {
+	.themeMidText,
+	h2 {
 		color: $darkGrey;
+	}
+	.themeHighText {
+		color: #000;
 	}
 	h1 {
 		color: $blackCol;
 	}
-	.fancyCard {
-		background-color: #fff;
+	.sessionItem .miniDate {
+		// more discernable since white theme uses
+		// same background color as the date of the month 
+		border: 2px solid #cacaca;
 	}
-	// .bullets {
-	//   color: $blackCol;
-	// }
 	.fancyCard .pricing {
 		background-color: #eff1f3;
 		.seshSelect label {
@@ -239,9 +290,6 @@ input {
 	#clientsList {
 		color: $blackCol;
 	}
-	// .navigator {
-	//   background-color: $greyCol;
-	// }
 	.monthCycle {
 		background: $coolCol;
 		h1 {
@@ -271,15 +319,36 @@ input {
 button {
 	outline: none;
 	border: none;
+	font-size: 1rem;
 }
 h1,
 h2,
+h3,
 p {
-	margin: 0; //color: #fff;
+	margin: 0;
+}
+.nWeight {
+	font-weight: normal;
+}
+.bgFade {
+	position: fixed;
+	width: 100vw;
+	height: 100vh;
+	top: 0;
+	left: 0;
+	background-color: #000;
+	opacity: 0.5;
+	z-index: 2;
 }
 .logActions {
 	margin-top: 20px;
-	.logout {
+	.buttons {
+		display: flex;
+		flex-flow: row;
+		gap: 3px;
+		justify-content: center;
+	}
+	button {
 		padding: 15px;
 		margin-top: 10px;
 	}
@@ -438,7 +507,7 @@ p {
 	display: flex;
 	justify-content: center;
 	background-attachment: fixed;
-	background-position: bottom;
+	//background-position: bottom;
 	height: 100vh;
 	.full-logo {
 		width: clamp(250px, 50%, 700px);
@@ -449,7 +518,6 @@ p {
 		gap: 30px;
 		// padding: 15px;
 		width: 100%;
-		background-color: rgba($color: #000, $alpha: 0.5);
 		h1 {
 			text-shadow: 3px 3px 5px #000;
 			span {
@@ -473,12 +541,15 @@ p {
 		) !important;
 	}
 	.jumper button {
-		margin: 10vh 0; padding: 5vh 0; background: none;
+		margin: 10vh 0;
+		padding: 5vh 0;
+		background: none;
 		width: 90%;
 		animation: hover 2s linear infinite;
 	}
 	.jumper button i {
-		font-size: 2rem; color: #fff;
+		font-size: 2rem;
+		color: #fff;
 		transform: scale(1.2);
 	}
 	@keyframes hover {
@@ -497,7 +568,8 @@ p {
 	padding-top: 70px !important;
 }
 .centerMargin {
-	margin-left: auto; margin-right: auto;
+	margin-left: auto;
+	margin-right: auto;
 }
 .niceWidth {
 	width: clamp(250px, 80%, 500px);
@@ -525,7 +597,9 @@ p {
 		font-size: 1.2rem;
 	}
 	a {
-		align-self: flex-start; cursor: default; border-radius: 100vw;
+		align-self: flex-start;
+		cursor: default;
+		border-radius: 100vw;
 	}
 }
 .scrolly {
@@ -641,6 +715,10 @@ p {
 			align-self: flex-start;
 			margin-left: auto;
 			margin-right: auto;
+			&:hover,
+			&:active {
+				text-decoration: underline;
+			}
 		}
 		.signup:hover {
 			filter: invert(0.9);
@@ -675,7 +753,7 @@ p {
 	gap: 20px;
 	justify-content: center;
 	gap: 40px;
-	padding: 40px 0;
+	padding-top: 40px;
 	margin-left: auto;
 	margin-right: auto;
 	flex-wrap: wrap;
@@ -686,8 +764,38 @@ p {
 	backface-visibility: hidden;
 	transform: translateZ(0);
 	.pricing {
-		width: 100%;
-		padding: 10px 0;
+		//width: 100%;
+		padding: 10px;
+		button {
+			width: 100%;
+			padding: 20px 0;
+			margin-top: 10px;
+			color: #fff;
+			transition: box-shadow 0.2s ease-in;
+			&:hover {
+				box-shadow: inset 0 0 0 0.4rem rgba(0, 0, 0, 0.3);
+			}
+		}
+		button i {
+			font-size: 1.5rem;
+			margin-right: 10px;
+		}
+		button > * {
+			display: inline-block;
+			vertical-align: middle;
+		}
+		.inPersonRegBtn {
+			background-color: #ea5329;
+			cursor: pointer;
+		}
+		.onlineRegBtn {
+			background-color: #7d3c98;
+			cursor: pointer;
+		}
+		.onlineRegBtn > * {
+			display: inline-block;
+			vertical-align: middle;
+		}
 		.seshSelect {
 			display: flex;
 			flex-flow: row;
@@ -715,7 +823,7 @@ p {
 .featureList .item {
 	display: flex;
 	flex-flow: column;
-	align-items: center;
+	align-items: stretch; //center;
 	align-self: flex-start;
 	width: clamp(300px, 80%, 500px); //padding: 20px 10px;
 	//border-radius: 1rem;

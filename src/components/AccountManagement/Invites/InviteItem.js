@@ -10,7 +10,7 @@ function InviteItem(props) {
 		>
 			<h1>{code}</h1>
 			<p className="themeMidText">
-				<i class="far fa-clock"></i> {23 - diffHours}h {60 - diffMinutes}m
+				<i className="far fa-clock"></i> {23 - diffHours}h {60 - diffMinutes}m
 			</p>
 		</button>
 	);

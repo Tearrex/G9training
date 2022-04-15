@@ -22,7 +22,7 @@ function AuthForm() {
 		<div className="authSplash">
 			<div className="authForm">
 				<div className="header">
-					<img src="/slim-icon.png" />
+					<img src="/slim-icon.png" alt="logo" />
 					<p>onz9Training</p>
 				</div>
 				{/* <div className="authTypes">

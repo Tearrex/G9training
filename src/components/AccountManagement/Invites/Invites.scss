@@ -9,22 +9,11 @@
             display: inline-block; vertical-align: middle;
         }
     }
-    button span {
-        font-size: 1.7rem;
-    }
-    button .spin {
-        animation: spin 1.5s linear infinite;
-    }
-    @keyframes spin {
-        0% {
-            transform: rotateZ(0deg);
-        }
-        100% {
-            transform: rotateZ(360deg);
-        }
-    }
     .inviteItem {
-        align-self: flex-start; padding: 15px; cursor: pointer;
+        align-self: flex-start; padding: 15px 30px; cursor: pointer;
+        h1 {
+            font-weight: normal;
+        }
     }
 }
 .inviteBoard .inviteList {

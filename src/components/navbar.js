@@ -42,7 +42,7 @@ function NavBar() {
 	}
 	return (
 		<div className={`navigator ${pathname === "/" ? "fixedBar" : null}`}>
-			<div className="navBar">
+			<div className="navBar" id="navBar">
 				<span onClick={() => navigate("/")} className="gonz9" />
 				<button
 					onClick={toggle_dark}
