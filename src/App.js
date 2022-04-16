@@ -18,7 +18,8 @@ import VerifyEmail from "./components/Pages/VerifyPage";
 import Maintenance from "./components/Pages/Maintenance";
 import SetupPage from "./components/Pages/Setup/SetupPage";
 import { fSettings } from "./fSettings";
-import NotFoundPage from "./components/Pages/404page";
+import NotFoundPage from "./components/Pages/NotFoundPage";
+
 
 function App() {
 	const [_user, _setUser] = useState(null); // user data
