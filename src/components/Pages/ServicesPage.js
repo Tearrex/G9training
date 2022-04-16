@@ -114,7 +114,7 @@ function ServicesPage() {
 								</p>
 							</>
 						)}
-						<a
+						{/* <a
 							href="https://docs.google.com/forms/d/e/1FAIpQLScd265Iyf1gVkrIjvSxr8XkTmsNA4C-rWip9kNy-R_n9US5aw/viewform"
 							target="_blank"
 							rel="noreferrer"
@@ -123,7 +123,7 @@ function ServicesPage() {
 								<i className="fas fa-file-alt"></i>
 								<p>Google Form</p>
 							</button>
-						</a>
+						</a> */}
 					</div>
 				</FeatureItem>
 			</div>
