@@ -49,16 +49,10 @@ function SessionForm(props) {
 	}
 	function submit_form(e) {
 		//e.preventDefault(); // don't let the page reload
+		if (!dismiss) return; // the captcha component errors out when unmounted, calling multiple times
 		var _note = document
 			.getElementById("sessionNote")
 			.value.replace(/\s+/g, " ");
-		// send to the backend
-		const _json = {
-			clientID: _user ? _user._id : undefined,
-			email: !_user ? email : undefined,
-			sessionDate: _date,
-			clientNote: _note,
-		};
 		setLoading(true);
 		setTimeout(() => {
 			// user is a guest, schedule consultation
@@ -80,6 +74,9 @@ function SessionForm(props) {
 						setMessage(s.data.message);
 						setLoading(false);
 						setDismiss(false);
+						// discourage repeat applications
+						localStorage.setItem("inquired", true);
+						props.complete(); // disable the calendar again
 					})
 					.catch((e) => {
 						setErrMessage(

@@ -21,7 +21,12 @@ function Calendar(props) {
 	const _today = new Date();
 
 	const [plan, setPlan] = useState(null);
+
+	// has the user requested a consultation?
+	const [submitted, setSubmitted] = useState(false);
 	useEffect(() => {
+		// guests should no longer interact with calendar after booking a consultation
+		if (localStorage.getItem("inquired")) return setSubmitted(true);
 		// check if user has filled out the application form, called the "plan"
 		const _plan = localStorage.getItem("formPlan");
 		if (!_plan) return;
@@ -99,7 +104,7 @@ function Calendar(props) {
 				<h1 style={{ fontWeight: "lighter" }}>Book a session with me</h1>
 			)}
 			<div className="calendarBody">
-				{!plan && (
+				{!plan && !submitted && (
 					<div
 						className="overlay flex-center"
 						style={{ display: _user && dismiss ? "none" : null }}
@@ -121,6 +126,14 @@ function Calendar(props) {
 								</p>
 							</button>
 						</Link>
+					</div>
+				)}
+				{submitted && (
+					<div className="overlay flex-center">
+						<div className="consultNote">
+							<h3>Thanks for your interest!</h3>
+							<p>Expect an email message from me within a few days.</p>
+						</div>
 					</div>
 				)}
 				<div className="monthCycle">
@@ -155,7 +168,7 @@ function Calendar(props) {
 				{curWeeks !== undefined &&
 					curWeeks.map((week, i) => <CalendarWeek key={i} week={week} />)}
 			</div>
-			{_date && <SessionForm />}
+			{_date && <SessionForm complete={() => setSubmitted(true)} />}
 		</div>
 	);
 }
