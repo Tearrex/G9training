@@ -12,20 +12,21 @@ function SetupForm(props) {
 	} = useFormContext();
 	const onSubmit = (data) => {
 		console.log(data);
+		// if all the form requisites are satisfied,
+		// proceed with the application process.
 		if (Object.entries(errors).length === 0) {
-			// submit now
-			console.log("form looks good");
 			props.setData(data);
 		}
 	};
-	console.log(errors);
+	console.log(errors); // no time to implement right now.
+	// whether the client has had physical injuries in
+	// the past that may affect their training program.
 	const [injuries, setInjuries] = useState(false);
 	useEffect(() => {
 		if (_user && _user["plan"])
 			setInjuries(String(_user.plan.prevInjury).toLowerCase() === "true");
 	}, []);
 	function injury_change(e) {
-		console.log("THE TARGET SIR IS INDEED", e.target.value);
 		setInjuries(String(e.target.value).toLowerCase() === "true");
 	}
 	return (

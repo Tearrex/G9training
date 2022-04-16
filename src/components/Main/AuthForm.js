@@ -22,27 +22,9 @@ function AuthForm() {
 		<div className="authSplash">
 			<div className="authForm">
 				<div className="header">
-					<img src="/slim-icon.png" />
+					<img src="/slim-icon.png" alt="logo" />
 					<p>onz9Training</p>
 				</div>
-				{/* <div className="authTypes">
-					<span
-						className={chooseLogin ? "active" : null}
-						onClick={() => {
-							setChooseLogin(true);
-						}}
-					>
-						Log In
-					</span>
-					<span
-						className={!chooseLogin ? "active" : null}
-						onClick={() => {
-							setChooseLogin(false);
-						}}
-					>
-						Sign Up
-					</span>
-				</div> */}
 				{formMessage !== "" && (
 					<div className={"logMessage"}>
 						{msgClass === "success" ? (

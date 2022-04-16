@@ -17,24 +17,10 @@ export async function getSessions(request, client_id, token) {
 }
 
 export async function postSession(session, token) {
-	var result = null;
-	await axios
-		.post(apiUrl, session, {
-			headers: { "x-token": token },
-			withCredentials: true,
-		})
-		.then((s) => {
-			console.log("good response", s);
-			result = s.data;
-			return s.data;
-		})
-		.catch((e) => {
-			if (e.response) {
-				console.log("error", e.response);
-				result = e.response;
-			}
-		});
-	return result;
+	return axios.post(apiUrl, session, {
+		headers: { "x-token": token },
+		withCredentials: true,
+	});
 }
 
 export async function updateSession(sessionId, changes, reimburse, token) {

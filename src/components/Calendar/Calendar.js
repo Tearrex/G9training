@@ -8,17 +8,26 @@ import {
 import SessionForm from "../AccountManagement/Sessions/SessionForm";
 import "./Calendar.scss";
 import CalendarWeek from "./CalendarWeek";
+import { Link } from "react-router-dom";
 function Calendar(props) {
 	const { xToken, setXToken } = useContext(xTokenContext);
 	const { _user, _setUser } = useContext(CurrentUserContext);
 	const { dismiss, setDismiss } = useContext(ScheduleDismissContext);
-	
+
 	const { _date, _setDate } = useContext(DateContext);
 	const [curMonth, setCurMonth] = useState(0);
 	const [curYear, setCurYear] = useState(0);
 	const [curWeeks, setCurWeeks] = useState([]);
 	const _today = new Date();
-	
+
+	const [plan, setPlan] = useState(null);
+	useEffect(() => {
+		// check if user has filled out the application form, called the "plan"
+		const _plan = localStorage.getItem("formPlan");
+		if (!_plan) return;
+		setPlan(JSON.parse(_plan));
+	}, []);
+
 	var months = [
 		"January",
 		"February",
@@ -33,8 +42,7 @@ function Calendar(props) {
 		"November",
 		"December",
 	];
-	function getDaysOfMonth(month, year)
-	{
+	function getDaysOfMonth(month, year) {
 		// start off at the first day of the given month and year
 		// then increment over subsequent days of the month
 		var date = new Date(year, month, 1);
@@ -45,8 +53,7 @@ function Calendar(props) {
 		}
 		return days;
 	}
-	function getWeeksInMonth(days)
-	{
+	function getWeeksInMonth(days) {
 		var weeks = [];
 		var week = new Array(7).fill(null);
 
@@ -67,13 +74,12 @@ function Calendar(props) {
 		setCurYear(date.getFullYear());
 	}, []);
 	useEffect(() => {
-		if(curYear === 0) return;
+		if (curYear === 0) return;
 		var days = getDaysOfMonth(curMonth, curYear);
 		var weeks = getWeeksInMonth(days);
 		setCurWeeks(weeks);
 	}, [curMonth, curYear]);
-	function change_month(amount)
-	{
+	function change_month(amount) {
 		if (
 			curMonth + amount < _today.getMonth() &&
 			curYear <= _today.getFullYear()
@@ -89,18 +95,43 @@ function Calendar(props) {
 	}
 	return (
 		<div className="calendarField">
-			{(_user && !_user.trainer) && <h1 style={{ fontWeight: "lighter" }}>Book a session with me</h1>}
+			{_user && !_user.trainer && (
+				<h1 style={{ fontWeight: "lighter" }}>Book a session with me</h1>
+			)}
 			<div className="calendarBody">
-				<div className="overlay flex-center" style={{display:(_user && dismiss) ? "none" : null}}>
-					<h1 style={{display:(dismiss) ? null : "none", color:"#fff"}}>Please login to schedule your training</h1>
-				</div>
+				{!plan && (
+					<div
+						className="overlay flex-center"
+						style={{ display: _user && dismiss ? "none" : null }}
+					>
+						<div className="consultNote">
+							<h3>Let's plan the grind!</h3>
+							<p>
+								To deliver the best experience, we ask that you provide some
+								basic details about your body and health prior to our initial
+								meeting.
+							</p>
+						</div>
+
+						<Link to="/setup">
+							<button className="formBtn">
+								<img src="/diet.png" alt="Application" />
+								<p style={{ display: dismiss ? null : "none", color: "#fff" }}>
+									Fill out application
+								</p>
+							</button>
+						</Link>
+					</div>
+				)}
 				<div className="monthCycle">
 					<button
 						onClick={() => change_month(-1)}
 						style={{
 							opacity:
-								(curMonth > _today.getMonth() && curYear >= _today.getFullYear())
-								|| (curMonth >= _today.getMonth() && curYear > _today.getFullYear())
+								(curMonth > _today.getMonth() &&
+									curYear >= _today.getFullYear()) ||
+								(curMonth >= _today.getMonth() &&
+									curYear > _today.getFullYear())
 									? null
 									: "0",
 						}}
@@ -124,7 +155,7 @@ function Calendar(props) {
 				{curWeeks !== undefined &&
 					curWeeks.map((week, i) => <CalendarWeek key={i} week={week} />)}
 			</div>
-			{_date && _user && xToken && <SessionForm />}
+			{_date && <SessionForm />}
 		</div>
 	);
 }

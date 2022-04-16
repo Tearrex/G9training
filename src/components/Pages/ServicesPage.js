@@ -126,52 +126,6 @@ function ServicesPage() {
 						</a>
 					</div>
 				</FeatureItem>
-				<FeatureItem
-					icon="/virtual.png"
-					title="Online"
-					color="#7d3c98"
-					fancy
-					padTop
-				>
-					<p className="description">
-						Get a killer workout from the comfort of your home! If you have the
-						self-discipline, this one's for you.
-					</p>
-					<ul className="themeMidText">
-						<li>TrainHeroic membership</li>
-						<li>Virtual 60 minute sessions</li>
-						<li>Improvise equipment at hand</li>
-						<li>One on one engagement</li>
-					</ul>
-					<div className="pricing">
-						<h2 className="skinnyTitle" style={{ margin: 0 }}>
-							<span className="currency">$45</span> Monthly Subscription
-						</h2>
-						<p className="sideNote">Cancel service at anytime.</p>
-						<a
-							href="https://docs.google.com/forms/d/1BoT36mL4mLu38FerTA1e9j-fpsmKWCDpt51zQZnVMbs/viewform"
-							target="_blank"
-							rel="noreferrer"
-						>
-							<button className="onlineRegBtn">
-								<i className="fas fa-file-alt"></i>
-								<p>Google Form</p>
-							</button>
-						</a>
-					</div>
-				</FeatureItem>
-				{/* <FeatureItem
-					icon="/hybrid.png"
-					title="Hybrid"
-					color="#79bc43"
-					fancy
-					padTop
-				>
-					<p className="pricing">
-						Want the best of both worlds? Consult with me so we can strategize a
-						game plan.
-					</p>
-				</FeatureItem> */}
 			</div>
 			<div className="themeMidText" style={{ paddingBottom: "40px" }}>
 				<span style={{ color: "#ea5329" }}>*</span> Sessions bought in bulk,

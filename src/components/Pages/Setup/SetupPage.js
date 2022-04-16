@@ -110,6 +110,11 @@ function SetupPage(props) {
 			...profile,
 			style: chosenStyle.props.name,
 		};
+		// alternative process for guests
+		if (!_user) {
+			localStorage.setItem("formPlan", JSON.stringify(_plan));
+			return navigate("/training"); // guest should book consultation now
+		}
 		if (_user["plan"] && _plan === _user.plan) return navigate("/training");
 		console.log("final plan", _plan);
 		// do the backend work
