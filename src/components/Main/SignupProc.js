@@ -140,7 +140,7 @@ function SignupProc(props) {
 						onClick={() => setConform(true)}
 						style={{ marginTop: "5px" }}
 					>
-						Continue
+						I have a code
 					</button>
 				</div>
 			)}
