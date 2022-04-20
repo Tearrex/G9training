@@ -8,33 +8,25 @@ function NavBar() {
 	const [dark, setDark] = useState(false);
 	const { _user, _setUser } = useContext(CurrentUserContext);
 	const navigate = useNavigate();
-	function toggle_dark(save = true) {
-		var body = document.body;
 
-		if (body.classList.contains("lightMode")) {
-			body.classList.remove("lightMode");
-			body.classList.add("darkMode");
-			// save to browser
-			if (save) localStorage.setItem("theme", "dark");
-		} else {
-			body.classList.remove("darkMode");
-			body.classList.add("lightMode");
-			// save to browser
-			if (save) localStorage.setItem("theme", "light");
-		}
-		setDark(!body.classList.contains("lightMode"));
-	}
+	const body = document.body;
 	// check for a theme cookie in the browser
 	useEffect(() => {
 		var _theme = localStorage.getItem("theme");
-		if (_theme) {
-			// load the user's preferred theme
-			if (_theme !== "dark" && dark) {
-				console.log("Restoring light theme");
-				toggle_dark();
-			}
-		}
+		if (_theme) setDark(_theme === "dark");
 	}, []);
+	useEffect(() => {
+		// load the user's preferred theme
+		if (dark) {
+			body.classList.remove("lightMode");
+			body.classList.add("darkMode");
+		} else {
+			body.classList.remove("darkMode");
+			body.classList.add("lightMode");
+		}
+		// save to browser
+		localStorage.setItem("theme", dark ? "dark" : "light");
+	}, [dark]);
 	function toggle_ham() {
 		var bar = document.getElementById("hamBar");
 		if (bar.style.display == "none") bar.style.display = null;
@@ -45,7 +37,7 @@ function NavBar() {
 			<div className="navBar" id="navBar">
 				<span onClick={() => navigate("/")} className="gonz9" />
 				<button
-					onClick={toggle_dark}
+					onClick={() => setDark(!dark)}
 					className="mainThemeToggle"
 					style={{ width: "50px", fontSize: "1.2rem" }}
 				>
@@ -72,7 +64,7 @@ function NavBar() {
 				<NavLink route="/training">
 					MY {_user && _user.trainer ? "CLIENTS" : "TRAINING"}
 				</NavLink>
-				<button onClick={toggle_dark} className="themeButton">
+				<button onClick={() => setDark(!dark)} className="themeButton">
 					{dark ? "🌙 Dark " : "☀️ Light "} Theme
 				</button>
 			</div>
