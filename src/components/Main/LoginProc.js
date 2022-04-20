@@ -67,6 +67,13 @@ function LoginProc(props) {
 					// we should have a new refresh token now
 					// reset the cookie so we can use it again
 					localStorage.removeItem("refreshFail");
+
+					// residual cookies that may have been left over
+					// from the consultation process.
+					// should i even be calling these cookies?
+					localStorage.removeItem("inquired");
+					localStorage.removeItem("formPlan");
+
 					// rest of the components load past the login wall
 				}
 			})
