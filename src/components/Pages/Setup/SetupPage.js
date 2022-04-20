@@ -85,25 +85,30 @@ function SetupPage(props) {
 	const [profile, setProfile] = useState(null);
 	useEffect(() => {
 		// if the user has an existing plan, load in their defaults
-		if (_user && _user["plan"]) {
-			const _style = styles.find(
-				(style) =>
-					String(style.props.name).toLowerCase() ===
-					String(_user.plan.style).toLowerCase()
-			);
-			if (_style) {
-				setChosenStyle(_style);
-				setDescription(_style.props.desc);
-				setSelected(true);
-			}
-			const _plan = _user["plan"];
-			const keys = Object.keys(_plan);
-			const values = Object.values(_plan);
-			for (let i = 0; i < keys.length; i++) {
-				methods.setValue(keys[i], String(values[i]));
-			}
-			setProfile(_user.plan);
+		var _plan = JSON.parse(localStorage.getItem("formPlan") || "{}"); // for consultations
+		if (
+			(_user && !_user["plan"]) ||
+			(Object.entries(_plan).length === 0 && !_user)
+		)
+			return;
+		const _style = styles.find(
+			(style) =>
+				String(style.props.name).toLowerCase() ===
+				String(_user ? _user.plan.style : _plan.style).toLowerCase()
+		);
+		if (_style) {
+			setChosenStyle(_style);
+			setDescription(_style.props.desc);
+			setSelected(true);
 		}
+		// if no cookie was found, load the authenticated user's defaults
+		if (Object.entries(_plan).length === 0) _plan = _user["plan"];
+		const keys = Object.keys(_plan);
+		const values = Object.values(_plan);
+		for (let i = 0; i < keys.length; i++) {
+			methods.setValue(keys[i], String(values[i]));
+		}
+		return setProfile(_plan);
 	}, []);
 	function submit_plan() {
 		const _plan = {
