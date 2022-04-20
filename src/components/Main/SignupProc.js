@@ -115,6 +115,14 @@ function SignupProc(props) {
 		var value = e.target.value;
 		setCode(String(value).toUpperCase());
 	}
+	function confirm_cancel() {
+		if (
+			inviteProc &&
+			!window.confirm("Your current progress will be lost. Back to login?")
+		)
+			return;
+		props.chooseLogin(true);
+	}
 	return (
 		<>
 			{!conform && (
@@ -220,7 +228,7 @@ function SignupProc(props) {
 			)}
 			<span
 				className="themeHighText themeBackLow signup"
-				onClick={() => props.chooseLogin(true)}
+				onClick={confirm_cancel}
 				style={{ padding: "10px 0" }}
 			>
 				<i className="fas fa-angle-double-left"></i> Back to login
