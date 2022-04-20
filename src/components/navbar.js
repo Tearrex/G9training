@@ -5,7 +5,7 @@ import { CurrentUserContext } from "./Main/Contexts";
 import NavLink from "./navlink";
 function NavBar() {
 	const { pathname } = useLocation();
-	const [dark, setDark] = useState(true);
+	const [dark, setDark] = useState(false);
 	const { _user, _setUser } = useContext(CurrentUserContext);
 	const navigate = useNavigate();
 	function toggle_dark(save = true) {
