@@ -27,6 +27,15 @@
 	padding: 20px;
 	ul {
 		list-style-type: numeric;
+		padding: 0;
+		list-style-position: inside;
+	}
+	a {
+		color: $redCol;
+		&:visited {
+			text-decoration: underline;
+			color: $redCol;
+		}
 	}
 }
 .stepsNest progress {
@@ -35,6 +44,12 @@
 	background-color: #cacaca;
 	outline: none; border: none;
 	width: 100%;
+	&::-moz-progress-bar {
+		background: $redCol;
+	}
+	&::-webkit-progress-value {
+		background: $redCol;
+	}
 }
 .calendarBody {
 	display: flex;
