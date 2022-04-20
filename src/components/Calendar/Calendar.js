@@ -24,15 +24,28 @@ function Calendar(props) {
 
 	// has the user requested a consultation?
 	const [submitted, setSubmitted] = useState(false);
+
+	// progress bar for a guest's application
+	const [progress, setProgress] = useState(0);
+	useEffect(() => {
+		if (submitted) setProgress(3);
+	}, [submitted]);
 	useEffect(() => {
 		// guests should no longer interact with calendar after booking a consultation
 		if (localStorage.getItem("inquired")) return setSubmitted(true);
 		// check if user has filled out the application form, called the "plan"
 		const _plan = localStorage.getItem("formPlan");
 		if (!_plan) return;
+		setProgress(1);
 		setPlan(JSON.parse(_plan));
+		document
+			.getElementById("centerPage")
+			.scrollIntoView({ behavior: "smooth" });
 	}, []);
-
+	useEffect(() => {
+		if (_date && progress < 2) setProgress(2);
+		else if (!_date && plan) setProgress(1);
+	}, [_date]);
 	var months = [
 		"January",
 		"February",
@@ -98,10 +111,37 @@ function Calendar(props) {
 			setCurYear(curYear + 1);
 		} else setCurMonth(curMonth + amount);
 	}
+	function strikethrough(step) {
+		if (submitted) return "line-through";
+		return progress >= step ? "line-through" : null;
+	}
 	return (
 		<div className="calendarField">
 			{_user && !_user.trainer && (
 				<h1 style={{ fontWeight: "lighter" }}>Book a session with me</h1>
+			)}
+			{!_user && (
+				<div className="stepsNest themeBackMid niceWidth">
+					<h2 className="themeHighText skinnyTitle">Three Simple Steps</h2>
+					<ul style={{ margin: 0 }} className="themeMidText">
+						<li style={{ textDecoration: strikethrough(1) }}>
+							Fill out our intake form <Link to="/setup">here</Link>
+						</li>
+						<li style={{ textDecoration: strikethrough(2) }}>
+							Choose an ideal date for your consultation below.
+						</li>
+						<li style={{ textDecoration: strikethrough(3) }}>
+							Submit and wait for an email from
+						</li>
+						<a href="mailto:coachgustavo@gonz9training.com">
+							coachgustavo@gonz9training.com
+						</a>
+					</ul>
+					<progress
+						value={submitted ? 100 : (progress / 3) * 100}
+						max="100"
+					></progress>
+				</div>
 			)}
 			<div className="calendarBody">
 				{!plan && !submitted && (
