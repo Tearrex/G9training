@@ -1,6 +1,6 @@
 import { useState } from "react";
 import FeatureItem from "../HomeComps/FeatureItem";
-
+import { Link } from "react-router-dom";
 function ServicesPage() {
 	const [sessionPrice, setSessionPrice] = useState(0);
 	const [eachSesh, setEachSesh] = useState(0);
@@ -35,6 +35,9 @@ function ServicesPage() {
 						My full energy and support, I only ask that you give it your all 🔥
 					</li>
 				</ul>
+				<Link to="/training">
+					<button className="coolButton">Book Consultation</button>
+				</Link>
 			</div>
 			<div className="featureList">
 				<FeatureItem
