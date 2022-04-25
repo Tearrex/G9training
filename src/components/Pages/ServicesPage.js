@@ -17,7 +17,7 @@ function ServicesPage() {
 		setEachSesh(price / value);
 	}
 	return (
-		<div>
+		<>
 			<div className="themeBackMid nicePad perks">
 				<h1>The Perks</h1>
 				<hr className="redLine"></hr>
@@ -122,7 +122,7 @@ function ServicesPage() {
 					Payment options will be discussed during or after your consultation.
 				</p>
 			</div>
-		</div>
+		</>
 	);
 }
 
