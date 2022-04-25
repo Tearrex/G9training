@@ -126,6 +126,13 @@ function HomePage() {
 					onClick={() => window.scrollTo(0, 0)}
 				>
 					<button className="coolButton">VIEW RATES</button>
+				<Link to="/contact" className="centerMargin">
+					<button
+						className="coolButton sharp"
+						onClick={() => window.scrollTo(0, 0)}
+					>
+						CONTACT US
+					</button>
 				</Link>
 			</div>
 		</>

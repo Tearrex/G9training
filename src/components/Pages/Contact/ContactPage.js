@@ -1,7 +1,122 @@
+import { useState, useRef } from "react";
+import ReCAPTCHA from "react-google-recaptcha";
+import { fSettings } from "../../../fSettings";
+import { postInquiry } from "../../../services/clientsService";
 import "./Contact.scss";
 function ContactPage() {
+	const captchaRef = useRef();
+	const [showCaptcha, setShowCaptcha] = useState(false);
+
+	const [name, setName] = useState(""); // user's name
+	const [email, setEmail] = useState(""); // user's email
+	const [message, setMessage] = useState(""); // user's message
+
+	const [sending, setSending] = useState(false); // true after captcha is passed
+	const [complete, setComplete] = useState(false); // server's success message
+	const [error, setError] = useState(null); // server's error messages
+	function handle_form(e) {
+		e.preventDefault();
+		setShowCaptcha(true);
+	}
+	function finish() {
+		const _json = {
+			name: name,
+			email: email,
+			clientNote: message,
+		};
+		setSending(true);
+		setTimeout(() => {
+			postInquiry(_json)
+				.then((s) => {
+					console.log("data", s);
+					setComplete(s.data.message);
+				})
+				.catch((e) => {
+					console.log(e);
+					alert(e.response.data.message);
+					setSending(false);
+				});
+		}, 2000);
+	}
 	return (
 		<>
+			<main className="contactField">
+				<div className="info">
+					<h1>Let's talk.</h1>
+					<hr className="redLine"></hr>
+					<p className="themeMidText">
+						If you'd like to request more information, please leave us a message
+						with your name and contact email. Happy to assist in your journey!
+					</p>
+				</div>
+				{!complete ? (
+					<form onSubmit={handle_form}>
+						<div>
+							<label htmlFor="name" className="themeMidText">
+								Name
+							</label>
+							<input
+								type="text"
+								name="name"
+								id="name"
+								value={name}
+								onChange={(e) => setName(e.target.value)}
+							/>
+						</div>
+						<div>
+							<label htmlFor="email" className="themeMidText">
+								Email
+							</label>
+							<input
+								type="email"
+								name="email"
+								id="email"
+								value={email}
+								onChange={(e) => setEmail(e.target.value)}
+							/>
+						</div>
+						<label htmlFor="msg" className="themeMidText">
+							Message
+						</label>
+						<textarea
+							rows="3"
+							col="70"
+							name="msg"
+							id="msg"
+							value={message}
+							onChange={(e) => setMessage(e.target.value)}
+						></textarea>
+						{showCaptcha && (
+							<ReCAPTCHA
+								ref={captchaRef}
+								sitekey={fSettings.siteKey}
+								size="normal"
+								onChange={finish}
+								theme="dark"
+							/>
+						)}
+						{String(name).trim() !== "" &&
+							String(email).trim() !== "" &&
+							String(message).trim() !== "" &&
+							!sending && (
+								<input
+									type="submit"
+									value="SEND"
+									className="hmargin coolButton sharp"
+								/>
+							)}
+						{sending && (
+							<p className="status themeHighText">
+								<i className="fas fa-spinner spin"></i> Sending to server...
+							</p>
+						)}
+					</form>
+				) : (
+					<p className="status themeHighText">
+						<i className="fas fa-paper-plane"></i> {complete}
+					</p>
+				)}
+			</main>
 			<section className="instaPage hmargin">
 				<div className="info">
 					<h1>Check out the instagram page</h1>

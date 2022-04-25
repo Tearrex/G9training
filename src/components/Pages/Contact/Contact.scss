@@ -1,5 +1,44 @@
 @import "../../../styles/utils.scss";
 
+.contactField {
+    display: flex; flex-flow: row;
+    align-items: center; justify-content: center;
+    padding: 20px 0;
+    gap: 40px;
+    .status i.spin {
+        animation: spin 1s linear infinite;
+    }
+    .status {
+        max-width: 300px;
+    }
+}
+.contactField .info {
+    p {
+        max-width: 420px;
+    }
+}
+.contactField form {
+    display: flex; flex-flow: column; gap: 5px;
+    label {
+        display: inline-block;
+        min-width: 60px;
+    }
+    label + input {
+        margin-left: 5px;
+    }
+    input {
+        padding: 10px;
+    }
+    input[type="text"], input[type="email"] {
+        width: 200px;
+        text-transform: uppercase;
+    }
+    textarea {
+        resize:vertical;
+        max-height: 500px;
+        border: none;
+    }
+}
 .instaPage {
     display: flex; flex-flow: row-reverse; flex-wrap: wrap; justify-content: center;
     color: #000; flex-wrap: wrap; padding: 20px 0;
@@ -34,6 +73,9 @@
     object-position: left;
 }
 @media screen and (max-width: 600px){
+    .contactField {
+        flex-flow: column;
+    }
     .instaPage > .instaGrid{
         flex-flow: column !important; gap: 0 !important;
         & > img {
