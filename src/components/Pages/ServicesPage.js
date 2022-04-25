@@ -41,13 +41,6 @@ function ServicesPage() {
 				</Link>
 			</div>
 			<div className="featureList">
-				<FeatureItem
-					icon="/spotter.svg"
-					title="In-person"
-					color="#ea5329"
-					fancy
-					padTop
-				>
 				<FeatureItem title="In-person" color="#EF2853" fancy>
 					<p className="description">
 						Great for developing a solid synergy between us while being able to
