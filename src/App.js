@@ -40,7 +40,6 @@ function App() {
 								!fSettings["maintenance"] ? <TrainPage /> : <Maintenance />
 							}
 						/>
-						<Route path="setup" element={<SetupPage />} />
 						<Route exact path="verify/:emailToken" element={<VerifyEmail />} />
 						<Route exact path="resetpass/:token" element={<ResetPassword />} />
 						<Route path="/*" element={<NotFoundPage />} />
