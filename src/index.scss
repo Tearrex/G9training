@@ -241,7 +241,7 @@ input {
 		border: 5px solid $shade;
 		background-color: $shade;
 		color: #fff;
-	
+
 		&:hover {
 			color: $shade !important;
 		}
@@ -271,7 +271,7 @@ input {
 	}
 	.sessionItem .miniDate {
 		// more discernable since white theme uses
-		// same background color as the date of the month 
+		// same background color as the date of the month
 		border: 2px solid #cacaca;
 	}
 	.fancyCard .pricing {
@@ -623,7 +623,7 @@ p {
 	.codeNote {
 		padding: 10px 0;
 	}
-	
+
 	.codeNote p {
 		color: #565759 !important;
 	}
@@ -641,17 +641,17 @@ p {
 			padding: 5px 10px;
 			color: $blackCol !important;
 			border-bottom: 2px solid #cacaca;
-			}
-			
-			.logMessage>i {
-				font-size: 1.3rem;
-				margin-right: 10px;
-			}
-			
-			.logMessage>* {
-				display: inline-block;
-				vertical-align: middle;
-				line-height: 0;
+		}
+
+		.logMessage > i {
+			font-size: 1.3rem;
+			margin-right: 10px;
+		}
+
+		.logMessage > * {
+			display: inline-block;
+			vertical-align: middle;
+			line-height: 0;
 		}
 		.continue {
 			background-color: $redCol;
@@ -911,7 +911,8 @@ p {
 		justify-content: center;
 		align-items: center;
 		input {
-			padding: 10px; @include thinBorder();
+			padding: 10px;
+			@include thinBorder();
 		}
 	}
 	.emailField label {
@@ -927,7 +928,8 @@ p {
 		margin-top: 10px;
 		padding-top: 5px;
 	}
-	.emailField input:focus + p , .emailField input:active + p {
+	.emailField input:focus + p,
+	.emailField input:active + p {
 		display: block;
 	}
 	.infoField {
