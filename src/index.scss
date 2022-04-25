@@ -370,11 +370,12 @@ p {
 	position: sticky;
 	top: 0;
 	z-index: 15;
-	background: linear-gradient(
-		to bottom,
-		#000 0%,
-		rgba($color: #000, $alpha: 0) 100%
-	);
+	// background: linear-gradient(
+	// 	to bottom,
+	// 	#000 0%,
+	// 	rgba($color: #000, $alpha: 0) 100%
+	// );
+	background-color: #0e0e0e;
 }
 .mainThemeToggle {
 	background: none;
