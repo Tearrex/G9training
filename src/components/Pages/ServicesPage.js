@@ -118,6 +118,9 @@ function ServicesPage() {
 			<div className="themeMidText" style={{ paddingBottom: "40px" }}>
 				<span style={{ color: "#EF2853" }}>*</span> Sessions bought in bulk,
 				paid upfront.
+				<p style={{ fontSize: "1rem" }}>
+					Payment options will be discussed during or after your consultation.
+				</p>
 			</div>
 		</div>
 	);
