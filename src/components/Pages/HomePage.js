@@ -108,7 +108,7 @@ function HomePage() {
 					</FeatureItem>
 				</div>
 			</div>
-			<footer className="homeGame" id="homeGame">
+			<div className="homeGame" id="homeGame">
 				<h1 className="centerMargin niceWidth">
 					Want to <i>1 UP</i> your game?
 				</h1>
@@ -127,7 +127,7 @@ function HomePage() {
 				>
 					<button className="coolButton">VIEW RATES</button>
 				</Link>
-			</footer>
+			</div>
 		</>
 	);
 }

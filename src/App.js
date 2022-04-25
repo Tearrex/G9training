@@ -47,6 +47,12 @@ function App() {
 					</Routes>
 				</CurrentUserContext.Provider>
 			</xTokenContext.Provider>
+			<footer style={{ padding: "10px 0" }}>
+				<p>All legitimate business inquiries should be sent to and from:</p>
+				<a href="mailto:coachgustavo@gonz9training.com">
+					coachgustavo@gonz9training.com
+				</a>
+			</footer>
 		</Router>
 	);
 }
