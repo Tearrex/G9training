@@ -570,7 +570,15 @@ p {
 #overview {
 	padding-top: 70px !important;
 }
-.centerMargin, .hmargin {
+hr.redLine {
+	background-color: $redCol;
+	outline: none;
+	border: none;
+	height: 0.4rem;
+	width: clamp(50px, 70vw, 400px);
+}
+.centerMargin,
+.hmargin {
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -800,6 +808,7 @@ p {
 			}
 			input:checked + label {
 				background-color: #ea5329 !important;
+				background-color: $redCol !important;
 				cursor: default;
 			}
 			label {

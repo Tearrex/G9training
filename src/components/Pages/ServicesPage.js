@@ -20,6 +20,7 @@ function ServicesPage() {
 		<div>
 			<div className="themeBackMid nicePad perks">
 				<h1>The Perks</h1>
+				<hr className="redLine"></hr>
 				<p>No matter which path you take, you can always expect:</p>
 				<ul className="bullets themeMidText" style={{ marginBottom: 0 }}>
 					<li>An experience tailored to your body and ambition.</li>
@@ -47,6 +48,7 @@ function ServicesPage() {
 					fancy
 					padTop
 				>
+				<FeatureItem title="In-person" color="#EF2853" fancy>
 					<p className="description">
 						Great for developing a solid synergy between us while being able to
 						provide you with the best, in-depth coaching environment that I can.{" "}
@@ -59,7 +61,7 @@ function ServicesPage() {
 					</ul>
 					<div className="pricing">
 						<p>
-							Amount of sessions <span style={{ color: "#ea5329" }}>*</span>
+							Amount of sessions <span style={{ color: "#EF2853" }}>*</span>
 						</p>
 						{/*4 8 12 16*/}
 						<div className="seshSelect">
@@ -131,7 +133,7 @@ function ServicesPage() {
 				</FeatureItem>
 			</div>
 			<div className="themeMidText" style={{ paddingBottom: "40px" }}>
-				<span style={{ color: "#ea5329" }}>*</span> Sessions bought in bulk,
+				<span style={{ color: "#EF2853" }}>*</span> Sessions bought in bulk,
 				paid upfront.
 			</div>
 		</div>
