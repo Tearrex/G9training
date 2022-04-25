@@ -489,6 +489,9 @@ p {
 	font-size: 1.1rem;
 	//transition: color 0.2s ease-in;
 	border-radius: 100vh;
+	&:not(.sharp) {
+		border-radius: 100vw;
+	}
 }
 
 .coolButton:not(.noEffects) {
