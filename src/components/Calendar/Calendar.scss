@@ -31,11 +31,7 @@
 		list-style-position: inside;
 	}
 	a {
-		color: $redCol;
-		&:visited {
-			text-decoration: underline;
-			color: $redCol;
-		}
+		@include redlink;
 	}
 }
 .stepsNest progress {

@@ -38,6 +38,11 @@
 html {
 	scroll-behavior: smooth;
 }
+footer {
+	a {
+		@include redlink;
+	}
+}
 body {
 	margin: 0;
 	background-color: #000;
@@ -216,6 +221,11 @@ input {
 		font-size: 2rem;
 		color: #fff;
 	}
+}
+#hamNest {
+	max-height: 0;
+	overflow: hidden;
+	transition: max-height 0.3s ease-in;
 }
 #hamBar {
 	display: flex;
@@ -488,7 +498,7 @@ p {
 	padding: 10px 20px;
 	font-weight: bold;
 	font-size: 1.1rem;
-	//transition: color 0.2s ease-in;
+	//transition: { color 0.2s ease-in;
 	&:not(.sharp) {
 		border-radius: 100vw;
 	}
@@ -496,9 +506,16 @@ p {
 
 .coolButton:not(.noEffects) {
 	&:hover {
-		background-color: rgba($color: #000000, $alpha: 0);
-		color: $whiteCol;
+		//background-color: rgba($color: #000000, $alpha: 0);
+		//color: $whiteCol;
+		background-color: $redCol !important;
+			color: #fff !important;
+		&:has(.blood) {
+			background-color: $redCol !important;
+			color: #fff !important;
+		}
 	}
+
 	&:active {
 		transform: scale(0.95);
 	}
@@ -807,7 +824,6 @@ hr.redLine {
 				display: none;
 			}
 			input:checked + label {
-				background-color: #ea5329 !important;
 				background-color: $redCol !important;
 				cursor: default;
 			}

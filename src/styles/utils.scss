@@ -25,3 +25,14 @@ $assetPath:"/assets/";
 	position: fixed; top: 50%; left: 50%;
 	transform: translate(-50%, -50%);
 }
+
+@mixin redlink {
+	color: $redCol;
+	text-decoration: none;
+	&:hover {
+		text-decoration: underline;
+	}
+	&:visited {
+		color: $redCol;
+	}
+}
