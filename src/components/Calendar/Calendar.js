@@ -128,18 +128,21 @@ function Calendar(props) {
 							Fill out our intake form <Link to="/setup">here</Link>
 						</li>
 						<li style={{ textDecoration: strikethrough(2) }}>
-							Choose an ideal date for your consultation below.
+							Choose an ideal date for your consultation below
 						</li>
 						<li style={{ textDecoration: strikethrough(3) }}>
-							Submit and wait for an email from
+							Submit and keep an eye on your inbox!
 						</li>
-						<a href="mailto:coachgustavo@gonz9training.com">
-							coachgustavo@gonz9training.com
-						</a>
 					</ul>
 					<progress
 						value={submitted ? 100 : (progress / 3) * 100}
 						max="100"
+						onClick={() => {
+							if (progress === 3)
+								console.log(`
+						Since you're bored, give this song a listen
+						https://www.youtube.com/watch?v=WyZSCSCvn6Q`);
+						}}
 					></progress>
 				</div>
 			)}
