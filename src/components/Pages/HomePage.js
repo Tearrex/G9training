@@ -20,9 +20,6 @@ function HomePage() {
 						</a>
 					</div>
 					<img src="/fullg9.png" className="full-logo" />
-					{/* <h1 style={{ color: "#fff" }}>
-						TRAIN BETTER, BE <span>STRONGER</span>.
-					</h1> */}
 					<h2 style={{ color: "#fff" }}>
 						Ready to challenge yourself?
 						<br />
@@ -38,6 +35,7 @@ function HomePage() {
 						title="FLEXIBILITY"
 						color={mainTheme}
 						padded
+						noback
 					>
 						<p className="themeMidText">
 							Busy schedule? I offer both in-person and online training services
@@ -50,6 +48,7 @@ function HomePage() {
 						title="WITNESS GAINS"
 						color={mainTheme}
 						padded
+						noback
 					>
 						<p className="themeMidText">
 							I work closely with every individual to make them feel proud of
@@ -63,6 +62,7 @@ function HomePage() {
 						title="ADAPTIVE LESSONS"
 						color={mainTheme}
 						padded
+						noback
 					>
 						<p className="themeMidText">
 							Your training will be adjusted with each subsequent assessment to
@@ -79,27 +79,18 @@ function HomePage() {
 			</div>
 			<div className="steps themeBackHigh" style={{ padding: "70px 0" }}>
 				<h1 className="nWeight">Steps to success:</h1>
+				<hr className="redLine"></hr>
 				<div className="featureList">
-					<FeatureItem
-						icon="/nutrition.png"
-						title="KNOW YOUR FOODS"
-						color="#2ECC71"
-						padded
-					>
-						<p className="themeMidText">
+					<FeatureItem icon="/nutrition.png" title="KNOW YOUR FOODS" padded>
+						<p className="themeHighText">
 							Diets are a touchy subject, but no matter what you're aiming
 							for—weight loss, bodybuilding, crossfitting, etc.—
 							<b>meal plans</b> are key to achieving optimal results. We will go
 							through the details to help you get in shape <i>faster</i>!
 						</p>
 					</FeatureItem>
-					<FeatureItem
-						icon="/graph3.png"
-						title="TRACK YOUR GROWTH"
-						color="#40E0D0"
-						padded
-					>
-						<p className="themeMidText">
+					<FeatureItem icon="/graph3.png" title="TRACK YOUR GROWTH" padded>
+						<p className="themeHighText">
 							Keeping score is a great way to <b>stay motivated</b> and look
 							back on your improvements over time. You will get familiar with
 							tools like TrainHeroic to keep in touch and record every step of
@@ -120,15 +111,17 @@ function HomePage() {
 					it takes is showing up 💪
 					<br />
 				</p>
-				<Link
-					to="/services"
-					className="centerMargin"
-					onClick={() => window.scrollTo(0, 0)}
-				>
-					<button className="coolButton">VIEW RATES</button>
+				<Link to="/services" className="centerMargin">
+					<button
+						className="coolButton sharp blood"
+						onClick={() => window.scrollTo(0, 0)}
+					>
+						VIEW RATES
+					</button>
+				</Link>
 				<Link to="/contact" className="centerMargin">
 					<button
-						className="coolButton sharp"
+						className="coolButton sharp blood"
 						onClick={() => window.scrollTo(0, 0)}
 					>
 						CONTACT US
