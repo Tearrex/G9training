@@ -114,12 +114,12 @@
 
 // we don't want the modal to be offset from the screen's center
 // upon rendering the prompt to continue with the form process
-.actions {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 90%;
-}
+// .actions {
+//     position: absolute;
+//     left: 50%;
+//     transform: translateX(-50%);
+//     width: 90%;
+// }
 
 .styleBanner {
     display: flex;
