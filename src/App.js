@@ -47,7 +47,7 @@ function App() {
 				</CurrentUserContext.Provider>
 			</xTokenContext.Provider>
 			<footer style={{ padding: "10px 0" }}>
-				<p>All legitimate business inquiries should be sent to and from:</p>
+				<p>All legitimate business inquiries should be sent to:</p>
 				<a href="mailto:coachgustavo@gonz9training.com">
 					coachgustavo@gonz9training.com
 				</a>
