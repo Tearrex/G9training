@@ -1,5 +1,5 @@
 // is this a development build? (too much trouble with env)
-const dev = true;
+const dev = false;
 export const fSettings = {
 	// rest api
 	serverDomain: !dev ? "https://gonz9training.com" : "https://localhost:3001",
