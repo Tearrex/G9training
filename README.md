@@ -1,2 +1,3 @@
 # G9frontend
  
+The source code for this React app is compiled and hosted by an Express.js backend through a CI/CD pipeline. Unfortunately, the GitHub runner hogs the resources of my EC2 instance and the site becomes unresponsive when jobs start running...
