@@ -64,6 +64,7 @@ function SessionForm(props) {
 					);
 				}
 				const _json = {
+					name: document.getElementById("cName").value,
 					email: email,
 					date: _date,
 					plan: JSON.parse(_plan),
@@ -141,6 +142,16 @@ function SessionForm(props) {
 					Selected Date:{" "}
 					{_date !== "" && String(_date.toLocaleDateString("en-US"))}
 				</h2>
+				<div>
+					<label
+						for="cName"
+						className="themeMidText"
+						style={{ marginRight: 10 }}
+					>
+						Your Name
+					</label>
+					<input type="text" id="cName" required />
+				</div>
 				<div className="formFields">
 					<div className="arrField">
 						<label htmlFor="arrangement" className="themeMidText">
@@ -157,6 +168,7 @@ function SessionForm(props) {
 							)}
 						</select>
 					</div>
+
 					<div>
 						<div className="timeField">
 							<label htmlFor="sessionTime" className="themeMidText">

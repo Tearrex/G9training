@@ -903,6 +903,9 @@ hr.redLine {
 		flex-flow: column;
 		gap: 10px;
 	}
+	@mixin thinBorder {
+		border: 2px solid #8e8e8e;
+	}
 	input {
 		border: none;
 		outline: none;
@@ -911,6 +914,7 @@ hr.redLine {
 				content: "*";
 			}
 		}
+		@include thinBorder()
 	}
 	.formFields {
 		display: flex;
@@ -927,7 +931,6 @@ hr.redLine {
 		border: none;
 		outline: none;
 		padding: 10px 5px;
-		@include thinBorder();
 	}
 	.timeField {
 		display: flex;
@@ -937,14 +940,12 @@ hr.redLine {
 		align-items: center;
 		input {
 			padding: 10px;
-			@include thinBorder();
 		}
 	}
 	.emailField label {
 		margin-right: 10px;
 	}
 	.emailField input {
-		@include thinBorder();
 		text-transform: uppercase;
 	}
 	.emailField input + p {
