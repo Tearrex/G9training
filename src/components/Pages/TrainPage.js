@@ -75,7 +75,7 @@ function TrainPage() {
 	}, [_user]);
 	return (
 		<DateContext.Provider value={{ _date, _setDate }}>
-			{!xToken && !_user && <LoginForm />}
+			{/* {!xToken && !_user && <LoginForm />} */}
 			<div id="centerPage">
 				{_user && xToken && <AccPrefs />}
 				{_user && !_user.verified && <VerifyWidget />}
