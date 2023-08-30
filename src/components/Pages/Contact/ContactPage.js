@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 import { fSettings } from "../../../fSettings";
 import { postInquiry } from "../../../services/clientsService";
@@ -28,8 +28,8 @@ function ContactPage() {
 		setTimeout(() => {
 			postInquiry(_json)
 				.then((s) => {
-					console.log("data", s);
-					setComplete(s.data.message);
+					localStorage.setItem("contactUsed", true); // prevent further submissions, for now.
+					setComplete("We received your message. Thank you for your interest!");
 				})
 				.catch((e) => {
 					console.log(e);
@@ -38,6 +38,10 @@ function ContactPage() {
 				});
 		}, 2000);
 	}
+	useEffect(() => {
+		if (localStorage.getItem("contactUsed"))
+			setComplete("We received your message. Thank you for your interest!");
+	}, []);
 	return (
 		<>
 			<main className="contactField">

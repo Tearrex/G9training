@@ -18,11 +18,11 @@ export async function postPlan(token, user_id, plan) {
 
 // for contact form
 export async function postInquiry(_json) {
-	return axios.post(`${apiUrl}/inquiry`, _json);
-};
+	return axios.post(`https://formspree.io/f/mvojroqv`, _json);
+}
 // for consultation form
 export async function postConsultation(_json) {
-	return axios.post(`${apiUrl}/consult`, _json);
+	return axios.post(`https://formspree.io/f/xbjvyjkb`, _json);
 }
 
 // create a new invite code for signups, trainers only
